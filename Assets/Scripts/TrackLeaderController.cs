@@ -41,7 +41,6 @@ public class TrackLeaderController : MonoBehaviour
             {
                 currentPatrolPointIndex += 1;
             }
-            Debug.Log(currentPatrolPointIndex);
         }
 
         currentMoveTo = patrolPoints[currentPatrolPointIndex].position;

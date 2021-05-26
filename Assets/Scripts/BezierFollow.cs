@@ -7,7 +7,7 @@ public class BezierFollow : MonoBehaviour
     [SerializeField]
     private Transform[] routes;
 
-    private int routeToGo;
+    public int routeToGo;
 
     private float tParam;
 
@@ -20,7 +20,6 @@ public class BezierFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        routeToGo = 0;
         tParam = 0f;
         coroutineAllowed = true;
     }
