@@ -3189,6 +3189,8 @@ GameObject:
   - component: {fileID: 1865602488}
   - component: {fileID: 1865602490}
   - component: {fileID: 1865602491}
+  - component: {fileID: 1865602493}
+  - component: {fileID: 1865602492}
   m_Layer: 0
   m_Name: Track Leader
   m_TagString: Untagged
@@ -3299,14 +3301,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865602484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d76389ce90d2d7849a581ed4a4fecb49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bezierFollow: {fileID: 1865602487}
+  pathFollow: {fileID: 0}
   carToSpawn: {fileID: 1895296711}
-  winPanel: {fileID: 109997505}
   fixedJoint: {fileID: 1895296712}
   maxSpeed: 8
   minSpeed: 1.5
@@ -3325,6 +3326,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.32, z: 1.49}
   m_Center: {x: 0, y: 0, z: 0.51}
+--- !u!114 &1865602492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865602484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a0992803256b54f88bf55448f5bf3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bezierFollow: {fileID: 1865602487}
+  carToSpawn: {fileID: 1895296711}
+  winPanel: {fileID: 109997505}
+  fixedJoint: {fileID: 1895296712}
+  maxSpeed: 8
+  minSpeed: 1.5
+  delayToStart: 2
+  lapsToWin: 6
+--- !u!114 &1865602493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865602484}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e9ca9926e5d5c4f926585a71b39ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 0
+  speed: 5
 --- !u!1 &1886925611
 GameObject:
   m_ObjectHideFlags: 0
