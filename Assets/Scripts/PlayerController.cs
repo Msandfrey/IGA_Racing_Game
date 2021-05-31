@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(Follow))]
 [RequireComponent(typeof(Rigidbody))]
@@ -10,10 +11,16 @@ public class PlayerController : MonoBehaviour
     public Follow pathFollow;
     public GameObject carToSpawn;
     public FixedJoint fixedJoint;
+    public GameObject GameStartUI;
+    public TrailRenderer trail;
+    [SerializeField]
+    private float breakForce = 800;
+    [SerializeField]
+    private float breakTorque = 600;
     public float maxSpeed;
     public float minSpeed;
     public float delayToStart;
-    public int lapTracker = 0;
+    float respawnTimer = 0f;
 
     private float timer;
     private bool carAttached = true;
@@ -26,34 +33,38 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         pathFollow = GetComponent<Follow>();
+        trail = GetComponentInChildren<TrailRenderer>();
+    }
 
-        //winPanel.SetActive(false);
-
-        //GameObject spawnedObject = Instantiate(carToSpawn) as GameObject;
-        //fixedJoint = spawnedObject.GetComponent<FixedJoint>();
-        //if (fixedJoint != null)
-        //{
-        //    fixedJoint.connectedBody = GetComponent<Rigidbody>();
-        //}
-        //spawnedObject.transform.position = transform.position;
+    private void Start()
+    {
+        GameStartUI.SetActive(true);
+        GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "Ready...";
     }
 
     // Update is called once per frame
     void Update()
     {
         //put something here with a var if stop movement on win
-
+        if(timer >= delayToStart - .2)
+        {
+            GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "GO!!!!!";
+        }
         if(timer <= delayToStart)
         {
             timer += Time.deltaTime;
             return;
         }
+        if (GameStartUI.activeSelf)
+        {
+            GameStartUI.SetActive(false);
+        }
         if(powerupTimer <= 0 && powerup)
         {
             powerup = false;
             //GetComponent<BoxCollider>().enabled = true;
-            fixedJoint.breakForce = 1000;//var
-            fixedJoint.breakTorque = 650;//var
+            fixedJoint.breakForce = breakForce;//var
+            fixedJoint.breakTorque = breakTorque;//var
             //stop changing colors
             carToSpawn.GetComponent<MeshRenderer>().materials[0].color = Color.grey;
         }
@@ -64,13 +75,14 @@ public class PlayerController : MonoBehaviour
 
         if(fixedJoint == null)
         {
-            //pathFollow.speed = 0;
-            if (Input.GetKeyDown(KeyCode.R))
+            if (respawnTimer <= 0 && !carAttached)
             {
-                //reset car
                 ResetCar();
-                Debug.Log("Resetting");
                 carAttached = true;
+            }
+            else if (respawnTimer > 0)
+            {
+                respawnTimer -= Time.deltaTime;
             }
             if (Input.GetKeyDown(KeyCode.Space) && carAttached)
             {
@@ -83,6 +95,30 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             pathFollow.IncreaseSpeed(.1f, minSpeed, maxSpeed);
+            if(pathFollow.speed == maxSpeed)
+            {
+                //max width
+                trail.startWidth = 1f;
+            }
+            else if(pathFollow.speed >= maxSpeed * .75f)
+            {
+                //less wisth
+                trail.startWidth = .75f;
+            }
+            else if (pathFollow.speed >= maxSpeed * .5f)
+            {
+                //half width
+                trail.startWidth = .5f;
+            }
+            else if (pathFollow.speed >= maxSpeed * .25f)
+            {
+                //little width
+                trail.startWidth = .25f;
+            }
+            else
+            {
+                trail.startWidth = 0;
+            }
         }
         else
         {
@@ -107,23 +143,28 @@ public class PlayerController : MonoBehaviour
     {
         fixedJoint = gameObject.AddComponent<FixedJoint>();
         fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();
-        fixedJoint.breakForce = 1000;//var
-        fixedJoint.breakTorque = 650;//var
+        fixedJoint.breakForce = breakForce;//var
+        fixedJoint.breakTorque = breakTorque;//var
         fixedJoint.enablePreprocessing = false;
         carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;//for now it doesnt do anything with this var
+        carToSpawn.layer = 0;
     }
 
     private void OnJointBreak(float breakForce)
     {
-        Debug.Log("Car falls off");
+        Debug.Log(gameObject.name +" falls off with force of : " + breakForce);
         carAttached = false;
         pathFollow.speed = 0;
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
+        respawnTimer = 1.5f;
+        carToSpawn.layer = 6;//fallen layer
+        //Vector3 tempV = carToSpawn.GetComponent<Rigidbody>().velocity;
+        //carToSpawn.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(tempV.x * tempV.x, tempV.y * tempV.y, tempV.z * tempV.z));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit something");
+        //Debug.Log(gameObject.name + " hit something: " + other);
         if(other.tag == "Powerup")
         {
             //disable powerup
@@ -142,4 +183,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        //carToSpawn.GetComponent<Rigidbody>().AddRelativeForce(collision.impulse);
+    }
 }
