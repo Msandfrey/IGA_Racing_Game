@@ -15,8 +15,7 @@ public class CarFlying : MonoBehaviour
     //powerups
     bool powerup = false;
     float powerupTimer = 0f;
-    public int fakeLapTracker = 0;
-    public int lapTracker = 1;
+    public int lapTracker = 0;
     public Color carColor;
 
     // Start is called before the first frame update

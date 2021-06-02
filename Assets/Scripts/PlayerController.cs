@@ -17,6 +17,10 @@ public class PlayerController : MonoBehaviour
     private float breakForce = 800;
     [SerializeField]
     private float breakTorque = 600;
+    [SerializeField]
+    private float acceleration = 0.05f;
+    [SerializeField]
+    private float decceleration = 0.5f;
     public float maxSpeed;
     public float minSpeed;
     public float delayToStart;
@@ -94,7 +98,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            pathFollow.IncreaseSpeed(.1f, minSpeed, maxSpeed);
+            pathFollow.IncreaseSpeed(acceleration, minSpeed, maxSpeed);
             if(pathFollow.speed == maxSpeed)
             {
                 //max width
@@ -122,7 +126,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            pathFollow.DecreaseSpeed(.5f, minSpeed, maxSpeed);
+            pathFollow.DecreaseSpeed(decceleration, minSpeed, maxSpeed);
         }
     }
 

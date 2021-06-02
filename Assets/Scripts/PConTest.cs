@@ -17,7 +17,7 @@ public class PConTest : MonoBehaviour
 
     private float timer;
     private int lapTracker;
-    private bool carAttached = true;
+    //private bool carAttached = true;
 
     // Start is called before the first frame update
     void Awake()
