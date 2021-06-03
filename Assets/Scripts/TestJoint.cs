@@ -33,7 +33,7 @@ public class TestJoint : MonoBehaviour
         }
 
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if(other.tag.Equals("Enemy"))
         {

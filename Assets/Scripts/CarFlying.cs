@@ -31,6 +31,7 @@ public class CarFlying : MonoBehaviour
         LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString();
         if (powerupTimer <= 0 && powerup)
         {
+            Debug.LogError("Car FLying Update powerup");
             powerup = false;
             //GetComponent<BoxCollider>().enabled = true;
             fixedJoint.breakForce = breakForce;//var
@@ -66,23 +67,4 @@ public class CarFlying : MonoBehaviour
         //GetComponent<Rigidbody>().AddRelativeForce(0, 500, 500, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        //Debug.Log(gameObject.ToString() + " hit this: " + collision.gameObject.ToString() + "'s collider: " + collision.collider.GetType().ToString());
-        if(collision.collider.GetType().ToString() == "UnityEngine.BoxCollider" && fixedJoint && false)
-        {
-            Debug.LogWarning("I hit the capsule");
-            fixedJoint.breakForce = Mathf.Infinity;
-            fixedJoint.breakTorque = Mathf.Infinity;
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        //Debug.Log(gameObject.ToString() + " hit this: " + collision.gameObject.ToString() + "'s collider: " + collision.collider.GetType().ToString());
-        if (collision.collider.GetType().ToString() == "UnityEngine.CapsuleCollider" && !powerup && fixedJoint && false)
-        {
-            fixedJoint.breakForce = breakForce;
-            fixedJoint.breakTorque = breakTorque;
-        }
-    }
 }

@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             GameStartUI.SetActive(false);
         }
-        if(powerupTimer <= 0 && powerup)
+        /*if(powerupTimer <= 0 && powerup)
         {
             powerup = false;
             //GetComponent<BoxCollider>().enabled = true;
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         else if(powerupTimer > 0 && powerup)
         {
             powerupTimer -= Time.deltaTime;
-        }
+        }*/
 
         if(fixedJoint == null)
         {
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         fixedJoint.breakForce = breakForce;//var
         fixedJoint.breakTorque = breakTorque;//var
         fixedJoint.enablePreprocessing = false;
-        carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;//for now it doesnt do anything with this var
+        carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
         carToSpawn.layer = 0;
     }
 
@@ -162,33 +162,22 @@ public class PlayerController : MonoBehaviour
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
         respawnTimer = 1.5f;
         carToSpawn.layer = 6;//fallen layer
-        //Vector3 tempV = carToSpawn.GetComponent<Rigidbody>().velocity;
-        //carToSpawn.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(tempV.x * tempV.x, tempV.y * tempV.y, tempV.z * tempV.z));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(gameObject.name + " hit something: " + other);
-        if(other.tag == "Powerup")
+        if(other.tag.Equals("Enemy") && fixedJoint)
         {
-            //disable powerup
-            other.gameObject.SetActive(false);
-            //set timer
-            powerup = true;
-            powerupTimer = 4f;
-            //disable collision
-            GetComponent<BoxCollider>().enabled = false;
-            //force and torque break to inf
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
-            //change colors of car
-            carToSpawn.GetComponent<MeshRenderer>().materials[0].color = Color.blue;
-            //starPowerColorChange();
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        //carToSpawn.GetComponent<Rigidbody>().AddRelativeForce(collision.impulse);
+        if (other.tag.Equals("Enemy") && fixedJoint)
+        {
+            fixedJoint.breakForce = breakForce;
+            fixedJoint.breakTorque = breakTorque;
+        }
     }
 }

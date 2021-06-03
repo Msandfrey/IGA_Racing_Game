@@ -34,7 +34,7 @@ public class AIController : MonoBehaviour
             return;
         }
         //make sure car is fixed in 
-        if(carAttached && !fixedJoint)
+        if (carAttached && !fixedJoint)
         {
             fixedJoint = gameObject.AddComponent<FixedJoint>();
             fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();
@@ -47,7 +47,7 @@ public class AIController : MonoBehaviour
         //go
         if (carAttached)
         {
-            pathFollow.IncreaseSpeed(.001f, 30, 60);
+            //pathFollow.IncreaseSpeed(.001f, 30, 60);
         }
         //respawn after getting hit
         if (respawnTimer <= 0 && !carAttached)
@@ -60,7 +60,7 @@ public class AIController : MonoBehaviour
             carToSpawn.transform.position = transform.position;
             //fix rotation
             carToSpawn.transform.rotation = transform.rotation;
-            carToSpawn.transform.Rotate(0, 180, 0); 
+            carToSpawn.transform.Rotate(0, 180, 0);
             timer = 0.5f;
             carAttached = true;
         }
@@ -69,7 +69,7 @@ public class AIController : MonoBehaviour
             respawnTimer -= Time.deltaTime;
         }
     }
-        private void OnJointBreak(float breakForce)
+    private void OnJointBreak(float breakForce)
     {
         Debug.Log("Car falls off with force of : " + breakForce);
         carAttached = false;
@@ -79,5 +79,23 @@ public class AIController : MonoBehaviour
         carToSpawn.layer = 6;
         Vector3 tempV = carToSpawn.GetComponent<Rigidbody>().velocity;
         carToSpawn.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(tempV.x * tempV.x / .02f, tempV.y * tempV.y / .02f, tempV.z * tempV.z / .02f));
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.tag.Equals("Enemy") || other.tag.Equals("Player")) && fixedJoint)
+        {
+            fixedJoint.breakForce = Mathf.Infinity;
+            fixedJoint.breakTorque = Mathf.Infinity;
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.tag.Equals("Enemy") || other.tag.Equals("Player")) && fixedJoint)
+        {
+            fixedJoint.breakForce = breakForce;
+            fixedJoint.breakTorque = breakTorque;
+        }
+
     }
 }
