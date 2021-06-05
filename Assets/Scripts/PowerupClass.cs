@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerupClass : MonoBehaviour
+public class PowerupClass
 {
     public enum PowerType { Phase, None };
     public PowerType power;
