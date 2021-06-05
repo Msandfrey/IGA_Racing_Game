@@ -171,8 +171,8 @@ public class PlayerController : MonoBehaviour
     {
         fixedJoint = gameObject.AddComponent<FixedJoint>();
         fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();
-        fixedJoint.breakForce = breakForce;//var
         fixedJoint.breakTorque = breakTorque;//var
+        fixedJoint.breakForce = breakForce;//var
         fixedJoint.enablePreprocessing = false;
         carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
         carToSpawn.layer = 0;
@@ -207,12 +207,20 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag.Equals("Enemy") && fixedJoint)
+        {
+            fixedJoint.breakForce = Mathf.Infinity;
+            fixedJoint.breakTorque = Mathf.Infinity;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag.Equals("Enemy") && fixedJoint)
         {
-            fixedJoint.breakForce = breakForce;
             fixedJoint.breakTorque = breakTorque;
+            fixedJoint.breakForce = breakForce;
         }
     }
 }

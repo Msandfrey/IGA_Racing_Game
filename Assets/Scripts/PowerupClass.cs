@@ -48,8 +48,8 @@ public class PowerupClass
     void ResetCar(GameObject car)
     {
         car.GetComponent<MeshRenderer>().materials[0].color = car.GetComponent<CarFlying>().carColor;
-        car.GetComponent<CarFlying>().fixedJoint.breakForce = car.GetComponent<CarFlying>().breakForce;
         car.GetComponent<CarFlying>().fixedJoint.breakTorque = car.GetComponent<CarFlying>().breakTorque;
+        car.GetComponent<CarFlying>().fixedJoint.breakForce = car.GetComponent<CarFlying>().breakForce;
     }
 
 }

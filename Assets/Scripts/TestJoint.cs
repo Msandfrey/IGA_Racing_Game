@@ -37,8 +37,8 @@ public class TestJoint : MonoBehaviour
     {
         if(other.tag.Equals("Enemy"))
         {
-            fj.breakForce = 800;
             fj.breakTorque = 600;
+            fj.breakForce = 800;
             //Vector3 newV = AttachedCar.GetComponent<Rigidbody>().velocity;
             //other.gameObject.GetComponent<Follow>().speed = 200;
             //newV = Vector3.Cross(newV, AttachedCar.GetComponent<Rigidbody>().angularVelocity);
