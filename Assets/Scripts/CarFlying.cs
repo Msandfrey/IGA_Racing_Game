@@ -8,10 +8,8 @@ public class CarFlying : MonoBehaviour
 
     public FixedJoint fixedJoint;
     public GameObject LapTrackUI;
-    [SerializeField]
-    private float breakForce = 800;
-    [SerializeField]
-    private float breakTorque = 600;
+    public float breakForce = 800;
+    public float breakTorque = 600;
     //powerups
     bool powerup = false;
     float powerupTimer = 0f;
@@ -31,13 +29,12 @@ public class CarFlying : MonoBehaviour
         LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString();
         if (powerupTimer <= 0 && powerup)
         {
-            Debug.LogError("Car FLying Update powerup");
             powerup = false;
+            GetComponent<MeshRenderer>().materials[0].color = carColor;
             //GetComponent<BoxCollider>().enabled = true;
             fixedJoint.breakForce = breakForce;//var
             fixedJoint.breakTorque = breakTorque;//var
             //stop changing colors
-            GetComponent<MeshRenderer>().materials[0].color = carColor;
         }
         else if (powerupTimer > 0 && powerup)
         {
@@ -48,7 +45,7 @@ public class CarFlying : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(gameObject.name + " hit something: " + other +",");
-        if (other.tag == "Powerup")
+        if (other.tag == "Powerup" && false)
         {
             //disable powerup
             other.gameObject.SetActive(false);

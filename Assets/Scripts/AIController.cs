@@ -17,11 +17,17 @@ public class AIController : MonoBehaviour
     float respawnTimer = 0f;
     private bool carAttached = true;
     public FixedJoint fixedJoint;
+
+    private bool hasPowerup = false;
+    private bool powerActive = false;
+    private float powerupTimer;
+    PowerupClass powerup;
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(180, 0, 0);
         pathFollow = GetComponent<Follow>();
+        powerup = new PowerupClass();
     }
 
     // Update is called once per frame
@@ -44,10 +50,27 @@ public class AIController : MonoBehaviour
             carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;//for now it doesnt do anything with this var
             carToSpawn.layer = 0;
         }
+        if (hasPowerup)
+        {
+            powerupTimer = powerup.timer;
+            hasPowerup = false;
+            powerActive = true;
+            powerup.UseEffect(carToSpawn);
+            powerup.power = PowerupClass.PowerType.None;
+        }
+        if (powerupTimer <= 0 && powerActive)
+        {
+            powerup.StopEffect(carToSpawn);
+            powerActive = false;
+        }
+        else if (powerupTimer > 0 && powerActive)
+        {
+            powerupTimer -= Time.deltaTime;
+        }
         //go
         if (carAttached)
         {
-            //pathFollow.IncreaseSpeed(.001f, 30, 60);
+            pathFollow.IncreaseSpeed(.001f, 30, 60);
         }
         //respawn after getting hit
         if (respawnTimer <= 0 && !carAttached)
@@ -87,7 +110,17 @@ public class AIController : MonoBehaviour
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
         }
+        else if (other.tag.Equals("Powerup"))
+        {
+            //disable the powerup
+            other.gameObject.GetComponent<PowerupPickup>().PickedUp();
+            //set powerup vals
+            powerup.power = PowerupClass.PowerType.Phase;
+            powerup.timer = 2f;
+            powerup.UIImage = null;
+            hasPowerup = true;
 
+        }
     }
     private void OnTriggerExit(Collider other)
     {

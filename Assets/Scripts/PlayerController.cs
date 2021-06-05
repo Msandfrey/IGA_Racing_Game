@@ -26,18 +26,22 @@ public class PlayerController : MonoBehaviour
     public float delayToStart;
     float respawnTimer = 0f;
 
+    PowerupClass powerup;
     private float timer;
     private bool carAttached = true;
+    private bool accelBool = false;
 
     //powerups
-    private bool powerup = false;
+    private bool hasPowerup = false;
     private float powerupTimer = 0f;
+    private bool powerActive = false;
 
     // Start is called before the first frame update
     void Awake()
     {
         pathFollow = GetComponent<Follow>();
         trail = GetComponentInChildren<TrailRenderer>();
+        powerup = new PowerupClass();
     }
 
     private void Start()
@@ -63,19 +67,23 @@ public class PlayerController : MonoBehaviour
         {
             GameStartUI.SetActive(false);
         }
-        /*if(powerupTimer <= 0 && powerup)
+        if (hasPowerup && Input.GetKeyDown(KeyCode.F))
         {
-            powerup = false;
-            //GetComponent<BoxCollider>().enabled = true;
-            fixedJoint.breakForce = breakForce;//var
-            fixedJoint.breakTorque = breakTorque;//var
-            //stop changing colors
-            carToSpawn.GetComponent<MeshRenderer>().materials[0].color = Color.grey;
+            powerupTimer = powerup.timer;
+            hasPowerup = false;
+            powerActive = true;
+            powerup.UseEffect(carToSpawn);
+            powerup.power = PowerupClass.PowerType.None;
         }
-        else if(powerupTimer > 0 && powerup)
+        if(powerupTimer <= 0 && powerActive)
+        {
+            powerActive = false;
+            powerup.StopEffect(carToSpawn);
+        }
+        else if(powerupTimer > 0 && powerActive)
         {
             powerupTimer -= Time.deltaTime;
-        }*/
+        }
 
         if(fixedJoint == null)
         {
@@ -96,9 +104,9 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || accelBool)
         {
-            pathFollow.IncreaseSpeed(acceleration, minSpeed, maxSpeed);
+            pathFollow.IncreaseSpeed(acceleration, minSpeed, maxSpeed); 
             if(pathFollow.speed == maxSpeed)
             {
                 //max width
@@ -128,6 +136,22 @@ public class PlayerController : MonoBehaviour
         {
             pathFollow.DecreaseSpeed(decceleration, minSpeed, maxSpeed);
         }
+    }
+
+    public void Accelerate()
+    {
+        if(carAttached && !fixedJoint)
+        {
+            //set joint
+            MakeNewJoint();
+            Debug.Log("Joint set; continue driving");
+        }
+        accelBool = true;
+    }
+
+    public void Deccelerate()
+    {
+        accelBool = false;
     }
 
     void ResetCar()
@@ -170,6 +194,17 @@ public class PlayerController : MonoBehaviour
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
+        }
+        else if (other.tag.Equals("Powerup") && !hasPowerup)
+        {
+            //disable the powerup
+            other.gameObject.GetComponent<PowerupPickup>().PickedUp();
+            //set powerup vals
+            powerup.power = PowerupClass.PowerType.Phase;
+            powerup.timer = 2f;
+            powerup.UIImage = null;
+            hasPowerup = true;
+            
         }
     }
     private void OnTriggerExit(Collider other)
