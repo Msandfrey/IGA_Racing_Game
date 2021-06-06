@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PowerupClass
 {
-    public enum PowerType { Phase, None };
+    public enum PowerType { None = 0, Phase = 1, Split = 2 };
     public PowerType power;
     public float timer;
     public Sprite UIImage;
+    public GameObject prefabToSpawn;
 
     public PowerupClass()
     {
         power = PowerType.None;
         timer = -1f;
         UIImage = null;
+        prefabToSpawn = null;
     }
     public PowerupClass(PowerType p, float time, Sprite image)
     {

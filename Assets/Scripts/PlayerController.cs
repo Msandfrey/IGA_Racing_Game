@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public float delayToStart;
     float respawnTimer = 0f;
 
+    private GameObject powerupToSpawn;
+
     PowerupClass powerup;
     private float timer;
     private bool carAttached = true;
@@ -69,11 +71,28 @@ public class PlayerController : MonoBehaviour
         }
         if (hasPowerup && Input.GetKeyDown(KeyCode.F))
         {
-            powerupTimer = powerup.timer;
-            hasPowerup = false;
-            powerActive = true;
-            powerup.UseEffect(carToSpawn);
-            powerup.power = PowerupClass.PowerType.None;
+            switch (powerup.power)
+            {
+                case PowerupClass.PowerType.Phase:
+                    powerupTimer = powerup.timer;
+                    hasPowerup = false;
+                    powerActive = true;
+                    powerup.UseEffect(carToSpawn);
+                    powerup.power = PowerupClass.PowerType.None;
+                    break;
+                case PowerupClass.PowerType.Split:
+                    GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
+                    miss.GetComponent<SplitShot>().owner = gameObject;
+                    //TODO need a function to find target path later
+                    miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
+                    miss.transform.Rotate(90, 0, 0);
+                    miss.transform.localScale *= 2;
+                    hasPowerup = false;
+                    powerup.power = PowerupClass.PowerType.None;
+                    break;
+                default:
+                    break;
+            }
         }
         if(powerupTimer <= 0 && powerActive)
         {
@@ -84,7 +103,6 @@ public class PlayerController : MonoBehaviour
         {
             powerupTimer -= Time.deltaTime;
         }
-
         if(fixedJoint == null)
         {
             if (respawnTimer <= 0 && !carAttached)
@@ -199,12 +217,9 @@ public class PlayerController : MonoBehaviour
         {
             //disable the powerup
             other.gameObject.GetComponent<PowerupPickup>().PickedUp();
-            //set powerup vals
-            powerup.power = PowerupClass.PowerType.Phase;
-            powerup.timer = 2f;
-            powerup.UIImage = null;
+            powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();
+            powerupToSpawn = powerup.prefabToSpawn;
             hasPowerup = true;
-            
         }
     }
     private void OnTriggerStay(Collider other)

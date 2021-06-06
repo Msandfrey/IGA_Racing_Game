@@ -8,6 +8,8 @@ public class PowerupPickup : MonoBehaviour
     private float timeToStayHidden;
     private float pickupTimer;
     private bool hidden = false;
+    [SerializeField]
+    private GameObject missile;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +37,30 @@ public class PowerupPickup : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
         pickupTimer = timeToStayHidden;
+    }
+
+    public PowerupClass ChoosePowerup()
+    {
+        PowerupClass power = new PowerupClass();
+        //int powerType = 2;
+        int powerType = Random.Range(1, System.Enum.GetValues(typeof(PowerupClass.PowerType)).Length);
+        switch (powerType)
+        {
+            case 1://Phase shift
+                power.power = (PowerupClass.PowerType)1;
+                power.timer = 2f;//var
+                power.UIImage = null;
+                power.prefabToSpawn = null;
+                break;
+            case 2:
+                power.power = (PowerupClass.PowerType)2;
+                power.timer = -1f;
+                power.UIImage = null;
+                power.prefabToSpawn = missile;
+                break;
+            default: 
+                break;
+        }
+        return power;
     }
 }
