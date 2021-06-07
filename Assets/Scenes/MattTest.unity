@@ -1623,11 +1623,11 @@ PrefabInstance:
       objectReference: {fileID: 683078823}
     - target: {fileID: 1479183088, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
       propertyPath: m_Size.z
-      value: 0.045609064
+      value: 0.05232791
       objectReference: {fileID: 0}
     - target: {fileID: 1479183088, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
       propertyPath: m_Center.z
-      value: -0.0057103
+      value: -0.0090697035
       objectReference: {fileID: 0}
     - target: {fileID: 8332673520631904176, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
       propertyPath: m_Name

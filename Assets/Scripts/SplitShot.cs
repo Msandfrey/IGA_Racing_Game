@@ -7,10 +7,15 @@ public class SplitShot : MonoBehaviour
 {
     public GameObject owner;
     public PathCreator targetPath;
+    public GameObject explosion;
     float speed = 110;
     [SerializeField]
     float deathTimer = 3f;
+    [SerializeField]
+    float newTorque = 0f;
     Follow pathFollow;
+    //particle effect
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +41,7 @@ public class SplitShot : MonoBehaviour
     void Boom()
     {
         //play effect
+        GameObject e = Instantiate(explosion, transform.position, Quaternion.identity);
         //destroy self
         Destroy(gameObject);
     }
@@ -43,15 +49,7 @@ public class SplitShot : MonoBehaviour
     {
         if (other != owner && other.tag.Equals("Enemy"))
         {
-            other.GetComponent<CarFlying>().fixedJoint.breakTorque = 0;
-            Boom();
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject != owner)
-        {
-            collision.gameObject.GetComponent<CarFlying>().fixedJoint.breakTorque /= 2;
+            other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
             Boom();
         }
     }
