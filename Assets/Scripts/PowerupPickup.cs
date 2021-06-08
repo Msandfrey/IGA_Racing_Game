@@ -44,8 +44,8 @@ public class PowerupPickup : MonoBehaviour
     public PowerupClass ChoosePowerup()
     {
         PowerupClass power = new PowerupClass();
-        int powerType = 3;
-        //int powerType = Random.Range(1, System.Enum.GetValues(typeof(PowerupClass.PowerType)).Length);
+        //int powerType = 3;
+        int powerType = Random.Range(1, System.Enum.GetValues(typeof(PowerupClass.PowerType)).Length);
         switch (powerType)
         {
             case 1://Phase shift
