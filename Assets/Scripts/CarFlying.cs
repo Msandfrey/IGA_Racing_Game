@@ -15,6 +15,7 @@ public class CarFlying : MonoBehaviour
     float powerupTimer = 0f;
     public int lapTracker = 0;
     public Color carColor;
+    public GameObject Controller;
 
     // Start is called before the first frame update
     void Start()

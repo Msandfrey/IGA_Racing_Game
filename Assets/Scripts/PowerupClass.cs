@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerupClass
 {
-    public enum PowerType { None = 0, Phase = 1, Split = 2 };
+    public enum PowerType { None = 0, Phase = 1, Split = 2, Mine = 3 };
     public PowerType power;
     public float timer;
     public Sprite UIImage;

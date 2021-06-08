@@ -8,6 +8,8 @@ TagManager:
   - Powerup
   - Enemy
   - Missile
+  - PlayerCar
+  - EnemyCar
   layers:
   - Default
   - TransparentFX

@@ -47,10 +47,13 @@ public class SplitShot : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other != owner && other.tag.Equals("Enemy"))
+        if (other != owner && other.tag.Equals("EnemyCar"))
         {
-            other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
-            Boom();
+            if (!other.GetComponent<CarFlying>().Controller.GetComponent<AIController>().IsPowerActive())
+            {
+                other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
+                Boom();
+            }
         }
     }
 }

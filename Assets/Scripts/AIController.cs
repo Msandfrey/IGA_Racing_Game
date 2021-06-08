@@ -92,6 +92,10 @@ public class AIController : MonoBehaviour
             respawnTimer -= Time.deltaTime;
         }
     }
+    public bool IsPowerActive()
+    {
+        return powerActive;
+    }
     private void OnJointBreak(float breakForce)
     {
         Debug.Log("Car falls off with force of : " + breakForce);
@@ -105,7 +109,7 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag.Equals("Enemy") || other.tag.Equals("Player")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint)
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
@@ -124,7 +128,7 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if ((other.tag.Equals("Enemy") || other.tag.Equals("Player")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint)
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
@@ -132,7 +136,7 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if ((other.tag.Equals("Enemy") || other.tag.Equals("Player")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint)
         {
             fixedJoint.breakTorque = breakTorque;
             fixedJoint.breakForce = breakForce;

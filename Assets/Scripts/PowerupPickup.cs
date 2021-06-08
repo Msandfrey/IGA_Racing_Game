@@ -10,6 +10,8 @@ public class PowerupPickup : MonoBehaviour
     private bool hidden = false;
     [SerializeField]
     private GameObject missile;
+    [SerializeField]
+    private GameObject mine;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +44,8 @@ public class PowerupPickup : MonoBehaviour
     public PowerupClass ChoosePowerup()
     {
         PowerupClass power = new PowerupClass();
-        //int powerType = 2;
-        int powerType = Random.Range(1, System.Enum.GetValues(typeof(PowerupClass.PowerType)).Length);
+        int powerType = 3;
+        //int powerType = Random.Range(1, System.Enum.GetValues(typeof(PowerupClass.PowerType)).Length);
         switch (powerType)
         {
             case 1://Phase shift
@@ -57,6 +59,12 @@ public class PowerupPickup : MonoBehaviour
                 power.timer = -1f;
                 power.UIImage = null;
                 power.prefabToSpawn = missile;
+                break;
+            case 3:
+                power.power = (PowerupClass.PowerType)3;
+                power.timer = -1f;
+                power.UIImage = null;
+                power.prefabToSpawn = mine;
                 break;
             default: 
                 break;

@@ -25,7 +25,7 @@ public class LapTracker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("Player"))
+        if (other.tag.Equals("PlayerCar"))
         {
             //check if win
             if(other.gameObject.GetComponent<CarFlying>().lapTracker >= lapsToWin && !lose)
@@ -41,7 +41,7 @@ public class LapTracker : MonoBehaviour
          
         }
         //do the same for enemies
-        if (other.tag.Equals("Enemy"))
+        if (other.tag.Equals("EnemyCar"))
         {
             //check if win
             if (other.gameObject.GetComponent<CarFlying>().lapTracker >= lapsToWin && !win)

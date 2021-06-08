@@ -90,6 +90,13 @@ public class PlayerController : MonoBehaviour
                     hasPowerup = false;
                     powerup.power = PowerupClass.PowerType.None;
                     break;
+                case PowerupClass.PowerType.Mine:
+                    Vector3 spawnPos = carToSpawn.transform.position;
+                    GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
+                    mine.GetComponent<Mine>().ownerTag = gameObject.tag;
+                    hasPowerup = false;
+                    powerup.power = PowerupClass.PowerType.None;
+                    break;
                 default:
                     break;
             }
@@ -172,6 +179,11 @@ public class PlayerController : MonoBehaviour
         accelBool = false;
     }
 
+    public bool IsPowerActive()
+    {
+        return powerActive;
+    }
+
     void ResetCar()
     {
         //stop car from moving
@@ -208,7 +220,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag.Equals("Enemy") && fixedJoint)
+        if(other.tag.Equals("EnemyCar") && fixedJoint)
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
@@ -224,7 +236,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag.Equals("Enemy") && fixedJoint)
+        if (other.tag.Equals("EnemyCar") && fixedJoint)
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
@@ -232,7 +244,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag.Equals("Enemy") && fixedJoint)
+        if (other.tag.Equals("EnemyCar") && fixedJoint)
         {
             fixedJoint.breakTorque = breakTorque;
             fixedJoint.breakForce = breakForce;
