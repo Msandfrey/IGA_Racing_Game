@@ -536,7 +536,9 @@ MonoBehaviour:
   breakForce: 800
   breakTorque: 400
   delayToStart: 2
+  carAttached: 1
   fixedJoint: {fileID: 197190717}
+  move: 1
 --- !u!114 &197190719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +787,9 @@ MonoBehaviour:
   breakForce: 800
   breakTorque: 400
   delayToStart: 2
+  carAttached: 1
   fixedJoint: {fileID: 316629738}
+  move: 1
 --- !u!114 &316629740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1671,6 +1675,14 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.0090697035
       objectReference: {fileID: 0}
+    - target: {fileID: 5712694437846327983, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -346976540078034059, guid: 970e934d0a1a460449424422453d0a8e, type: 3}
+    - target: {fileID: 7539982467772372581, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b904f754db423a44a37019ae96c72fb, type: 2}
     - target: {fileID: 8332673520631904176, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
       propertyPath: m_Name
       value: Prototype_Car_2
@@ -1684,12 +1696,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8712295700662136074, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712295700662136074, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712295700662136074, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712295700662136074, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.84
       objectReference: {fileID: 0}
     - target: {fileID: 8712295700662136074, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0.275
       objectReference: {fileID: 0}
     - target: {fileID: 8712295700662136074, guid: 68c4aa13b5a86bf4c89877ed4b5a7e39, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1983,8 +2007,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.6
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2474,13 +2498,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303131149}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 22.97, z: 0.26}
+  m_LocalRotation: {x: 0.25982928, y: 0.49531576, z: -0.15249743, w: 0.8147979}
+  m_LocalPosition: {x: 4.017, y: 2.06, z: 12.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 35.064, y: 62.787, z: 0.622}
 --- !u!1 &1313241448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,6 +2782,7 @@ MonoBehaviour:
   timeToStayHidden: 5
   missile: {fileID: 7125834515692208252, guid: 3863eaf709ea8e040bb01a3f61a61225, type: 3}
   mine: {fileID: 3993923731541318994, guid: f966d38e6ed4f8a4799d82a76dfcdd4b, type: 3}
+  specifiedPower: -1
 --- !u!1 &1412865012
 GameObject:
   m_ObjectHideFlags: 0
