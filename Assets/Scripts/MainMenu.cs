@@ -7,6 +7,12 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject start;
     public GameObject level;
+    public GameObject intro;
+    private bool hasIntroPlayer = false;
+    private bool playIntro = false;
+    private bool isPlaying = false;
+    [SerializeField]
+    private AudioSource introSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +22,40 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playIntro && !hasIntroPlayer)
+        {
+            introSound.Play();
+            isPlaying = true;
+            hasIntroPlayer = true;
+            playIntro = false;
+        }
+        if (isPlaying && Input.GetKey(KeyCode.Space))
+        {
+            isPlaying = false;
+            //stop playing sound
+            introSound.Stop();
+            LevelSelect();
+        }
+        if (!introSound.isPlaying && hasIntroPlayer)
+        {
+            isPlaying = false;
+            intro.SetActive(false);
+            LevelSelect();
+        }
+    }
+    public void EnterLevelSelect()
+    {
+        playIntro = true;
+        start.SetActive(false);
+        intro.SetActive(true);
     }
     public void LevelSelect()
     {
-        start.SetActive(false);
         level.SetActive(true);
+    }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
     public void MattTest()
     {

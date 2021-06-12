@@ -52,6 +52,8 @@ public class SplitShot : MonoBehaviour
             if (!other.GetComponent<CarFlying>().Controller.GetComponent<AIController>().IsPowerActive())
             {
                 other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
+                other.GetComponent<Rigidbody>().AddRelativeTorque(0, 0, -100, ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().useGravity = true;
                 Boom();
             }
         }

@@ -29,7 +29,12 @@ public class Follow : MonoBehaviour
             //transform.Rotate(0, 180, 0);
         }
     }
-
+    public void ResetCar()
+    {
+        distanceTravelled = 0;
+        transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+        transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+    }
     // If the path changes during the game, update the distance travelled so that the follower's position on the new path
     // is as close as possible to its position on the old path
     public void OnPathChanged()

@@ -43,26 +43,4 @@ public class CarFlying : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //Debug.Log(gameObject.name + " hit something: " + other +",");
-        if (other.tag == "Powerup" && false)
-        {
-            //disable powerup
-            other.gameObject.SetActive(false);
-            //set timer
-            powerup = true;
-            powerupTimer = 4f;
-            //disable collision
-            //GetComponent<BoxCollider>().enabled = false;
-            //force and torque break to inf
-            fixedJoint.breakForce = Mathf.Infinity;
-            fixedJoint.breakTorque = Mathf.Infinity;
-            //change colors of car
-            GetComponent<MeshRenderer>().materials[0].color = Color.blue;
-            //starPowerColorChange();
-        }
-        //GetComponent<Rigidbody>().AddRelativeForce(0, 500, 500, ForceMode.Impulse);
-    }
-
 }

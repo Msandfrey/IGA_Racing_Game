@@ -5,8 +5,6 @@ using UnityEngine;
 //for the trigger box
 public class TestJoint : MonoBehaviour
 {
-    //public Transform target;
-    public FixedJoint fj;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,32 +17,13 @@ public class TestJoint : MonoBehaviour
     void Update()
     {
         //GetComponent<Rigidbody>().AddRelativeForce(target.position, ForceMode.Acceleration);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag.Equals("Enemy"))
+        if (Input.GetKey(KeyCode.W))
         {
-            Debug.LogWarning("i am working?");
-            fj.breakForce = Mathf.Infinity;
-            fj.breakTorque = Mathf.Infinity;
-            //other.gameObject.GetComponent<Follow>().speed = 120;
-            //
-            //other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(AttachedCar.GetComponent<Rigidbody>().velocity, ForceMode.Impulse);
+            transform.position += transform.forward * Time.deltaTime * -10;
         }
-
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.tag.Equals("Enemy"))
+        if (Input.GetKey(KeyCode.S))
         {
-            fj.breakTorque = 600;
-            fj.breakForce = 800;
-            //Vector3 newV = AttachedCar.GetComponent<Rigidbody>().velocity;
-            //other.gameObject.GetComponent<Follow>().speed = 200;
-            //newV = Vector3.Cross(newV, AttachedCar.GetComponent<Rigidbody>().angularVelocity);
-            //other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(newV, ForceMode.Impulse);
+            transform.position += transform.forward * Time.deltaTime * 10;
         }
-
     }
-
 }

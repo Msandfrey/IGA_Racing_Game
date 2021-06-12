@@ -15,8 +15,9 @@ public class AIController : MonoBehaviour
     private float timer;
     public float delayToStart;
     float respawnTimer = 0f;
-    private bool carAttached = true;
+    public bool carAttached = true;
     public FixedJoint fixedJoint;
+    public bool move = true;
 
     private bool hasPowerup = false;
     private bool powerActive = false;
@@ -68,7 +69,7 @@ public class AIController : MonoBehaviour
             powerupTimer -= Time.deltaTime;
         }
         //go
-        if (carAttached)
+        if (carAttached && move)
         {
             pathFollow.IncreaseSpeed(.001f, 30, 60);
         }
@@ -109,7 +110,7 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint && other.gameObject != carToSpawn)
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
@@ -128,7 +129,7 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint && other.gameObject != carToSpawn)
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
@@ -136,7 +137,7 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint && other.gameObject != carToSpawn)
         {
             fixedJoint.breakTorque = breakTorque;
             fixedJoint.breakForce = breakForce;
