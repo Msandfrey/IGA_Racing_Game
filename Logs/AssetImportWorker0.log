@@ -483,3 +483,108 @@ System memory in use after: 63.8 MB.
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1661.
 Total: 1.562600 ms (FindLiveObjects: 0.214800 ms CreateObjectMapping: 0.060200 ms MarkObjects: 1.247600 ms  DeleteObjects: 0.038000 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 1073.945980 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission.png
+  artifactKey: Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission.png using Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a3b8c94cf700a968814116868ac1e37') in 0.029795 seconds
+  Import took 0.031823 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 243.553472 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission_Yellow.png
+  artifactKey: Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission_Yellow.png using Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e76921abfc83b4394feff1ebbb80a106') in 0.006850 seconds
+  Import took 0.008891 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.818181 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Yellow.png
+  artifactKey: Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Yellow.png using Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef09a1c911f0ddc006e413869fcefcab') in 0.014230 seconds
+  Import took 0.016336 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.009972 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png
+  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f63bf0e0415379eeffbab652450a4df') in 0.016291 seconds
+  Import took 0.017951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004921 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png
+  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f63bf0e0415379eeffbab652450a4df') in 0.010626 seconds
+  Import took 0.012395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.807284 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Pink.png
+  artifactKey: Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Pink.png using Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97b087666793854a234068b89ed47fc2') in 0.013727 seconds
+  Import took 0.015446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 136.972926 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_AlbedoTransparency.png
+  artifactKey: Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_AlbedoTransparency.png using Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8766e3dd78707fcf69d6a0c4ca847028') in 0.006774 seconds
+  Import took 0.008855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.928669 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Pink.png
+  artifactKey: Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Pink.png using Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e1534db1afae5f2efc44acb7d4c7d13') in 0.013890 seconds
+  Import took 0.016159 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.928494 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png
+  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '817fef37435c37dadbf32f612c443efd') in 0.015878 seconds
+  Import took 0.017628 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011173 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png
+  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '817fef37435c37dadbf32f612c443efd') in 0.005851 seconds
+  Import took 0.007800 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 146.333183 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png
+  artifactKey: Guid(2b75f9e4e22229641a42f0c8968170e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png using Guid(2b75f9e4e22229641a42f0c8968170e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42f30740680b49c7356fa2dc30e87f9c') in 0.005791 seconds
+  Import took 0.007600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 251.296633 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png
+  artifactKey: Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png using Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee246750cbd405ea79cf922afaf12e67') in 0.011048 seconds
+  Import took 0.012763 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003422 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png
+  artifactKey: Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png using Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee246750cbd405ea79cf922afaf12e67') in 0.018328 seconds
+  Import took 0.019963 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
