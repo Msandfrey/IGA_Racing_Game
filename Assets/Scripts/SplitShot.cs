@@ -47,7 +47,7 @@ public class SplitShot : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other != owner && other.tag.Equals("EnemyCar"))
+        if (other.gameObject != owner && other.tag.Equals("EnemyCar"))
         {
             if (!other.GetComponent<CarFlying>().Controller.GetComponent<AIController>().IsPowerActive())
             {

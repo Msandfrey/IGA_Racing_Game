@@ -6,15 +6,15 @@ public class PlayerFollow : MonoBehaviour
 {
     public Transform followTarget;
     public Vector3 offset;
-    private Vector3 lastPosition;
+    public float smoothBrainFactor = .1f;
     private void Start()
     {
-        lastPosition = followTarget.position;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = lastPosition + offset;
-        lastPosition = followTarget.position;
+        Vector3 targetPos = followTarget.position + offset;
+        Vector3 smoothPos = Vector3.Lerp(transform.position, targetPos, smoothBrainFactor);
+        transform.position = smoothPos;
     }
 }

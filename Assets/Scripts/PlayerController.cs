@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public FixedJoint fixedJoint;
     public GameObject GameStartUI;
     public TrailRenderer trail;
+    public Camera overheadCam;
+    public Camera thirdPersonCam;
     [SerializeField]
     private float breakForce = 800;
     [SerializeField]
@@ -44,10 +46,13 @@ public class PlayerController : MonoBehaviour
         pathFollow = GetComponent<Follow>();
         trail = GetComponentInChildren<TrailRenderer>();
         powerup = new PowerupClass();
+
     }
 
     private void Start()
     {
+        overheadCam.enabled = true;
+        thirdPersonCam.enabled = false;
         GameStartUI.SetActive(true);
         GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "Ready...";
     }
@@ -100,6 +105,10 @@ public class PlayerController : MonoBehaviour
                 default:
                     break;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            //SwapCam();
         }
         if(powerupTimer <= 0 && powerActive)
         {
@@ -183,7 +192,11 @@ public class PlayerController : MonoBehaviour
     {
         return powerActive;
     }
-
+    void SwapCam()
+    {
+        overheadCam.enabled = !overheadCam.enabled;
+        thirdPersonCam.enabled = !thirdPersonCam.enabled;
+    }
     void ResetCar()
     {
         //stop car from moving

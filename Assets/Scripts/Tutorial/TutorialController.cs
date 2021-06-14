@@ -197,7 +197,6 @@ public class TutorialController : MonoBehaviour
         carAttached = false;
         pathFollow.speed = 0;
         pathFollow.ResetCar();
-        acceleration = 0.2f;
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
         respawnTimer = 1f;
         carToSpawn.layer = 6;//fallen layer

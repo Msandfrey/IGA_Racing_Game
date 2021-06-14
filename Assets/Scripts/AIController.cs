@@ -15,6 +15,7 @@ public class AIController : MonoBehaviour
     private float timer;
     public float delayToStart;
     float respawnTimer = 0f;
+    public float speed;
     public bool carAttached = true;
     public FixedJoint fixedJoint;
     public bool move = true;
@@ -71,7 +72,7 @@ public class AIController : MonoBehaviour
         //go
         if (carAttached && move)
         {
-            pathFollow.IncreaseSpeed(.001f, 30, 60);
+            pathFollow.IncreaseSpeed(.05f, 0, speed);
         }
         //respawn after getting hit
         if (respawnTimer <= 0 && !carAttached)
