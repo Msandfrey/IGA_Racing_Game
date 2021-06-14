@@ -20,7 +20,7 @@ public class CarFlying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<MeshRenderer>().materials[0].color = carColor;
+        //GetComponent<MeshRenderer>().materials[0].color = carColor;
         Physics.IgnoreLayerCollision(0,6);
     }
 
@@ -31,7 +31,7 @@ public class CarFlying : MonoBehaviour
         if (powerupTimer <= 0 && powerup)
         {
             powerup = false;
-            GetComponent<MeshRenderer>().materials[0].color = carColor;
+            //GetComponent<MeshRenderer>().materials[0].color = carColor;
             //GetComponent<BoxCollider>().enabled = true;
             fixedJoint.breakForce = breakForce;//var
             fixedJoint.breakTorque = breakTorque;//var
