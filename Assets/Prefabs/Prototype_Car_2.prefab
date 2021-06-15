@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1479183082}
   m_Layer: 0
   m_Name: Prototype_Car_2
-  m_TagString: Player
+  m_TagString: PlayerCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 8332673520631904176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.65, y: 0.056, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 331252398}
   m_Father: {fileID: 0}
@@ -125,7 +125,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8332673520631904176}
-  m_Mesh: {fileID: 9067332987797314631, guid: 48a2ff2e589e29645a4435a14f6c96f5, type: 3}
+  m_Mesh: {fileID: -346976540078034059, guid: 970e934d0a1a460449424422453d0a8e, type: 3}
 --- !u!23 &7539982467772372581
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 48a2ff2e589e29645a4435a14f6c96f5, type: 3}
+  - {fileID: 2100000, guid: 7bb98ca863313494c91331ddfdba7505, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -194,8 +194,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.017650025, y: 0.018409632, z: 0.06284519}
-  m_Center: {x: 0.0005146096, y: 0.0042048167, z: -0.014328436}
+  m_Size: {x: 0.5287442, y: 0.7032329, z: 1.5719452}
+  m_Center: {x: -0.009832144, y: 0.04360187, z: 0.1637888}
 --- !u!114 &1479183082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +212,6 @@ MonoBehaviour:
   LapTrackUI: {fileID: 0}
   breakForce: 800
   breakTorque: 600
-  fakeLapTracker: 0
   lapTracker: 0
   carColor: {r: 0, g: 0, b: 0, a: 0}
+  Controller: {fileID: 0}

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public TrailRenderer trail;
     public Camera overheadCam;
     public Camera thirdPersonCam;
+    public GameObject lapUI;
     [SerializeField]
     private float breakForce = 800;
     [SerializeField]
@@ -51,6 +52,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        carToSpawn = Instantiate(FindObjectOfType<InGameController>().playerCar, transform.position, Quaternion.identity);
+        carToSpawn.GetComponent<CarFlying>().LapTrackUI = lapUI;
+        fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();//use function, but to do that need to remove fixed joint from prefab
+        fixedJoint.breakTorque = breakTorque;//var
+        fixedJoint.breakForce = breakForce;//var
+        fixedJoint.enablePreprocessing = false;
+        carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
+        carToSpawn.layer = 0;
         overheadCam.enabled = true;
         thirdPersonCam.enabled = false;
         GameStartUI.SetActive(true);
