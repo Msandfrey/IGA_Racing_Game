@@ -15,11 +15,11 @@ D:/Unity Projects/Neon_Slot_Racer
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61071
+58594
 Successfully changed project path to: D:/Unity Projects/Neon_Slot_Racer
 D:/Unity Projects/Neon_Slot_Racer
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 17.86 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 19.55 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,24 +35,24 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56320
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56928
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001855 seconds.
+Registered in 0.001679 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 17.86 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 19.93 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.863 seconds
+- Completed reload, in  0.913 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000370 seconds.
+Registered in 0.000328 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
@@ -62,529 +62,57 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.625 seconds
+- Completed reload, in  0.777 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1156 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 59.8 MB.
-System memory in use after: 59.8 MB.
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
 
 Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1599.
-Total: 1.933900 ms (FindLiveObjects: 0.292700 ms CreateObjectMapping: 0.118500 ms MarkObjects: 1.466800 ms  DeleteObjects: 0.054900 ms)
+Total: 1.681000 ms (FindLiveObjects: 0.134200 ms CreateObjectMapping: 0.053300 ms MarkObjects: 1.431500 ms  DeleteObjects: 0.060900 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/TestScene.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/TestScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c072c070c31e72b5e460609be664bdd') in 0.007650 seconds
-  Import took 0.014232 seconds .
+  path: Assets/Materials/Material Textures/Racer 2
+  artifactKey: Guid(0964da364474906459008f3b976b3964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 2 using Guid(0964da364474906459008f3b976b3964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd1ac11c6534afbddf19588c6eaaa0eb') in 0.002756 seconds
+  Import took 0.010437 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 8.052757 seconds.
-  path: Assets/Scenes/Tutorial.unity
-  artifactKey: Guid(8718d2061d803e74989d0ddbfbdfb44a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Tutorial.unity using Guid(8718d2061d803e74989d0ddbfbdfb44a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bfb86166053ab7fecfd90c7aea82926') in 0.001172 seconds
-  Import took 0.008441 seconds .
+  Time since last request: 745.949741 seconds.
+  path: Assets/Prefabs/Prototype_Car_2.prefab
+  artifactKey: Guid(68c4aa13b5a86bf4c89877ed4b5a7e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Prototype_Car_2.prefab using Guid(68c4aa13b5a86bf4c89877ed4b5a7e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e08c6c4526a8a4ea036a1d8b08fd604a') in 0.123745 seconds
+  Import took 0.125883 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.597233 seconds.
-  path: Assets/Scenes/WaveTest.unity
-  artifactKey: Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/WaveTest.unity using Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '851a6cdd38f6479c8480b2b039c859bb') in 0.000989 seconds
-  Import took 0.002456 seconds .
+  Time since last request: 436.237057 seconds.
+  path: Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png
+  artifactKey: Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png using Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd859ffa92ae1b9a2d754555af675276') in 0.359726 seconds
+  Import took 0.362172 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.143520 seconds.
-  path: Assets/Scenes/ButterflyTest.unity
-  artifactKey: Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/ButterflyTest.unity using Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92c69f505befd5f25308688bb9adebb9') in 0.001032 seconds
-  Import took 0.002474 seconds .
+  Time since last request: 119.926580 seconds.
+  path: Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png
+  artifactKey: Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png using Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0aecbcdcb8777b9b614e2d56c156591') in 0.005520 seconds
+  Import took 0.007250 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.167944 seconds.
-  path: Assets/Scenes/Main.unity
-  artifactKey: Guid(2cb28f8c1eb4fc141877e5628b2b5207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Main.unity using Guid(2cb28f8c1eb4fc141877e5628b2b5207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '694c770282aa4e9a62f177af984c8bf9') in 0.000995 seconds
-  Import took 0.007587 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000448 seconds.
-  path: Assets/Scenes/Main.unity
-  artifactKey: Guid(2cb28f8c1eb4fc141877e5628b2b5207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Main.unity using Guid(2cb28f8c1eb4fc141877e5628b2b5207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '694c770282aa4e9a62f177af984c8bf9') in 0.000988 seconds
-  Import took 0.002230 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.513216 seconds.
-  path: Assets/Scenes/MattTest.unity
-  artifactKey: Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MattTest.unity using Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53011efce681132f326641d965973880') in 0.001062 seconds
-  Import took 0.002568 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 153.456451 seconds.
-  path: Assets/Models/Prototype_Car_1.fbx
-  artifactKey: Guid(f9120994a4edadf47b0594573b383bae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Prototype_Car_1.fbx using Guid(f9120994a4edadf47b0594573b383bae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7cf83e55c3f75459d0f5dfd6f9b8417') in 0.295807 seconds
-  Import took 0.297783 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000139 seconds.
-  path: Assets/Models/Prototype_Wave_Track_1.fbx
-  artifactKey: Guid(a3c620d70c20288458e6c498fe2e9444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Prototype_Wave_Track_1.fbx using Guid(a3c620d70c20288458e6c498fe2e9444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04c14eaf74be31208add2598b7aae8a1') in 0.011239 seconds
-  Import took 0.014320 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000147 seconds.
-  path: Assets/Models/Prototype_Car_1.fbx
-  artifactKey: Guid(f9120994a4edadf47b0594573b383bae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Prototype_Car_1.fbx using Guid(f9120994a4edadf47b0594573b383bae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7cf83e55c3f75459d0f5dfd6f9b8417') in 0.009104 seconds
-  Import took 0.010895 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000162 seconds.
-  path: Assets/Models/Prototype_Butterfly_Track.fbx
-  artifactKey: Guid(daec773944c632441b6251bf89fb363d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Prototype_Butterfly_Track.fbx using Guid(daec773944c632441b6251bf89fb363d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fde941b194b007be2fbfb4784d2c00b5') in 0.009843 seconds
-  Import took 0.011621 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000147 seconds.
-  path: Assets/Models/Prototype_Wave_Track_1.fbx
-  artifactKey: Guid(a3c620d70c20288458e6c498fe2e9444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Prototype_Wave_Track_1.fbx using Guid(a3c620d70c20288458e6c498fe2e9444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04c14eaf74be31208add2598b7aae8a1') in 0.011003 seconds
-  Import took 0.012559 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000123 seconds.
-  path: Assets/Models/Starter_Car_2.fbx
-  artifactKey: Guid(970e934d0a1a460449424422453d0a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Starter_Car_2.fbx using Guid(970e934d0a1a460449424422453d0a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '291a0224a1d06d0fc929e233872dab75') in 0.012567 seconds
-  Import took 0.014032 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000120 seconds.
-  path: Assets/Models/Prototype_Butterfly_Track.fbx
-  artifactKey: Guid(daec773944c632441b6251bf89fb363d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Prototype_Butterfly_Track.fbx using Guid(daec773944c632441b6251bf89fb363d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fde941b194b007be2fbfb4784d2c00b5') in 0.009657 seconds
-  Import took 0.011105 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.011883 seconds.
-  path: Assets/Models/Starter_Car_2.fbx
-  artifactKey: Guid(970e934d0a1a460449424422453d0a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Starter_Car_2.fbx using Guid(970e934d0a1a460449424422453d0a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '291a0224a1d06d0fc929e233872dab75') in 0.009999 seconds
-  Import took 0.011704 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 300.892807 seconds.
-  path: Assets/Materials/Material Textures
-  artifactKey: Guid(9fef731a34c1c454ea0f6eaba1cab3c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures using Guid(9fef731a34c1c454ea0f6eaba1cab3c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87d4d3ff11d3ee7fd9d3faa570f5d024') in 0.000877 seconds
-  Import took 0.002832 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.330571 seconds.
-  path: Assets/Materials/Material Textures/Racer 1
-  artifactKey: Guid(239007ba7c5bd444488958199a0abaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1 using Guid(239007ba7c5bd444488958199a0abaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68facffebfca05953b26e285d56e513f') in 0.001545 seconds
-  Import took 0.003508 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000454 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.580 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 62.6 MB.
-System memory in use after: 62.6 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1644.
-Total: 1.606000 ms (FindLiveObjects: 0.242100 ms CreateObjectMapping: 0.117500 ms MarkObjects: 1.202600 ms  DeleteObjects: 0.042400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000395 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.572 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 62.9 MB.
-System memory in use after: 62.9 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1646.
-Total: 1.572500 ms (FindLiveObjects: 0.195800 ms CreateObjectMapping: 0.048700 ms MarkObjects: 1.291500 ms  DeleteObjects: 0.035700 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 1365.040119 seconds.
-  path: Assets/TextMesh Pro/Sprites/EmojiOne.png
-  artifactKey: Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/TextMesh Pro/Sprites/EmojiOne.png using Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d11a788750e0dcda676739293e81581') in 0.056322 seconds
-  Import took 0.058251 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000233 seconds.
-  path: Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_fumefx_c.png
-  artifactKey: Guid(3fa76e93a8913b447a4d78391211e3ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_fumefx_c.png using Guid(3fa76e93a8913b447a4d78391211e3ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90af3a720182d64f5a450a34c3c8e6b7') in 0.008067 seconds
-  Import took 0.009789 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000125 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_Normal.png
-  artifactKey: Guid(790994a384ffdb6419b7cdf6450bcd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_Normal.png using Guid(790994a384ffdb6419b7cdf6450bcd22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e0c26fd098d85549c2a37c2c77595d1') in 0.010514 seconds
-  Import took 0.012067 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000174 seconds.
-  path: Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_fumefx_a.png
-  artifactKey: Guid(81dd1a49d0d33dc42993160568c4ee0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_fumefx_a.png using Guid(81dd1a49d0d33dc42993160568c4ee0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a45f131f7ceee01cbfebca6c7b743569') in 0.005434 seconds
-  Import took 0.007026 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000223 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_MetallicSmoothness.png
-  artifactKey: Guid(003d9b077a0f05242a68853511562a67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_MetallicSmoothness.png using Guid(003d9b077a0f05242a68853511562a67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7384f0d41879f37037ec1a4e12019b1') in 0.013464 seconds
-  Import took 0.015190 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000126 seconds.
-  path: Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_explosion.png
-  artifactKey: Guid(99fc5b3a35697444d912a23b64a74d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_explosion.png using Guid(99fc5b3a35697444d912a23b64a74d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '313467d3b90a4cebd7c75980541d5a33') in 0.005051 seconds
-  Import took 0.006465 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000116 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission.png
-  artifactKey: Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission.png using Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78c6ee28729ccab40f0acc6322157314') in 0.006013 seconds
-  Import took 0.007448 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000126 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
-  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4537c845667f4fa7a13ced69bf8f583b') in 0.060942 seconds
-  Import took 0.062806 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000129 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency.png
-  artifactKey: Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency.png using Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa847591368c4b515c74a01fd3b12d02') in 0.005602 seconds
-  Import took 0.007109 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000123 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
-  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01b9812079c9e9cde7c2b0b821b2dbe7') in 0.027353 seconds
-  Import took 0.028922 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000133 seconds.
-  path: Assets/PathCreator/Examples/Materials/Road Texture.png
-  artifactKey: Guid(eef7def8a6d89134284369bbe0145515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PathCreator/Examples/Materials/Road Texture.png using Guid(eef7def8a6d89134284369bbe0145515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71e4faaf384b34fd2dcc9def6462270a') in 0.010515 seconds
-  Import took 0.012010 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000129 seconds.
-  path: Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_fumefx_b.PNG
-  artifactKey: Guid(aa67b2772e0f02d47a13f790b3e3ee3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FX_Kandol_Pack/FX_effect_sprite_image01/fx_fumefx/Textures/fx_fumefx_b.PNG using Guid(aa67b2772e0f02d47a13f790b3e3ee3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2594e216762cd0c01785f51fade5f5ee') in 0.005506 seconds
-  Import took 0.006961 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000643 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.596 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 63.4 MB.
-System memory in use after: 63.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1653.
-Total: 1.457600 ms (FindLiveObjects: 0.176500 ms CreateObjectMapping: 0.046800 ms MarkObjects: 1.186600 ms  DeleteObjects: 0.046700 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 622.685969 seconds.
-  path: Assets/Scripts/CarFlying.cs
-  artifactKey: Guid(483267d9fa50a904f9374b4e56f574a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/CarFlying.cs using Guid(483267d9fa50a904f9374b4e56f574a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f042b855cd52b432fcf30e245d5379c') in 0.006310 seconds
-  Import took 0.013984 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000353 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.600 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 63.9 MB.
-System memory in use after: 64.0 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1655.
-Total: 1.764500 ms (FindLiveObjects: 0.153400 ms CreateObjectMapping: 0.039900 ms MarkObjects: 1.530700 ms  DeleteObjects: 0.039000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000362 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.573 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 64.2 MB.
-System memory in use after: 64.3 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1657.
-Total: 1.276800 ms (FindLiveObjects: 0.126200 ms CreateObjectMapping: 0.033800 ms MarkObjects: 1.078200 ms  DeleteObjects: 0.037800 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000314 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.566 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 64.5 MB.
-System memory in use after: 64.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1659.
-Total: 1.484300 ms (FindLiveObjects: 0.150200 ms CreateObjectMapping: 0.032700 ms MarkObjects: 1.267700 ms  DeleteObjects: 0.033100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000405 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.599 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 63.8 MB.
-System memory in use after: 63.8 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1661.
-Total: 1.562600 ms (FindLiveObjects: 0.214800 ms CreateObjectMapping: 0.060200 ms MarkObjects: 1.247600 ms  DeleteObjects: 0.038000 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 1073.945980 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission.png
-  artifactKey: Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission.png using Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a3b8c94cf700a968814116868ac1e37') in 0.029795 seconds
-  Import took 0.031823 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 243.553472 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission_Yellow.png
-  artifactKey: Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_emission_Yellow.png using Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e76921abfc83b4394feff1ebbb80a106') in 0.006850 seconds
-  Import took 0.008891 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.818181 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Yellow.png
-  artifactKey: Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Yellow.png using Guid(0ed182cca0cd2df4a95659ed21e998a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef09a1c911f0ddc006e413869fcefcab') in 0.014230 seconds
-  Import took 0.016336 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.009972 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png
-  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f63bf0e0415379eeffbab652450a4df') in 0.016291 seconds
-  Import took 0.017951 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.004921 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png
-  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f63bf0e0415379eeffbab652450a4df') in 0.010626 seconds
-  Import took 0.012395 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 15.807284 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Pink.png
-  artifactKey: Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_Pink.png using Guid(0c106407d0f26764a89002b60ece537d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97b087666793854a234068b89ed47fc2') in 0.013727 seconds
-  Import took 0.015446 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 136.972926 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_AlbedoTransparency.png
-  artifactKey: Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_AlbedoTransparency.png using Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8766e3dd78707fcf69d6a0c4ca847028') in 0.006774 seconds
-  Import took 0.008855 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.928669 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Pink.png
-  artifactKey: Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Pink.png using Guid(0dbc3ae7fc936c64d80ef644b9672925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e1534db1afae5f2efc44acb7d4c7d13') in 0.013890 seconds
-  Import took 0.016159 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.928494 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png
-  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '817fef37435c37dadbf32f612c443efd') in 0.015878 seconds
-  Import took 0.017628 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.011173 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png
-  artifactKey: Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_Yellow.png using Guid(dbe4b5887ba32fd4cacada8bee52a316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '817fef37435c37dadbf32f612c443efd') in 0.005851 seconds
-  Import took 0.007800 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 146.333183 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png
-  artifactKey: Guid(2b75f9e4e22229641a42f0c8968170e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_lambert1_AlbedoTransparency_Yellow.png using Guid(2b75f9e4e22229641a42f0c8968170e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42f30740680b49c7356fa2dc30e87f9c') in 0.005791 seconds
-  Import took 0.007600 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 251.296633 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png
-  artifactKey: Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png using Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee246750cbd405ea79cf922afaf12e67') in 0.011048 seconds
-  Import took 0.012763 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003422 seconds.
-  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png
-  artifactKey: Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png using Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee246750cbd405ea79cf922afaf12e67') in 0.018328 seconds
-  Import took 0.019963 seconds .
+  Time since last request: 32.221760 seconds.
+  path: Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png
+  artifactKey: Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png using Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83838d3d0694404eb1ce8aec7cbc1aea') in 0.013466 seconds
+  Import took 0.015720 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
