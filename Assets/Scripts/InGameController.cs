@@ -10,6 +10,7 @@ public class InGameController : MonoBehaviour
     [HideInInspector]
     public string playerCarColor;//maybe an int
     public bool openingSequenceSeen = false;
+    public GameObject pauseScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +24,11 @@ public class InGameController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                //reload current scene
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Restart();
             }
             if (Input.GetKeyDown(KeyCode.M))
             {
-                //go back to main menu
-                SceneManager.LoadScene(0);
+                MainMenu();
             }
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -41,5 +40,25 @@ public class InGameController : MonoBehaviour
     public void PauseUnpause()
     {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        if(Time.timeScale == 0)
+        {
+            pauseScreen.SetActive(true);
+        }
+        else
+        {
+            pauseScreen.SetActive(false);
+        }
+    }
+    public void Restart()
+    {
+        //reload current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PauseUnpause();
+    }
+    public void MainMenu()
+    {
+        //go back to main menu
+        SceneManager.LoadScene(0);
+        PauseUnpause();
     }
 }

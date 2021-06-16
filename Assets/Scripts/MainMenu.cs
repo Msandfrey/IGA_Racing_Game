@@ -83,6 +83,12 @@ public class MainMenu : MonoBehaviour
         car.SetActive(true);
         //SceneManager.LoadScene("WaveTest");//rename later maybe
     }
+    public void Dollar()
+    {
+        SceneToLoad = "DollarTest";
+        level.SetActive(false);
+        car.SetActive(true);
+    }
     public void CarA(GameObject car)
     {
         CarToLoad = car;
