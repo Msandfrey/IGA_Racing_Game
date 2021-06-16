@@ -249,19 +249,6 @@ MonoBehaviour:
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
---- !u!65 &80895880
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80895878}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.018577835, y: 0.012300275, z: 0.048933286}
-  m_Center: {x: 0.00008940896, y: 0.0011501358, z: -0.010875352}
 --- !u!1 &108245952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,11 +1891,11 @@ PrefabInstance:
       objectReference: {fileID: 1047910297}
     - target: {fileID: 683078822, guid: d6fc1a19b52945645a78f7d1a2217295, type: 3}
       propertyPath: acceleration
-      value: 0.05
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 683078822, guid: d6fc1a19b52945645a78f7d1a2217295, type: 3}
       propertyPath: decceleration
-      value: 0.05
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 683078822, guid: d6fc1a19b52945645a78f7d1a2217295, type: 3}
       propertyPath: thirdPersonCam
@@ -2356,19 +2343,6 @@ MonoBehaviour:
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
---- !u!65 &1191972936
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191972934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.018577835, y: 0.012300275, z: 0.048933286}
-  m_Center: {x: 0.00008940896, y: 0.0011501358, z: -0.010875352}
 --- !u!1 &1260180918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,19 +3190,6 @@ MonoBehaviour:
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
---- !u!65 &1590501737
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590501735}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.018577835, y: 0.012300275, z: 0.048933286}
-  m_Center: {x: 0.00008940896, y: 0.0011501358, z: -0.010875352}
 --- !u!1001 &1601697506
 PrefabInstance:
   m_ObjectHideFlags: 0

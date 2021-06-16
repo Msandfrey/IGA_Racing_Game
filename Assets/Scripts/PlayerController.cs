@@ -150,35 +150,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space) || accelBool)
         {
-            pathFollow.IncreaseSpeed(acceleration, minSpeed, maxSpeed); 
-            if(pathFollow.speed == maxSpeed)
-            {
-                //max width
-                trail.startWidth = 1f;
-            }
-            else if(pathFollow.speed >= maxSpeed * .75f)
-            {
-                //less wisth
-                trail.startWidth = .75f;
-            }
-            else if (pathFollow.speed >= maxSpeed * .5f)
-            {
-                //half width
-                trail.startWidth = .5f;
-            }
-            else if (pathFollow.speed >= maxSpeed * .25f)
-            {
-                //little width
-                trail.startWidth = .25f;
-            }
-            else
-            {
-                trail.startWidth = 0;
-            }
+            pathFollow.IncreaseSpeed(acceleration * Time.deltaTime, minSpeed, maxSpeed); 
+            trail.startWidth = pathFollow.speed / maxSpeed ;
         }
         else
         {
-            pathFollow.DecreaseSpeed(decceleration, minSpeed, maxSpeed);
+            pathFollow.DecreaseSpeed(decceleration * Time.deltaTime, minSpeed, maxSpeed);
         }
     }
 

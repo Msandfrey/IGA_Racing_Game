@@ -19,6 +19,8 @@ public class AIController : MonoBehaviour
     public bool carAttached = true;
     public FixedJoint fixedJoint;
     public bool move = true;
+    public float acceleration = 20;
+    public float decceleration = 20;
 
     private bool hasPowerup = false;
     private bool powerActive = false;
@@ -72,7 +74,7 @@ public class AIController : MonoBehaviour
         //go
         if (carAttached && move)
         {
-            pathFollow.IncreaseSpeed(.05f, 0, speed);
+            pathFollow.IncreaseSpeed(acceleration * Time.deltaTime, 0, speed);
         }
         //respawn after getting hit
         if (respawnTimer <= 0 && !carAttached)
