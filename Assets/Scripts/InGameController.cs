@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class InGameController : MonoBehaviour
 {
-    [HideInInspector]
     public GameObject playerCar;
+    [HideInInspector]
+    public int racerType;
     [HideInInspector]
     public string playerCarColor;//maybe an int
     public bool openingSequenceSeen = false;
     public GameObject pauseScreen;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        InGameController[] objs = FindObjectsOfType<InGameController>();
+        if(objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
+        pauseScreen.transform.Translate(0, 0, -1);
     }
 
     // Update is called once per frame
@@ -22,14 +29,7 @@ public class InGameController : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Restart();
-            }
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                MainMenu();
-            }
+
             if (Input.GetKeyDown(KeyCode.P))
             {
                 PauseUnpause();

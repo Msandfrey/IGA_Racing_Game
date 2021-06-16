@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            //SwapCam();
+            SwapCam();
         }
         if(powerupTimer <= 0 && powerActive)
         {

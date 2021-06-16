@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &44664671
 GameObject:
@@ -271,6 +271,18 @@ PrefabInstance:
     - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -671,7 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4717286864353679742, guid: d6fc1a19b52945645a78f7d1a2217295, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4717286864353679742, guid: d6fc1a19b52945645a78f7d1a2217295, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1534,8 +1546,19 @@ MonoBehaviour:
   breakForce: 800
   breakTorque: 600
   lapTracker: 0
+  enemy: 1
   carColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}
-  Controller: {fileID: 316629737}
+  Controller: {fileID: 316629739}
+  redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
+  redEmissive: {r: 1, g: 0, b: 0, a: 1}
+  orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}
+  orangeEmissive: {r: 1, g: 0.3904, b: 0.1921, a: 1}
+  yellowAlbedo: {r: 1, g: 0.745, b: 0, a: 1}
+  yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
+  magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
+  magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
+  whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &1068210167 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 138806547395978816, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
@@ -1575,7 +1598,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3516542090252522370, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1670,7 +1705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 13.096, y: 0, z: 0}
 --- !u!81 &1133516547
 AudioListener:
@@ -1732,12 +1767,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133516545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d5fa6f1549cd846b1bb98958ca573b, type: 3}
+  m_Script: {fileID: 11500000, guid: e2e9f062b69faeb4ead8d2fd4f9d1304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 636796081}
-  smoothSpeed: 0
-  offset: {x: 0, y: 1.5, z: -5}
+  followTarget: {fileID: 636796081}
+  upOffset: {x: 0, y: 2, z: 0}
+  behindOffset: 5
+  smoothBrainFactor: 0.4
+  lookAtOn: 1
 --- !u!1001 &1182117092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1845,8 +1882,19 @@ MonoBehaviour:
   breakForce: 800
   breakTorque: 600
   lapTracker: 0
+  enemy: 1
   carColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0}
-  Controller: {fileID: 197190716}
+  Controller: {fileID: 197190718}
+  redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
+  redEmissive: {r: 1, g: 0, b: 0, a: 1}
+  orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}
+  orangeEmissive: {r: 1, g: 0.3904, b: 0.1921, a: 1}
+  yellowAlbedo: {r: 1, g: 0.745, b: 0, a: 1}
+  yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
+  magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
+  magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
+  whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &1204679029
 BoxCollider:
   m_ObjectHideFlags: 0

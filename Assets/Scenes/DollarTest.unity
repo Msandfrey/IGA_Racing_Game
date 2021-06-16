@@ -599,7 +599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &911383796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,12 +609,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 911383795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d5fa6f1549cd846b1bb98958ca573b, type: 3}
+  m_Script: {fileID: 11500000, guid: e2e9f062b69faeb4ead8d2fd4f9d1304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  smoothSpeed: 0
-  offset: {x: 0, y: 1.5, z: -5}
+  followTarget: {fileID: 531374791}
+  upOffset: {x: 0, y: 2, z: 0}
+  behindOffset: 5
+  smoothBrainFactor: 0.4
+  lookAtOn: 1
 --- !u!81 &911383797
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1436,8 +1438,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 531374791}
-  offset: {x: 0, y: 30, z: 0}
-  smoothBrainFactor: 0.1
+  upOffset: {x: 0, y: 30, z: 0}
+  behindOffset: 0
+  smoothBrainFactor: 0.4
+  lookAtOn: 0
 --- !u!1 &1501078264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,7 +1650,7 @@ MonoBehaviour:
       - {x: 9.855936, y: 0, z: 6.2796516}
       - {x: 6.4754286, y: 0, z: 3.5439534}
       isClosed: 1
-      space: 2
+      space: 0
       controlMode: 0
       autoControlLength: 0.3
       boundsUpToDate: 0

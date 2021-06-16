@@ -16,7 +16,6 @@ public class MainMenu : MonoBehaviour
     private AudioSource introSound;
 
     private string SceneToLoad;
-    private GameObject CarToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,11 +88,17 @@ public class MainMenu : MonoBehaviour
         level.SetActive(false);
         car.SetActive(true);
     }
-    public void CarA(GameObject car)
+    public void CarA(string color)
     {
-        CarToLoad = car;
         //save car to gamemanager
-        FindObjectOfType<InGameController>().playerCar = CarToLoad;
+        FindObjectOfType<InGameController>().racerType = 1;
+        FindObjectOfType<InGameController>().playerCarColor = color;
+        SceneManager.LoadScene(SceneToLoad);
+    }
+    public void CarB(string color)
+    {
+        FindObjectOfType<InGameController>().racerType = 2;
+        FindObjectOfType<InGameController>().playerCarColor = color;
         SceneManager.LoadScene(SceneToLoad);
     }
 }
