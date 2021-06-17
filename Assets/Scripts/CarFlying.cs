@@ -10,12 +10,9 @@ public class CarFlying : MonoBehaviour
     public GameObject LapTrackUI;
     public float breakForce = 800;
     public float breakTorque = 600;
-    //powerups
-    bool powerup = false;
-    float powerupTimer = 0f;
+    [HideInInspector]
     public int lapTracker = 0;
     public bool enemy;
-    public Color carColor;
     public AIController Controller;
     private MeshRenderer carRenderer;
     //
@@ -36,9 +33,16 @@ public class CarFlying : MonoBehaviour
     [SerializeField]
     Color magentaEmissive = new Color(.83f, .4198f, .7128f);
     [SerializeField]
+    Color blueAlbedo = new Color(0, 0, 1);
+    [SerializeField]
+    Color blueEmissive = new Color(0, 0, 1);
+    [HideInInspector]
+    [SerializeField]
     Color whiteAlbedo = new Color(1, 1, 1);
     [SerializeField]
     Color whiteEmissive = new Color(1, 1, 1);
+    [HideInInspector]
+    public string carColor;
 
     // Start is called before the first frame update
     void Start()
@@ -48,33 +52,17 @@ public class CarFlying : MonoBehaviour
         if (enemy)
         {
             SetRacer(Random.Range(1, 2));
-            SetColor(GetRandomColor());
+            carColor = GetRandomColor();
+            SetColor(carColor);
         }
         else
         {
             SetRacer(FindObjectOfType<InGameController>().racerType);
-            SetColor(FindObjectOfType<InGameController>().playerCarColor);
+            carColor = FindObjectOfType<InGameController>().playerCarColor;
+            SetColor(carColor);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString();
-        if (powerupTimer <= 0 && powerup)
-        {
-            powerup = false;
-            //GetComponent<MeshRenderer>().materials[0].color = carColor;
-            //GetComponent<BoxCollider>().enabled = true;
-            fixedJoint.breakForce = breakForce;//var
-            fixedJoint.breakTorque = breakTorque;//var
-            //stop changing colors
-        }
-        else if (powerupTimer > 0 && powerup)
-        {
-            powerupTimer -= Time.deltaTime;
-        }
-    }
     string GetRandomColor()
     {
         switch (Random.Range(1,5))
@@ -94,7 +82,7 @@ public class CarFlying : MonoBehaviour
         }
         return "white";
     }
-    void SetColor(string color)
+    public void SetColor(string color)
     {
         switch (color)
         {
@@ -113,6 +101,10 @@ public class CarFlying : MonoBehaviour
             case "red":
                 carRenderer.material.SetColor("_AlbedoTint", redAlbedo);
                 carRenderer.material.SetColor("_EmissionColor", redEmissive);
+                break;
+            case "blue":
+                carRenderer.material.SetColor("_AlbedoTint", blueAlbedo);
+                carRenderer.material.SetColor("_EmissionColor", blueEmissive);
                 break;
             case "white":
                 break;

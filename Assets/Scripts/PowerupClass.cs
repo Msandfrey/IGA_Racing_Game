@@ -42,14 +42,14 @@ public class PowerupClass
 
     void PhaseShift(GameObject car)
     {
-        car.GetComponent<MeshRenderer>().materials[0].color = Color.blue;
+        car.GetComponent<CarFlying>().SetColor("blue");
         car.GetComponent<CarFlying>().fixedJoint.breakForce = Mathf.Infinity;
         car.GetComponent<CarFlying>().fixedJoint.breakTorque = Mathf.Infinity;
     }
 
     void ResetCar(GameObject car)
     {
-        car.GetComponent<MeshRenderer>().materials[0].color = car.GetComponent<CarFlying>().carColor;
+        car.GetComponent<CarFlying>().SetColor(car.GetComponent<CarFlying>().carColor);
         car.GetComponent<CarFlying>().fixedJoint.breakTorque = car.GetComponent<CarFlying>().breakTorque;
         car.GetComponent<CarFlying>().fixedJoint.breakForce = car.GetComponent<CarFlying>().breakForce;
     }
