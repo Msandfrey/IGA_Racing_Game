@@ -7,6 +7,10 @@ TagManager:
   - Checkpoint
   - Powerup
   - Enemy
+  - Missile
+  - PlayerCar
+  - EnemyCar
+  - UI
   layers:
   - Default
   - TransparentFX

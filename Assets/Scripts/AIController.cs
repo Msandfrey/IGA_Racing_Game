@@ -15,13 +15,23 @@ public class AIController : MonoBehaviour
     private float timer;
     public float delayToStart;
     float respawnTimer = 0f;
-    private bool carAttached = true;
+    public float speed;
+    public bool carAttached = true;
     public FixedJoint fixedJoint;
+    public bool move = true;
+    public float acceleration = 20;
+    public float decceleration = 20;
+
+    private bool hasPowerup = false;
+    private bool powerActive = false;
+    private float powerupTimer;
+    PowerupClass powerup;
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(180, 0, 0);
         pathFollow = GetComponent<Follow>();
+        powerup = new PowerupClass();
     }
 
     // Update is called once per frame
@@ -38,16 +48,33 @@ public class AIController : MonoBehaviour
         {
             fixedJoint = gameObject.AddComponent<FixedJoint>();
             fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();
-            fixedJoint.breakForce = breakForce;//var
             fixedJoint.breakTorque = breakTorque;//var
+            fixedJoint.breakForce = breakForce;//var
             fixedJoint.enablePreprocessing = false;
             carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;//for now it doesnt do anything with this var
             carToSpawn.layer = 0;
         }
-        //go
-        if (carAttached)
+        if (hasPowerup)
         {
-            //pathFollow.IncreaseSpeed(.001f, 30, 60);
+            powerupTimer = powerup.timer;
+            hasPowerup = false;
+            powerActive = true;
+            powerup.UseEffect(carToSpawn);
+            powerup.power = PowerupClass.PowerType.None;
+        }
+        if (powerupTimer <= 0 && powerActive)
+        {
+            powerup.StopEffect(carToSpawn);
+            powerActive = false;
+        }
+        else if (powerupTimer > 0 && powerActive)
+        {
+            powerupTimer -= Time.deltaTime;
+        }
+        //go
+        if (carAttached && move)
+        {
+            pathFollow.IncreaseSpeed(acceleration * Time.deltaTime, 0, speed);
         }
         //respawn after getting hit
         if (respawnTimer <= 0 && !carAttached)
@@ -69,6 +96,10 @@ public class AIController : MonoBehaviour
             respawnTimer -= Time.deltaTime;
         }
     }
+    public bool IsPowerActive()
+    {
+        return powerActive;
+    }
     private void OnJointBreak(float breakForce)
     {
         Debug.Log("Car falls off with force of : " + breakForce);
@@ -82,19 +113,37 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag.Equals("Enemy") || other.tag.Equals("Player")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint && other.gameObject != carToSpawn)
         {
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
         }
+        else if (other.tag.Equals("Powerup"))
+        {
+            //disable the powerup
+            other.gameObject.GetComponent<PowerupPickup>().PickedUp();
+            //set powerup vals
+            powerup.power = PowerupClass.PowerType.Phase;
+            powerup.timer = 2f;
+            powerup.UIImage = null;
+            hasPowerup = true;
 
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint && other.gameObject != carToSpawn)
+        {
+            fixedJoint.breakForce = Mathf.Infinity;
+            fixedJoint.breakTorque = Mathf.Infinity;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        if ((other.tag.Equals("Enemy") || other.tag.Equals("Player")) && fixedJoint)
+        if ((other.tag.Equals("EnemyCar") || other.tag.Equals("PlayerCar")) && fixedJoint && other.gameObject != carToSpawn)
         {
-            fixedJoint.breakForce = breakForce;
             fixedJoint.breakTorque = breakTorque;
+            fixedJoint.breakForce = breakForce;
         }
 
     }

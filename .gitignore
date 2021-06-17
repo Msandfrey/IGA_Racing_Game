@@ -35,3 +35,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/EditorBuildSettings.asset
+Logs/AssetImportWorker0.log
+Logs/AssetImportWorker0-prev.log
+Logs/AssetImportWorker0-prev.log
