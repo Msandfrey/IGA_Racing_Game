@@ -62,7 +62,10 @@ public class CarFlying : MonoBehaviour
             SetColor(carColor);
         }
     }
-
+    private void Update()
+    {
+        LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString();
+    }
     string GetRandomColor()
     {
         switch (Random.Range(1,5))

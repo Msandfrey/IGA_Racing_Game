@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3768026}
   - component: {fileID: 3768025}
-  - component: {fileID: 3768024}
   - component: {fileID: 3768027}
   m_Layer: 0
   m_Name: 3pcam
@@ -142,14 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &3768024
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3768023}
-  m_Enabled: 1
 --- !u!20 &3768025
 Camera:
   m_ObjectHideFlags: 0
@@ -779,6 +770,8 @@ MonoBehaviour:
   carAttached: 1
   fixedJoint: {fileID: 495864079}
   move: 1
+  acceleration: 20
+  decceleration: 20
 --- !u!114 &495864081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1865,6 +1858,8 @@ MonoBehaviour:
   carAttached: 1
   fixedJoint: {fileID: 1228544898}
   move: 1
+  acceleration: 20
+  decceleration: 20
 --- !u!114 &1228544900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,6 +2169,8 @@ MonoBehaviour:
   carAttached: 1
   fixedJoint: {fileID: 1403728884}
   move: 1
+  acceleration: 20
+  decceleration: 20
 --- !u!114 &1403728886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3490,8 +3487,7 @@ MonoBehaviour:
   breakTorque: 600
   lapTracker: 0
   enemy: 1
-  carColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}
-  Controller: {fileID: 0}
+  Controller: {fileID: 495864080}
   redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
   redEmissive: {r: 1, g: 0, b: 0, a: 1}
   orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}
@@ -3500,8 +3496,11 @@ MonoBehaviour:
   yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
   magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  blueAlbedo: {r: 0, g: 0, b: 1, a: 1}
+  blueEmissive: {r: 0, g: 0, b: 1, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
+  carColor: 
 --- !u!1 &1857466628
 GameObject:
   m_ObjectHideFlags: 0
@@ -3695,8 +3694,7 @@ MonoBehaviour:
   breakTorque: 600
   lapTracker: 0
   enemy: 1
-  carColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}
-  Controller: {fileID: 0}
+  Controller: {fileID: 1403728885}
   redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
   redEmissive: {r: 1, g: 0, b: 0, a: 1}
   orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}
@@ -3705,8 +3703,11 @@ MonoBehaviour:
   yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
   magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  blueAlbedo: {r: 0, g: 0, b: 1, a: 1}
+  blueEmissive: {r: 0, g: 0, b: 1, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
+  carColor: 
 --- !u!1 &1947205089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d322c03c599068448e8a161946d9f14, type: 3}
@@ -4139,8 +4140,7 @@ MonoBehaviour:
   breakTorque: 600
   lapTracker: 0
   enemy: 1
-  carColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}
-  Controller: {fileID: 0}
+  Controller: {fileID: 1228544899}
   redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
   redEmissive: {r: 1, g: 0, b: 0, a: 1}
   orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}
@@ -4149,8 +4149,11 @@ MonoBehaviour:
   yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
   magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  blueAlbedo: {r: 0, g: 0, b: 1, a: 1}
+  blueEmissive: {r: 0, g: 0, b: 1, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
+  carColor: 
 --- !u!1 &2113897321
 GameObject:
   m_ObjectHideFlags: 0

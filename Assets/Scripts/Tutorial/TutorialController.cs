@@ -65,7 +65,7 @@ public class TutorialController : MonoBehaviour
                     break;
                 case PowerupClass.PowerType.Split:
                     GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
-                    miss.GetComponent<SplitShot>().owner = gameObject;
+                    miss.GetComponent<SplitShot>().ownerName = name;
                     //TODO need a function to find target path later
                     miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
                     miss.transform.Rotate(90, 0, 0);

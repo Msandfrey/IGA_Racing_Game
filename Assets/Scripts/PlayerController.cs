@@ -52,7 +52,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        carToSpawn = Instantiate(FindObjectOfType<InGameController>().playerCar, transform.position, transform.rotation);
+        carToSpawn = Instantiate(FindObjectOfType<InGameController>().playerCar, transform.position, transform.rotation);//comment out when testing
+        //carToSpawn = Instantiate(carToSpawn, transform.position, transform.rotation);//comment out when not tsting
         carToSpawn.transform.Rotate(0, 180, 0);
         carToSpawn.GetComponent<CarFlying>().LapTrackUI = lapUI;
         fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();//use function, but to do that need to remove fixed joint from prefab
@@ -97,7 +98,9 @@ public class PlayerController : MonoBehaviour
                     break;
                 case PowerupClass.PowerType.Split:
                     GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
-                    miss.GetComponent<SplitShot>().owner = gameObject;
+                    miss.GetComponent<SplitShot>().carName = carToSpawn.name;
+                    miss.GetComponent<SplitShot>().ownerName = name;
+                    miss.GetComponent<SplitShot>().viewAngle = 150;
                     //TODO need a function to find target path later
                     miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
                     miss.transform.Rotate(90, 0, 0);

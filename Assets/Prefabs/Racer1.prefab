@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 331252398}
   - component: {fileID: 331252399}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 9179166973124651261}
   - component: {fileID: 1479183088}
   - component: {fileID: 1479183082}
-  m_Layer: 0
-  m_Name: Prototype_Car_2
+  m_Layer: 3
+  m_Name: Racer1
   m_TagString: PlayerCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,5 +213,18 @@ MonoBehaviour:
   breakForce: 800
   breakTorque: 600
   lapTracker: 0
-  carColor: {r: 0, g: 0, b: 0, a: 0}
+  enemy: 0
   Controller: {fileID: 0}
+  redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
+  redEmissive: {r: 1, g: 0, b: 0, a: 1}
+  orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}
+  orangeEmissive: {r: 1, g: 0.3904, b: 0.1921, a: 1}
+  yellowAlbedo: {r: 1, g: 0.745, b: 0, a: 1}
+  yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
+  magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
+  magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  blueAlbedo: {r: 0, g: 0, b: 1, a: 1}
+  blueEmissive: {r: 0, g: 0, b: 1, a: 1}
+  whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
+  whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
+  carColor: 

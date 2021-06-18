@@ -7,7 +7,8 @@ public class PlayerFollow : MonoBehaviour
     public Transform followTarget;
     public Vector3 upOffset;
     public float behindOffset;
-    public float smoothBrainFactor = .1f;
+    [Range(0, 1)]
+    public float smoothBrainFactor = .4f;
     public bool lookAtOn = false;
     private void Start()
     {

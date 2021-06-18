@@ -53,4 +53,9 @@ public class Follow : MonoBehaviour
         speed -= newSpeed;
         speed = Mathf.Clamp(speed, min, max);
     }
+
+    public void LeavePath()
+    {
+        pathCreator = null;
+    }
 }

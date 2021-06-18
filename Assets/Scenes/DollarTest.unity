@@ -599,7 +599,6 @@ GameObject:
   m_Component:
   - component: {fileID: 911383799}
   - component: {fileID: 911383798}
-  - component: {fileID: 911383797}
   - component: {fileID: 911383796}
   m_Layer: 0
   m_Name: FPCam
@@ -625,14 +624,6 @@ MonoBehaviour:
   behindOffset: 5
   smoothBrainFactor: 0.4
   lookAtOn: 1
---- !u!81 &911383797
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911383795}
-  m_Enabled: 1
 --- !u!20 &911383798
 Camera:
   m_ObjectHideFlags: 0

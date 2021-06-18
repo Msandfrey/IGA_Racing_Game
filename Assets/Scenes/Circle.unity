@@ -329,6 +329,10 @@ PrefabInstance:
       value: Prototype_Car_1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4289279294003628344, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289279294003628344, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
       propertyPath: m_TagString
       value: EnemyCar
       objectReference: {fileID: 0}
@@ -1551,7 +1555,6 @@ MonoBehaviour:
   breakTorque: 600
   lapTracker: 0
   enemy: 1
-  carColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}
   Controller: {fileID: 316629739}
   redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
   redEmissive: {r: 1, g: 0, b: 0, a: 1}
@@ -1561,8 +1564,11 @@ MonoBehaviour:
   yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
   magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  blueAlbedo: {r: 0, g: 0, b: 1, a: 1}
+  blueEmissive: {r: 0, g: 0, b: 1, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
+  carColor: 
 --- !u!54 &1068210167 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 138806547395978816, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
@@ -1648,6 +1654,10 @@ PrefabInstance:
       value: Prototype_Car_1
       objectReference: {fileID: 0}
     - target: {fileID: 4289279294003628344, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289279294003628344, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
       propertyPath: m_TagString
       value: EnemyCar
       objectReference: {fileID: 0}
@@ -1675,7 +1685,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1133516546}
   - component: {fileID: 1133516548}
-  - component: {fileID: 1133516547}
   - component: {fileID: 1133516549}
   m_Layer: 0
   m_Name: FPCam
@@ -1698,14 +1707,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 13.096, y: 0, z: 0}
---- !u!81 &1133516547
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133516545}
-  m_Enabled: 1
 --- !u!20 &1133516548
 Camera:
   m_ObjectHideFlags: 0
@@ -1874,7 +1875,6 @@ MonoBehaviour:
   breakTorque: 600
   lapTracker: 0
   enemy: 1
-  carColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0}
   Controller: {fileID: 197190718}
   redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
   redEmissive: {r: 1, g: 0, b: 0, a: 1}
@@ -1884,8 +1884,11 @@ MonoBehaviour:
   yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
   magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
+  blueAlbedo: {r: 0, g: 0, b: 1, a: 1}
+  blueEmissive: {r: 0, g: 0, b: 1, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
+  carColor: 
 --- !u!54 &1204679030 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 138806547395978816, guid: 39c1be9c0626a5a4491df504bd7cbb63, type: 3}
