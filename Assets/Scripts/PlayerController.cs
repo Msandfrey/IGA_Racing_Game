@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Camera overheadCam;
     public Camera thirdPersonCam;
     public GameObject lapUI;
+    private int mineSpawnPoint;
     [SerializeField]
     private float breakForce = 800;
     [SerializeField]
@@ -27,7 +28,14 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float minSpeed;
     public float delayToStart;
+    [SerializeField]
+    private bool sharedTrack;
     float respawnTimer = 0f;
+    //
+    public Transform mineSpawn1;
+    public Transform mineSpawn2;
+    public Transform mineSpawn3;
+    public Transform mineSpawn4;
 
     private GameObject powerupToSpawn;
 
@@ -47,7 +55,6 @@ public class PlayerController : MonoBehaviour
         pathFollow = GetComponent<Follow>();
         trail = GetComponentInChildren<TrailRenderer>();
         powerup = new PowerupClass();
-
     }
 
     private void Start()
@@ -101,7 +108,6 @@ public class PlayerController : MonoBehaviour
                     miss.GetComponent<SplitShot>().carName = carToSpawn.name;
                     miss.GetComponent<SplitShot>().ownerName = name;
                     miss.GetComponent<SplitShot>().viewAngle = 150;
-                    //TODO need a function to find target path later
                     miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
                     miss.transform.Rotate(90, 0, 0);
                     miss.transform.localScale *= 2;
@@ -109,7 +115,8 @@ public class PlayerController : MonoBehaviour
                     powerup.power = PowerupClass.PowerType.None;
                     break;
                 case PowerupClass.PowerType.Mine:
-                    Vector3 spawnPos = carToSpawn.transform.position;
+                    mineSpawnPoint = Random.Range(1, 3);
+                    Vector3 spawnPos = GetMineSpawn();
                     GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
                     mine.GetComponent<Mine>().ownerTag = gameObject.tag;
                     hasPowerup = false;
@@ -181,6 +188,24 @@ public class PlayerController : MonoBehaviour
     public bool IsPowerActive()
     {
         return powerActive;
+    }
+    Vector3 GetMineSpawn()
+    {
+        if (sharedTrack) { mineSpawnPoint = 0; }
+        switch (mineSpawnPoint)
+        {
+            case 0:
+                return mineSpawn1.position;
+            case 1:
+                return mineSpawn2.position;
+            case 2:
+                return mineSpawn3.position;
+            case 3:
+                return mineSpawn4.position;
+            default:
+                break;
+        }
+        return mineSpawn1.position;
     }
     void SwapCam()
     {

@@ -125,6 +125,10 @@ public class SplitShot : MonoBehaviour
                 other.GetComponent<Rigidbody>().useGravity = true;
                 Boom();
             }
+            else
+            {
+                Boom();
+            }
         }
     }
 }
