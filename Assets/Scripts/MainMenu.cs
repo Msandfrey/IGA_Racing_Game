@@ -60,6 +60,8 @@ public class MainMenu : MonoBehaviour
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
+        FindObjectOfType<InGameController>().racerType = 1;
+        FindObjectOfType<InGameController>().playerCarColor = "red";
     }
     public void MattTest()
     {

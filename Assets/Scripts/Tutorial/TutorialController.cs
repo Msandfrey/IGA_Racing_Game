@@ -68,6 +68,8 @@ public class TutorialController : MonoBehaviour
                     miss.GetComponent<SplitShot>().ownerName = name;
                     //TODO need a function to find target path later
                     miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
+                    miss.GetComponent<SplitShot>().carName = carToSpawn.name;
+                    miss.GetComponent<SplitShot>().ownerName = name;
                     miss.transform.Rotate(90, 0, 0);
                     miss.transform.localScale *= 2;
                     hasPowerup = false;
@@ -86,6 +88,7 @@ public class TutorialController : MonoBehaviour
         }
         if (powerupTimer <= 0 && powerActive)
         {
+            Debug.Log("powerStop");
             powerActive = false;
             powerup.StopEffect(carToSpawn);
         }

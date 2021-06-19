@@ -7,9 +7,9 @@ public class InGameController : MonoBehaviour
 {
     public GameObject playerCar;
     [HideInInspector]
-    public int racerType;
+    public int racerType = 1;
     [HideInInspector]
-    public string playerCarColor;//maybe an int
+    public string playerCarColor = "white";//maybe an int
     public bool openingSequenceSeen = false;
     public GameObject pauseScreen;
     // Start is called before the first frame update

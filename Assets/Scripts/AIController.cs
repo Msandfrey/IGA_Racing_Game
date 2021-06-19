@@ -22,6 +22,7 @@ public class AIController : MonoBehaviour
     public float acceleration = 20;
     public float decceleration = 20;
 
+    private GameObject powerupToSpawn;
     private bool hasPowerup = false;
     private bool powerActive = false;
     private float powerupTimer;
@@ -96,7 +97,7 @@ public class AIController : MonoBehaviour
             respawnTimer -= Time.deltaTime;
         }
     }
-    public bool IsPowerActive()
+    public bool IsPowerActive()//todo fix this no work
     {
         return powerActive;
     }
@@ -123,9 +124,8 @@ public class AIController : MonoBehaviour
             //disable the powerup
             other.gameObject.GetComponent<PowerupPickup>().PickedUp();
             //set powerup vals
-            powerup.power = PowerupClass.PowerType.Phase;
-            powerup.timer = 2f;
-            powerup.UIImage = null;
+            powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();
+            powerupToSpawn = powerup.prefabToSpawn;
             hasPowerup = true;
 
         }
