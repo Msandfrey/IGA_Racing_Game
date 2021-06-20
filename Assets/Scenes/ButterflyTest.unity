@@ -450,6 +450,10 @@ MonoBehaviour:
   carToSpawn: {fileID: 1590501735}
   breakForce: 800
   breakTorque: 400
+  detectionRadius: 20
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   delayToStart: 2
   speed: 65
   carAttached: 1
@@ -758,6 +762,10 @@ MonoBehaviour:
   carToSpawn: {fileID: 1191972934}
   breakForce: 800
   breakTorque: 400
+  detectionRadius: 20
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   delayToStart: 2
   speed: 65
   carAttached: 1
@@ -2896,6 +2904,10 @@ MonoBehaviour:
   carToSpawn: {fileID: 80895878}
   breakForce: 800
   breakTorque: 400
+  detectionRadius: 20
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   delayToStart: 2
   speed: 65
   carAttached: 1

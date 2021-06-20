@@ -47,7 +47,7 @@ public class CarFlying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreLayerCollision(0,6);
+        Physics.IgnoreLayerCollision(3,6);
         carRenderer = GetComponent<MeshRenderer>();
         if (enemy)
         {
