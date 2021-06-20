@@ -103,4 +103,10 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<InGameController>().playerCarColor = color;
         SceneManager.LoadScene(SceneToLoad);
     }
+    public void CarC(string color)
+    {
+        FindObjectOfType<InGameController>().racerType = 3;
+        FindObjectOfType<InGameController>().playerCarColor = color;
+        SceneManager.LoadScene(SceneToLoad);
+    }
 }
