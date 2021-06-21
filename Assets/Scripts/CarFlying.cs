@@ -10,10 +10,10 @@ public class CarFlying : MonoBehaviour
     public GameObject LapTrackUI;
     public float breakForce = 800;
     public float breakTorque = 600;
-    [HideInInspector]
     public int lapTracker = 0;
     public bool enemy;
     public AIController Controller;
+    public PlayerController playerController;
     private MeshRenderer carRenderer;
     //
     [SerializeField]

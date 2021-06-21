@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
         //carToSpawn = Instantiate(carToSpawn, transform.position, transform.rotation);//comment out when not tsting
         carToSpawn.transform.Rotate(0, 180, 0);
         carToSpawn.GetComponent<CarFlying>().LapTrackUI = lapUI;
+        carToSpawn.GetComponent<CarFlying>().playerController = GetComponent<PlayerController>();
         fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();//use function, but to do that need to remove fixed joint from prefab
         fixedJoint.breakTorque = breakTorque;//var
         fixedJoint.breakForce = breakForce;//var
