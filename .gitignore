@@ -36,3 +36,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Logs/AssetImportWorker0-prev.log
+Logs/AssetImportWorker1.log
+Logs/AssetImportWorker2.log
+Logs/AssetImportWorker3.log
+Logs/AssetImportWorker4.log
+Logs/AssetImportWorker5.log
