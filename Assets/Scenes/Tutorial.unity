@@ -473,6 +473,10 @@ MonoBehaviour:
   carToSpawn: {fileID: 1204679025}
   breakForce: 800
   breakTorque: 400
+  detectionRadius: 20
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   delayToStart: 2
   speed: 0
   carAttached: 1
@@ -480,6 +484,8 @@ MonoBehaviour:
   move: 0
   acceleration: 20
   decceleration: 20
+  carLayer: 3
+  hasPowerup: 0
 --- !u!114 &197190719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +501,7 @@ MonoBehaviour:
   pathCreator: {fileID: 1313241449}
   endOfPathInstruction: 0
   speed: 0
+  distanceTravelled: 0
 --- !u!54 &197190720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -946,6 +953,10 @@ MonoBehaviour:
   carToSpawn: {fileID: 1068210164}
   breakForce: 800
   breakTorque: 400
+  detectionRadius: 20
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   delayToStart: 2
   speed: 0
   carAttached: 1
@@ -953,6 +964,8 @@ MonoBehaviour:
   move: 0
   acceleration: 20
   decceleration: 20
+  carLayer: 3
+  hasPowerup: 0
 --- !u!114 &316629740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,6 +981,7 @@ MonoBehaviour:
   pathCreator: {fileID: 1293947903}
   endOfPathInstruction: 0
   speed: 0
+  distanceTravelled: 0
 --- !u!54 &316629741
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1469,7 +1483,7 @@ MonoBehaviour:
   breakForce: 800
   breakTorque: 600
   acceleration: 3
-  decceleration: 1
+  decceleration: 0.5
   maxSpeed: 100
   minSpeed: 0
   wait: 1
@@ -1929,6 +1943,7 @@ MonoBehaviour:
   lapTracker: 0
   enemy: 1
   Controller: {fileID: 316629739}
+  playerController: {fileID: 0}
   redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
   redEmissive: {r: 1, g: 0, b: 0, a: 1}
   orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}
@@ -2362,6 +2377,7 @@ MonoBehaviour:
   lapTracker: 0
   enemy: 1
   Controller: {fileID: 197190718}
+  playerController: {fileID: 0}
   redAlbedo: {r: 1, g: 0.3, b: 0.3, a: 1}
   redEmissive: {r: 1, g: 0, b: 0, a: 1}
   orangeAlbedo: {r: 1, g: 0.25, b: 0, a: 1}

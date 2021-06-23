@@ -132,8 +132,12 @@ public class CarFlying : MonoBehaviour
                 carRenderer.material = Resources.Load<Material>("Materials/Racer_3_Material_White");
                 break;
             case 4:
+                GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Speed_Car_1");
+                carRenderer.material = Resources.Load<Material>("Materials/Racer_4_Material_White");
                 break;
             default:
+                GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Starter_Car_2");
+                carRenderer.material = Resources.Load<Material>("Materials/Racer_1_Material_White");
                 break;
         }
     }

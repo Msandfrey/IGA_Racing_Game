@@ -109,4 +109,10 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<InGameController>().playerCarColor = color;
         SceneManager.LoadScene(SceneToLoad);
     }
+    public void CarD(string color)
+    {
+        FindObjectOfType<InGameController>().racerType = 4;
+        FindObjectOfType<InGameController>().playerCarColor = color;
+        SceneManager.LoadScene(SceneToLoad);
+    }
 }

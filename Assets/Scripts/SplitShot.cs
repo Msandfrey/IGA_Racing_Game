@@ -118,12 +118,25 @@ public class SplitShot : MonoBehaviour
     {
         if (!other.name.Equals(carName) && !other.name.Equals(ownerName) && other.tag.Contains("Car"))
         {
-            if (!other.GetComponent<CarFlying>().Controller.GetComponent<AIController>().IsPowerActive())
+            if (other.GetComponent<CarFlying>().Controller)
             {
-                other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
-                other.GetComponent<Rigidbody>().AddRelativeTorque(0, 0, -100, ForceMode.Impulse);
-                other.GetComponent<Rigidbody>().useGravity = true;
-                Boom();
+                if (!other.GetComponent<CarFlying>().Controller.GetComponent<AIController>().IsPowerActive())
+                {
+                    other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
+                    other.GetComponent<Rigidbody>().AddRelativeTorque(0, 0, -100, ForceMode.Impulse);
+                    other.GetComponent<Rigidbody>().useGravity = true;
+                    Boom();
+                }
+            }
+            else if (other.GetComponent<CarFlying>().playerController)
+            {
+                if (!other.GetComponent<CarFlying>().playerController.GetComponent<PlayerController>().IsPowerActive())
+                {
+                    other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
+                    other.GetComponent<Rigidbody>().AddRelativeTorque(0, 0, -100, ForceMode.Impulse);
+                    other.GetComponent<Rigidbody>().useGravity = true;
+                    Boom();
+                }
             }
             else
             {
