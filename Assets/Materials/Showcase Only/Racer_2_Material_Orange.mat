@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Racer_3_Material_White
+  m_Name: Racer_2_Material_Orange
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
@@ -36,11 +36,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: ddb2b192fdeabeb4cbd620bd5f7b62cc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 450de33afb50bad438d53dbe8a18b36d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d05eb69e2487aa847969e3924a767b58, type: 3}
+        m_Texture: {fileID: 2800000, guid: 82c4294f63c0e0140a42083804e2a192, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -73,6 +73,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.25, b: 0, a: 1}
+    - _EmissionColor: {r: 1, g: 0.3904481, b: 0.19215685, a: 1}
   m_BuildTextureStacks: []
