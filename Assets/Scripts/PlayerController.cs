@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         pathFollow = GetComponent<Follow>();
-        trail = GetComponentInChildren<TrailRenderer>();
         powerup = new PowerupClass();
     }
 
@@ -71,6 +70,7 @@ public class PlayerController : MonoBehaviour
         fixedJoint.enablePreprocessing = false;
         carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
         carToSpawn.layer = carLayer;
+        trail = carToSpawn.GetComponentInChildren<TrailRenderer>();
         overheadCam.enabled = true;
         thirdPersonCam.enabled = false;
         GameStartUI.SetActive(true);
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
     {
         return powerActive;
     }
-    void UserPowerup()
+    public void UserPowerup()
     {
         switch (powerup.power)
         {
@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
         }
         return mineSpawn1.position;
     }
-    void SwapCam()
+    public void SwapCam()
     {
         overheadCam.enabled = !overheadCam.enabled;
         thirdPersonCam.enabled = !thirdPersonCam.enabled;

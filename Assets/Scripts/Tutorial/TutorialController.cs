@@ -54,37 +54,7 @@ public class TutorialController : MonoBehaviour
         
         if (hasPowerup && Input.GetKeyDown(KeyCode.F))
         {
-            switch (powerup.power)
-            {
-                case PowerupClass.PowerType.Phase:
-                    powerupTimer = powerup.timer;
-                    hasPowerup = false;
-                    powerActive = true;
-                    powerup.UseEffect(carToSpawn);
-                    powerup.power = PowerupClass.PowerType.None;
-                    break;
-                case PowerupClass.PowerType.Split:
-                    GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
-                    miss.GetComponent<SplitShot>().ownerName = name;
-                    //TODO need a function to find target path later
-                    miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
-                    miss.GetComponent<SplitShot>().carName = carToSpawn.name;
-                    miss.GetComponent<SplitShot>().ownerName = name;
-                    miss.transform.Rotate(90, 0, 0);
-                    miss.transform.localScale *= 2;
-                    hasPowerup = false;
-                    powerup.power = PowerupClass.PowerType.None;
-                    break;
-                case PowerupClass.PowerType.Mine:
-                    Vector3 spawnPos = carToSpawn.transform.position;
-                    GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
-                    mine.GetComponent<Mine>().ownerTag = gameObject.tag;
-                    hasPowerup = false;
-                    powerup.power = PowerupClass.PowerType.None;
-                    break;
-                default:
-                    break;
-            }
+            UsePowerup();
         }
         if (powerupTimer <= 0 && powerActive)
         {
@@ -164,7 +134,40 @@ public class TutorialController : MonoBehaviour
     {
         accelBool = false;
     }
-
+    public void UsePowerup()
+    {
+        switch (powerup.power)
+        {
+            case PowerupClass.PowerType.Phase:
+                powerupTimer = powerup.timer;
+                hasPowerup = false;
+                powerActive = true;
+                powerup.UseEffect(carToSpawn);
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            case PowerupClass.PowerType.Split:
+                GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
+                miss.GetComponent<SplitShot>().ownerName = name;
+                //TODO need a function to find target path later
+                miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
+                miss.GetComponent<SplitShot>().carName = carToSpawn.name;
+                miss.GetComponent<SplitShot>().ownerName = name;
+                miss.transform.Rotate(90, 0, 0);
+                miss.transform.localScale *= 2;
+                hasPowerup = false;
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            case PowerupClass.PowerType.Mine:
+                Vector3 spawnPos = carToSpawn.transform.position;
+                GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
+                mine.GetComponent<Mine>().ownerTag = gameObject.tag;
+                hasPowerup = false;
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            default:
+                break;
+        }
+    }
     public bool IsPowerActive()
     {
         return powerActive;

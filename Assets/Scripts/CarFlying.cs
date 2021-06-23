@@ -51,15 +51,19 @@ public class CarFlying : MonoBehaviour
         carRenderer = GetComponent<MeshRenderer>();
         if (enemy)
         {
-            SetRacer(Random.Range(1, 2));
+            SetRacer(Random.Range(1, 4));
             carColor = GetRandomColor();
             SetColor(carColor);
+            GetComponentInChildren<TrailRenderer>().startColor = GetTrailColor(carColor);
+            GetComponentInChildren<TrailRenderer>().endColor = Color.grey;
         }
         else
         {
             SetRacer(FindObjectOfType<InGameController>().racerType);
             carColor = FindObjectOfType<InGameController>().playerCarColor;
             SetColor(carColor);
+            GetComponentInChildren<TrailRenderer>().startColor = GetTrailColor(carColor);
+            GetComponentInChildren<TrailRenderer>().endColor = Color.grey;
         }
     }
     private void Update()
@@ -113,6 +117,26 @@ public class CarFlying : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+    Color GetTrailColor(string color)
+    {
+        switch (color)
+        {
+            case "magenta":
+                return magentaEmissive;
+            case "orange":
+                return orangeEmissive;
+            case "yellow":
+                return yellowEmissive;
+            case "red":
+                return redEmissive;
+            case "blue":
+                return blueEmissive;
+            case "white":
+                return Color.white;
+            default:
+                return Color.white;
         }
     }
     void SetRacer(int racerType)

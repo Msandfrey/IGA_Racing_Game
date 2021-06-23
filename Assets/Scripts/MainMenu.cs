@@ -9,11 +9,15 @@ public class MainMenu : MonoBehaviour
     public GameObject level;
     public GameObject intro;
     public GameObject car;
+    public GameObject credit;
+    public GameObject creditButt;
     private bool hasIntroPlayer = false;
     private bool playIntro = false;
     private bool isPlaying = false;
     [SerializeField]
     private AudioSource introSound;
+    [SerializeField]
+    private AudioSource menuBGM;
 
     private string SceneToLoad;
     // Start is called before the first frame update
@@ -27,30 +31,55 @@ public class MainMenu : MonoBehaviour
     {
         if(playIntro && !hasIntroPlayer)
         {
+            menuBGM.Pause();
             introSound.Play();
             isPlaying = true;
             hasIntroPlayer = true;
             playIntro = false;
         }
-        if (isPlaying && Input.GetKey(KeyCode.Space))
+        if (isPlaying && (Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)))
         {
             isPlaying = false;
             //stop playing sound
             introSound.Stop();
+            menuBGM.Play();
             LevelSelect();
         }
         if (!introSound.isPlaying && hasIntroPlayer)
         {
             isPlaying = false;
             intro.SetActive(false);
+            menuBGM.Play();
             LevelSelect();
             hasIntroPlayer = false;
         }
+    }
+    public void Credits()
+    {
+        //show credits
+        start.SetActive(false);
+        creditButt.SetActive(false);
+        credit.SetActive(true);
+    }
+    public void BackFromCredits()
+    {
+        //todo go back to previous
+        //just go to level select for now
+        credit.SetActive(false);
+        creditButt.SetActive(true);
+        start.SetActive(true);
+    }
+    public void BackToLevels()
+    {
+        start.SetActive(false);
+        level.SetActive(true);
+        car.SetActive(false);
     }
     public void EnterLevelSelect()
     {
         playIntro = true;
         start.SetActive(false);
+        creditButt.SetActive(false);
         intro.SetActive(true);
     }
     public void LevelSelect()

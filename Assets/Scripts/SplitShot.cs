@@ -127,6 +127,10 @@ public class SplitShot : MonoBehaviour
                     other.GetComponent<Rigidbody>().useGravity = true;
                     Boom();
                 }
+                else
+                {
+                    Boom();
+                }
             }
             else if (other.GetComponent<CarFlying>().playerController)
             {
@@ -137,10 +141,10 @@ public class SplitShot : MonoBehaviour
                     other.GetComponent<Rigidbody>().useGravity = true;
                     Boom();
                 }
-            }
-            else
-            {
-                Boom();
+                else
+                {
+                    Boom();
+                }
             }
         }
     }
