@@ -271,8 +271,8 @@ MonoBehaviour:
   yellowEmissive: {r: 1, g: 0.753, b: 0, a: 1}
   magentaAlbedo: {r: 1, g: 0.3647, b: 0.8784, a: 1}
   magentaEmissive: {r: 0.83, g: 0.4198, b: 0.7128, a: 1}
-  blueAlbedo: {r: 0, g: 0, b: 1, a: 1}
-  blueEmissive: {r: 0, g: 0, b: 1, a: 1}
+  blueAlbedo: {r: 0.69, g: 1, b: 0.925, a: 1}
+  blueEmissive: {r: 0.69, g: 1, b: 0.925, a: 1}
   whiteAlbedo: {r: 1, g: 1, b: 1, a: 1}
   whiteEmissive: {r: 1, g: 1, b: 1, a: 1}
   carColor: 

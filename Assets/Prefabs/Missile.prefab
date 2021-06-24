@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188172874075936484}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -2.39, y: -0.118, z: -1.53}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.015156761, y: 0.015156761, z: 0.015156761}
   m_Children: []
   m_Father: {fileID: 8789352061095695278}
@@ -141,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a545b4634dc50da4488f8369606598f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerTag: 
+  carName: 
+  ownerName: 
   targetPath: {fileID: 0}
   explosion: {fileID: 100000, guid: c9d5cd88175043e4682f5575c3340d37, type: 3}
   speed: 110
@@ -169,3 +170,4 @@ MonoBehaviour:
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 5
+  distanceTravelled: 0

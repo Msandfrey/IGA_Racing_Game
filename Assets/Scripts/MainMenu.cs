@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject title;
     public GameObject start;
     public GameObject level;
     public GameObject intro;
     public GameObject car;
     public GameObject credit;
     public GameObject creditButt;
+    public GameObject instructions;
+    public GameObject instructionsButt;
+    public GameObject instructions3DObject;
     private bool hasIntroPlayer = false;
     private bool playIntro = false;
     private bool isPlaying = false;
@@ -59,6 +63,7 @@ public class MainMenu : MonoBehaviour
         //show credits
         start.SetActive(false);
         creditButt.SetActive(false);
+        instructionsButt.SetActive(false);
         credit.SetActive(true);
     }
     public void BackFromCredits()
@@ -67,6 +72,7 @@ public class MainMenu : MonoBehaviour
         //just go to level select for now
         credit.SetActive(false);
         creditButt.SetActive(true);
+        instructionsButt.SetActive(true);
         start.SetActive(true);
     }
     public void BackToLevels()
@@ -80,11 +86,30 @@ public class MainMenu : MonoBehaviour
         playIntro = true;
         start.SetActive(false);
         creditButt.SetActive(false);
+        instructionsButt.SetActive(false);
         intro.SetActive(true);
     }
     public void LevelSelect()
     {
         level.SetActive(true);
+    }
+    public void EnterControls()
+    {
+        title.SetActive(false);
+        start.SetActive(false);
+        creditButt.SetActive(false);
+        instructionsButt.SetActive(false);
+        instructions.SetActive(true);
+        instructions3DObject.SetActive(true);
+    }
+    public void LeaveControls()
+    {
+        title.SetActive(true);
+        start.SetActive(true);
+        creditButt.SetActive(true);
+        instructionsButt.SetActive(true);
+        instructions.SetActive(false);
+        instructions3DObject.SetActive(false);
     }
     public void Tutorial()
     {

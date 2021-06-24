@@ -16,7 +16,7 @@ public class Mine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(.01f, .01f, .01f);
+        transform.Rotate(.05f, .05f, .05f);
     }
 
     private void OnTriggerEnter(Collider other)

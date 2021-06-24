@@ -33,9 +33,9 @@ public class CarFlying : MonoBehaviour
     [SerializeField]
     Color magentaEmissive = new Color(.83f, .4198f, .7128f);
     [SerializeField]
-    Color blueAlbedo = new Color(0, 0, 1);
+    Color blueAlbedo = Color.cyan;//new Color(0, 1, 1);
     [SerializeField]
-    Color blueEmissive = new Color(0, 0, 1);
+    Color blueEmissive = Color.cyan;//new Color(0, 1, 1);
     [HideInInspector]
     [SerializeField]
     Color whiteAlbedo = new Color(1, 1, 1);
