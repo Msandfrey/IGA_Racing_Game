@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 [RequireComponent(typeof(Follow))]
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject carToSpawn;
     public FixedJoint fixedJoint;
     public GameObject GameStartUI;
+    public GameObject powerUI;
     public TrailRenderer trail;
     public Camera overheadCam;
     public Camera thirdPersonCam;
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
         trail = carToSpawn.GetComponentInChildren<TrailRenderer>();
         overheadCam.enabled = true;
         thirdPersonCam.enabled = false;
+        powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
         GameStartUI.SetActive(true);
         GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "Ready...";
     }
@@ -168,6 +171,7 @@ public class PlayerController : MonoBehaviour
             case PowerupClass.PowerType.Phase:
                 powerupTimer = powerup.timer;
                 hasPowerup = false;
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
                 powerActive = true;
                 powerup.UseEffect(carToSpawn);
                 powerup.power = PowerupClass.PowerType.None;
@@ -181,6 +185,7 @@ public class PlayerController : MonoBehaviour
                 miss.transform.Rotate(90, 0, 0);
                 miss.transform.localScale *= 2;
                 hasPowerup = false;
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             case PowerupClass.PowerType.Mine:
@@ -189,6 +194,7 @@ public class PlayerController : MonoBehaviour
                 GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
                 mine.GetComponent<Mine>().ownerTag = gameObject.tag;
                 hasPowerup = false;
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             default:
@@ -266,6 +272,7 @@ public class PlayerController : MonoBehaviour
             powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();
             powerupToSpawn = powerup.prefabToSpawn;
             hasPowerup = true;
+            powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, 1);
         }
     }
     private void OnTriggerStay(Collider other)

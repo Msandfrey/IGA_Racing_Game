@@ -131,7 +131,24 @@ public class LapTracker : MonoBehaviour
             }
         }
         currentPlace = Mathf.Clamp(currentPlace, 1, AICar3 ? 4 : 3);//clamp place to be between 1 & 3/4
-        playerPlaceText.text = currentPlace.ToString() + "st/nd/rd/th";
+        switch (currentPlace)
+        {
+            case 1:
+                playerPlaceText.text = currentPlace.ToString() + "st";
+                break;
+            case 2:
+                playerPlaceText.text = currentPlace.ToString() + "nd";
+                break;
+            case 3:
+                playerPlaceText.text = currentPlace.ToString() + "rd";
+                break;
+            case 4:
+                playerPlaceText.text = currentPlace.ToString() + "th";
+                break;
+            default:
+                playerPlaceText.text = currentPlace.ToString() + "th";
+                break;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -120,7 +120,7 @@ public class MainMenu : MonoBehaviour
         start.SetActive(true);
         creditButt.SetActive(true);
         tutorial.SetActive(true);
-        instructions.SetActive(true);
+        instructionsButt.SetActive(true);
         level.SetActive(false);
         level3DObject.SetActive(false);
         currLevel = 1;
