@@ -15,11 +15,11 @@ D:/Unity Projects/Neon_Slot_Racer
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50920
+63337
 Successfully changed project path to: D:/Unity Projects/Neon_Slot_Racer
 D:/Unity Projects/Neon_Slot_Racer
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 17.56 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 18.54 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,24 +35,24 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56656
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56780
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001607 seconds.
+Registered in 0.001777 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 17.82 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 18.44 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.864 seconds
+- Completed reload, in  0.866 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000338 seconds.
+Registered in 0.000350 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
@@ -62,7 +62,7 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.630 seconds
+- Completed reload, in  0.616 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
@@ -70,169 +70,217 @@ Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 second
 Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1156 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 60.0 MB.
+System memory in use before: 60.1 MB.
 System memory in use after: 60.1 MB.
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1599.
-Total: 1.491100 ms (FindLiveObjects: 0.115500 ms CreateObjectMapping: 0.033000 ms MarkObjects: 1.289100 ms  DeleteObjects: 0.052700 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1600.
+Total: 1.529200 ms (FindLiveObjects: 0.176500 ms CreateObjectMapping: 0.056500 ms MarkObjects: 1.240000 ms  DeleteObjects: 0.054800 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/ModelShowcase.unity
-  artifactKey: Guid(8688ff0f5cd3a354b8c83c209b28628e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/ModelShowcase.unity using Guid(8688ff0f5cd3a354b8c83c209b28628e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40a1ace6c1b7f4425796579c44614287') in 0.008069 seconds
-  Import took 0.009657 seconds .
+  path: Assets/Materials
+  artifactKey: Guid(c307d12b4caeae347832e03094e42da7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(c307d12b4caeae347832e03094e42da7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b8586ace623964fa6b1960eb1d05a7e') in 0.002450 seconds
+  Import took 0.008690 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 23.782260 seconds.
-  path: Assets/Scenes/MattTest.unity
-  artifactKey: Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MattTest.unity using Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce1e51debaac2f42d220ed2bc76ba518') in 0.001042 seconds
-  Import took 0.002519 seconds .
+  Time since last request: 183.732455 seconds.
+  path: Assets/Materials/Material Textures/Finishline.png
+  artifactKey: Guid(1cfc0de54e559eb49bf4b3706cf3e3ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Finishline.png using Guid(1cfc0de54e559eb49bf4b3706cf3e3ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8484899273c86c7e25bdb180b4f678c7') in 0.320744 seconds
+  Import took 0.322626 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1834.948616 seconds.
-  path: Assets/Prefabs/Mine.prefab
-  artifactKey: Guid(f966d38e6ed4f8a4799d82a76dfcdd4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Mine.prefab using Guid(f966d38e6ed4f8a4799d82a76dfcdd4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb9553506d39d1d109c44110c4b0203f') in 0.143319 seconds
-  Import took 0.145860 seconds .
+  Time since last request: 11.490849 seconds.
+  path: Assets/Materials/Material Textures/Finishline_Albedo_Emissive.png
+  artifactKey: Guid(1cfc0de54e559eb49bf4b3706cf3e3ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Finishline_Albedo_Emissive.png using Guid(1cfc0de54e559eb49bf4b3706cf3e3ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9612fa3ca180d1c87d708b4e1a5fe75a') in 0.007630 seconds
+  Import took 0.009521 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.977003 seconds.
-  path: Assets/Prefabs/Missile.prefab
-  artifactKey: Guid(3863eaf709ea8e040bb01a3f61a61225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Missile.prefab using Guid(3863eaf709ea8e040bb01a3f61a61225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '383d149f60eb01bf5daca30cbbab7f54') in 0.011561 seconds
-  Import took 0.014061 seconds .
+  Time since last request: 5.128412 seconds.
+  path: Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png
+  artifactKey: Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Albedo_White.png using Guid(82c4294f63c0e0140a42083804e2a192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05af913c0e4afb9c9ca643b91926affa') in 0.006821 seconds
+  Import took 0.008581 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 61.259509 seconds.
-  path: Assets/Materials/Material Textures/Powerups
-  artifactKey: Guid(659cc16f4760dea4e924da10d61d2a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups using Guid(659cc16f4760dea4e924da10d61d2a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7453463f32d49bd90bd92b44b14bf594') in 0.000911 seconds
-  Import took 0.003011 seconds .
+  Time since last request: 0.000127 seconds.
+  path: Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Emissive_White.png
+  artifactKey: Guid(450de33afb50bad438d53dbe8a18b36d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 2/Agile_Car_1_Emissive_White.png using Guid(450de33afb50bad438d53dbe8a18b36d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2796418a7b56b1506312a671ab27069e') in 0.006374 seconds
+  Import took 0.008535 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 21.665611 seconds.
-  path: Assets/Materials/Material Textures/Powerups/mine_Racer2SG_AlbedoTransparency.png
-  artifactKey: Guid(ed73b7720cbf2d1439930b18da6cd100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/mine_Racer2SG_AlbedoTransparency.png using Guid(ed73b7720cbf2d1439930b18da6cd100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81c8f42abe97ed8119abb8fdc37c795f') in 0.222943 seconds
-  Import took 0.226912 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.694757 seconds.
-  path: Assets/Materials/Material Textures/Powerups/mine_Albedo.png
-  artifactKey: Guid(ed73b7720cbf2d1439930b18da6cd100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/mine_Albedo.png using Guid(ed73b7720cbf2d1439930b18da6cd100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd50f42f092338b82a1894093840c4972') in 0.005157 seconds
-  Import took 0.006808 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.020501 seconds.
-  path: Assets/Materials/Material Textures/Powerups/missile_Racer2SG_AlbedoTransparency.png
-  artifactKey: Guid(c216c15dffa7654458626247a53efc4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/missile_Racer2SG_AlbedoTransparency.png using Guid(c216c15dffa7654458626247a53efc4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d5ea1ca8fa9d8dddfff2f5125e2c281') in 0.006499 seconds
-  Import took 0.008264 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.636792 seconds.
+  Time since last request: 0.000128 seconds.
   path: Assets/Materials/Material Textures/Powerups/missile_Albedo.png
   artifactKey: Guid(c216c15dffa7654458626247a53efc4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/missile_Albedo.png using Guid(c216c15dffa7654458626247a53efc4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac3e860dacf81de99b9e4e5d2f196bdf') in 0.004526 seconds
-  Import took 0.006289 seconds .
+Start importing Assets/Materials/Material Textures/Powerups/missile_Albedo.png using Guid(c216c15dffa7654458626247a53efc4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ddc664313edbb5bd2eeff621fb460ff') in 0.005638 seconds
+  Import took 0.007394 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.018784 seconds.
-  path: Assets/Materials/Material Textures/Powerups/powerup_Box_Racer2SG_AlbedoTransparency.png
-  artifactKey: Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/powerup_Box_Racer2SG_AlbedoTransparency.png using Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f51ec07dcf77a9f7a21274b3385b8650') in 0.004757 seconds
-  Import took 0.006526 seconds .
+  Time since last request: 0.000127 seconds.
+  path: Assets/Materials/Material Textures/Racer 3/Heavy_Car_1_Albedo_White.png
+  artifactKey: Guid(d05eb69e2487aa847969e3924a767b58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 3/Heavy_Car_1_Albedo_White.png using Guid(d05eb69e2487aa847969e3924a767b58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2045ac51aff54143b3e634412814b946') in 0.006880 seconds
+  Import took 0.008379 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 10.534882 seconds.
-  path: Assets/Materials/Material Textures/Powerups/powerup_Box_Albedo.png
-  artifactKey: Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/powerup_Box_Albedo.png using Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec9262d0736332a84efc1aa559a0c701') in 0.005317 seconds
-  Import took 0.007032 seconds .
+  Time since last request: 0.000151 seconds.
+  path: Assets/Materials/Material Textures/Racer 3/Heavy_Car_1_Emission_White.png
+  artifactKey: Guid(ddb2b192fdeabeb4cbd620bd5f7b62cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 3/Heavy_Car_1_Emission_White.png using Guid(ddb2b192fdeabeb4cbd620bd5f7b62cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f8a968ec6677546615fddee716dac6f') in 0.010089 seconds
+  Import took 0.011961 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 37.791817 seconds.
-  path: Assets/Models/mine.obj
-  artifactKey: Guid(234e7303dfc47124ba8da7c4c6d93718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/mine.obj using Guid(234e7303dfc47124ba8da7c4c6d93718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06b1a12821158de4b4bb61614f56e2cd') in 0.044108 seconds
-  Import took 0.045979 seconds .
+  Time since last request: 0.000162 seconds.
+  path: Assets/Materials/Material Textures/Racer 4/Speed_Car_1_Emissive_White.png
+  artifactKey: Guid(14b1285fd41417646a8f40ee24254d0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 4/Speed_Car_1_Emissive_White.png using Guid(14b1285fd41417646a8f40ee24254d0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0690ab363444e9c7ec4f61b0ba7464a5') in 0.006258 seconds
+  Import took 0.007973 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 214.248240 seconds.
-  path: Assets/Materials/Material Textures/Showcase Only
-  artifactKey: Guid(6afc3534bf125ae44b9c7b8dc0c56d01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Showcase Only using Guid(6afc3534bf125ae44b9c7b8dc0c56d01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb1d307918096889c3416814ddd562a9') in 0.000786 seconds
-  Import took 0.002469 seconds .
+  Time since last request: 0.000240 seconds.
+  path: Assets/Materials/Material Textures/Racer 4/Speed_Car_1_Albedo_White.png
+  artifactKey: Guid(7d2afd88dd922d74fbd34ad677f7e7ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 4/Speed_Car_1_Albedo_White.png using Guid(7d2afd88dd922d74fbd34ad677f7e7ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cca481b38ce1b8d24ae998621a849e72') in 0.011100 seconds
+  Import took 0.012875 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1353.519426 seconds.
-  path: Assets/Prefabs/Powerup.prefab
-  artifactKey: Guid(4cf62f6960b031f4ba571a4335061bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Powerup.prefab using Guid(4cf62f6960b031f4ba571a4335061bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd03757e37226925ba5a38564cbd6aa9') in 0.007380 seconds
-  Import took 0.009513 seconds .
+  Time since last request: 0.000111 seconds.
+  path: Assets/Materials/Material Textures/Powerups/mine_Albedo.png
+  artifactKey: Guid(ed73b7720cbf2d1439930b18da6cd100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Powerups/mine_Albedo.png using Guid(ed73b7720cbf2d1439930b18da6cd100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fc6f8d56a61bb673a6ce4fb8fc79cfd') in 0.006083 seconds
+  Import took 0.007869 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 10.063756 seconds.
-  path: Assets/Scenes/ModelShowcase.unity
-  artifactKey: Guid(8688ff0f5cd3a354b8c83c209b28628e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/ModelShowcase.unity using Guid(8688ff0f5cd3a354b8c83c209b28628e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1832fdd3a5a89664622ccdee76cea31') in 0.001057 seconds
-  Import took 0.002585 seconds .
+  Time since last request: 0.000179 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_White.png
+  artifactKey: Guid(9322a42431333a447b598a80f91a4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_emission_White.png using Guid(9322a42431333a447b598a80f91a4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dd0131c2906e7d1b5015a398586339b') in 0.009386 seconds
+  Import took 0.011376 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1017.437890 seconds.
-  path: Assets/Materials/Material Textures/Powerups/powerup_Box_emissive.png
-  artifactKey: Guid(e764ea92a0619414eb5c4a66ce414c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/powerup_Box_emissive.png using Guid(e764ea92a0619414eb5c4a66ce414c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0f3080bf72e3ce4dd2c56be8b7dc6b4') in 0.006579 seconds
-  Import took 0.008606 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.852362 seconds.
+  Time since last request: 0.000244 seconds.
   path: Assets/Materials/Material Textures/Powerups/powerup_Box_Emissive.png
   artifactKey: Guid(e764ea92a0619414eb5c4a66ce414c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Material Textures/Powerups/powerup_Box_Emissive.png using Guid(e764ea92a0619414eb5c4a66ce414c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6c9f7253ee9afa1ab183074bc5f93cb') in 0.005438 seconds
-  Import took 0.007289 seconds .
+Start importing Assets/Materials/Material Textures/Powerups/powerup_Box_Emissive.png using Guid(e764ea92a0619414eb5c4a66ce414c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac4c869844cd4ccf1abf63e77615691f') in 0.006714 seconds
+  Import took 0.008701 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000526 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.633 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 62.9 MB.
-System memory in use after: 63.0 MB.
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/Materials/Material Textures/Powerups/mine_Emissive.png
+  artifactKey: Guid(18340ae1bca5f484bbbaf76217350d51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Powerups/mine_Emissive.png using Guid(18340ae1bca5f484bbbaf76217350d51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b8264ffa7a0185a843233732ccdaa45') in 0.008016 seconds
+  Import took 0.009408 seconds .
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1647.
-Total: 1.585000 ms (FindLiveObjects: 0.187100 ms CreateObjectMapping: 0.052100 ms MarkObjects: 1.298500 ms  DeleteObjects: 0.046300 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/Materials/Material Textures/Powerups/missile_Emissive.png
+  artifactKey: Guid(d97d473a29291f44f9e7a2fc0c72a433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Powerups/missile_Emissive.png using Guid(d97d473a29291f44f9e7a2fc0c72a433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59a4553800c28ef1f418023e415a1e77') in 0.006223 seconds
+  Import took 0.007835 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png
+  artifactKey: Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Racer 1/Starter_Car_1_Albedo_White.png using Guid(c675c62bc231b2a4aa8f1f808d7472e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91f8f1b4eb0866ee3547b50a83563b01') in 0.012424 seconds
+  Import took 0.014705 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Materials/Material Textures/Powerups/missile_Emissive.png
+  artifactKey: Guid(d97d473a29291f44f9e7a2fc0c72a433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Powerups/missile_Emissive.png using Guid(d97d473a29291f44f9e7a2fc0c72a433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59a4553800c28ef1f418023e415a1e77') in 0.007732 seconds
+  Import took 0.009339 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000117 seconds.
+  path: Assets/Materials/Material Textures/Powerups/powerup_Box_Albedo.png
+  artifactKey: Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Powerups/powerup_Box_Albedo.png using Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c24ef7b61636b73b245a8e83f25e01c') in 0.004808 seconds
+  Import took 0.006405 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002938 seconds.
+  path: Assets/Materials/Material Textures/Powerups/powerup_Box_Albedo.png
+  artifactKey: Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Material Textures/Powerups/powerup_Box_Albedo.png using Guid(144662083e353534bb14344076930a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c24ef7b61636b73b245a8e83f25e01c') in 0.005689 seconds
+  Import took 0.007292 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1608.881921 seconds.
+  path: Assets/Prefabs/Finishline.prefab
+  artifactKey: Guid(d460dd71e34a6594abe7c1a4a599e6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Finishline.prefab using Guid(d460dd71e34a6594abe7c1a4a599e6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '103cbc5c8d920978b968c202939afe24') in 0.061308 seconds
+  Import took 0.063329 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 82.496201 seconds.
+  path: Assets/Scenes/ButterflyTest.unity
+  artifactKey: Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/ButterflyTest.unity using Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27fd5776c63bda6b15cf037e592d2f9a') in 0.001124 seconds
+  Import took 0.007506 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.919522 seconds.
+  path: Assets/Scenes/MattTest.unity
+  artifactKey: Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MattTest.unity using Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ed1f9d4a82f7b2cb5e8edc0b8732e4b') in 0.001294 seconds
+  Import took 0.002914 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 60.457125 seconds.
+  path: Assets/Scripts/MainMenu.cs
+  artifactKey: Guid(b2f459e840da6ec4794d8821a5f3ff75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MainMenu.cs using Guid(b2f459e840da6ec4794d8821a5f3ff75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40e2b07d152dec1c38a8d073e395976e') in 0.006532 seconds
+  Import took 0.008685 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 520.866217 seconds.
+  path: Assets/Scenes/MattTest.unity
+  artifactKey: Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MattTest.unity using Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3d819e1848f1ff0ef8ad93de18752a0') in 0.001279 seconds
+  Import took 0.003206 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.217051 seconds.
+  path: Assets/Scenes/ModelShowcase.unity
+  artifactKey: Guid(8688ff0f5cd3a354b8c83c209b28628e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/ModelShowcase.unity using Guid(8688ff0f5cd3a354b8c83c209b28628e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54f943838aee8c411838706e923c33cc') in 0.001036 seconds
+  Import took 0.002820 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.409668 seconds.
+  path: Assets/Scenes/WaveTest.unity
+  artifactKey: Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/WaveTest.unity using Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76076f4e78075e5a2b29e831909f34c9') in 0.001376 seconds
+  Import took 0.008246 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
