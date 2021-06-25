@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public FixedJoint fixedJoint;
     public GameObject GameStartUI;
     public TrailRenderer trail;
+    public Camera overheadCam;
+    public Camera thirdPersonCam;
+    public GameObject lapUI;
+    private int mineSpawnPoint;
     [SerializeField]
     private float breakForce = 800;
     [SerializeField]
@@ -24,7 +28,15 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float minSpeed;
     public float delayToStart;
+    public int carLayer = 3;
+    [SerializeField]
+    private bool sharedTrack;
     float respawnTimer = 0f;
+    //
+    public Transform mineSpawn1;
+    public Transform mineSpawn2;
+    public Transform mineSpawn3;
+    public Transform mineSpawn4;
 
     private GameObject powerupToSpawn;
 
@@ -42,12 +54,25 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         pathFollow = GetComponent<Follow>();
-        trail = GetComponentInChildren<TrailRenderer>();
         powerup = new PowerupClass();
     }
 
     private void Start()
     {
+        carToSpawn = Instantiate(FindObjectOfType<InGameController>().playerCar, transform.position, transform.rotation);//comment out when testing
+        //carToSpawn = Instantiate(carToSpawn, transform.position, transform.rotation);//comment out when not tsting
+        carToSpawn.transform.Rotate(0, 180, 0);
+        carToSpawn.GetComponent<CarFlying>().LapTrackUI = lapUI;
+        carToSpawn.GetComponent<CarFlying>().playerController = GetComponent<PlayerController>();
+        fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();//use function, but to do that need to remove fixed joint from prefab
+        fixedJoint.breakTorque = breakTorque;//var
+        fixedJoint.breakForce = breakForce;//var
+        fixedJoint.enablePreprocessing = false;
+        carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
+        carToSpawn.layer = carLayer;
+        trail = carToSpawn.GetComponentInChildren<TrailRenderer>();
+        overheadCam.enabled = true;
+        thirdPersonCam.enabled = false;
         GameStartUI.SetActive(true);
         GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "Ready...";
     }
@@ -71,35 +96,11 @@ public class PlayerController : MonoBehaviour
         }
         if (hasPowerup && Input.GetKeyDown(KeyCode.F))
         {
-            switch (powerup.power)
-            {
-                case PowerupClass.PowerType.Phase:
-                    powerupTimer = powerup.timer;
-                    hasPowerup = false;
-                    powerActive = true;
-                    powerup.UseEffect(carToSpawn);
-                    powerup.power = PowerupClass.PowerType.None;
-                    break;
-                case PowerupClass.PowerType.Split:
-                    GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
-                    miss.GetComponent<SplitShot>().owner = gameObject;
-                    //TODO need a function to find target path later
-                    miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
-                    miss.transform.Rotate(90, 0, 0);
-                    miss.transform.localScale *= 2;
-                    hasPowerup = false;
-                    powerup.power = PowerupClass.PowerType.None;
-                    break;
-                case PowerupClass.PowerType.Mine:
-                    Vector3 spawnPos = carToSpawn.transform.position;
-                    GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
-                    mine.GetComponent<Mine>().ownerTag = gameObject.tag;
-                    hasPowerup = false;
-                    powerup.power = PowerupClass.PowerType.None;
-                    break;
-                default:
-                    break;
-            }
+            UserPowerup();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            SwapCam();
         }
         if(powerupTimer <= 0 && powerActive)
         {
@@ -131,35 +132,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space) || accelBool)
         {
-            pathFollow.IncreaseSpeed(acceleration, minSpeed, maxSpeed); 
-            if(pathFollow.speed == maxSpeed)
-            {
-                //max width
-                trail.startWidth = 1f;
-            }
-            else if(pathFollow.speed >= maxSpeed * .75f)
-            {
-                //less wisth
-                trail.startWidth = .75f;
-            }
-            else if (pathFollow.speed >= maxSpeed * .5f)
-            {
-                //half width
-                trail.startWidth = .5f;
-            }
-            else if (pathFollow.speed >= maxSpeed * .25f)
-            {
-                //little width
-                trail.startWidth = .25f;
-            }
-            else
-            {
-                trail.startWidth = 0;
-            }
+            pathFollow.IncreaseSpeed(acceleration * Time.deltaTime, minSpeed, maxSpeed); 
+            trail.startWidth = pathFollow.speed / maxSpeed ;
         }
         else
         {
-            pathFollow.DecreaseSpeed(decceleration, minSpeed, maxSpeed);
+            pathFollow.DecreaseSpeed(decceleration * Time.deltaTime, minSpeed, maxSpeed);
         }
     }
 
@@ -183,7 +161,63 @@ public class PlayerController : MonoBehaviour
     {
         return powerActive;
     }
-
+    public void UserPowerup()
+    {
+        switch (powerup.power)
+        {
+            case PowerupClass.PowerType.Phase:
+                powerupTimer = powerup.timer;
+                hasPowerup = false;
+                powerActive = true;
+                powerup.UseEffect(carToSpawn);
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            case PowerupClass.PowerType.Split:
+                GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
+                miss.GetComponent<SplitShot>().carName = carToSpawn.name;
+                miss.GetComponent<SplitShot>().ownerName = name;
+                miss.GetComponent<SplitShot>().viewAngle = 150;
+                miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
+                miss.transform.Rotate(90, 0, 0);
+                miss.transform.localScale *= 2;
+                hasPowerup = false;
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            case PowerupClass.PowerType.Mine:
+                mineSpawnPoint = Random.Range(1, 3);
+                Vector3 spawnPos = GetMineSpawn();
+                GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
+                mine.GetComponent<Mine>().ownerTag = gameObject.tag;
+                hasPowerup = false;
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            default:
+                break;
+        }
+    }
+    Vector3 GetMineSpawn()
+    {
+        if (sharedTrack) { mineSpawnPoint = 0; }
+        switch (mineSpawnPoint)
+        {
+            case 0:
+                return mineSpawn1.position;
+            case 1:
+                return mineSpawn2.position;
+            case 2:
+                return mineSpawn3.position;
+            case 3:
+                return mineSpawn4.position;
+            default:
+                break;
+        }
+        return mineSpawn1.position;
+    }
+    public void SwapCam()
+    {
+        overheadCam.enabled = !overheadCam.enabled;
+        thirdPersonCam.enabled = !thirdPersonCam.enabled;
+    }
     void ResetCar()
     {
         //stop car from moving
@@ -205,7 +239,7 @@ public class PlayerController : MonoBehaviour
         fixedJoint.breakForce = breakForce;//var
         fixedJoint.enablePreprocessing = false;
         carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
-        carToSpawn.layer = 0;
+        carToSpawn.layer = carLayer;
     }
 
     private void OnJointBreak(float breakForce)

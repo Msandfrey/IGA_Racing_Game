@@ -11,13 +11,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 8718d2061d803e74989d0ddbfbdfb44a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MattTest.unity
     guid: 562f28637da197346b5d68bd0ec98044
+  - enabled: 1
+    path: Assets/Scenes/Circle.unity
+    guid: 76345e04ba145e649bc825288e74d45a
   - enabled: 1
     path: Assets/Scenes/ButterflyTest.unity
     guid: 255d5db3afc1d0748b66163acc585a32
   - enabled: 1
     path: Assets/Scenes/WaveTest.unity
     guid: be374835abf12bc42aa2ebb0c50316e3
+  - enabled: 1
+    path: Assets/Scenes/DollarTest.unity
+    guid: 96e5cde8ed6ef9d499724c792afbcd61
   m_configObjects: {}

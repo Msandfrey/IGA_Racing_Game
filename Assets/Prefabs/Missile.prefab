@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188172874075936484}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -2.39, y: -0.118, z: -1.53}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.015156761, y: 0.015156761, z: 0.015156761}
   m_Children: []
   m_Father: {fileID: 8789352061095695278}
@@ -107,14 +107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7125834515692208252}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.386, y: 0.143, z: -14.011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3049167205975285285}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3128324116202200042
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -125,8 +125,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.54
+  m_Height: 0.6
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &6253085047856586341
@@ -141,9 +141,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a545b4634dc50da4488f8369606598f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  carName: 
+  ownerName: 
   targetPath: {fileID: 0}
   explosion: {fileID: 100000, guid: c9d5cd88175043e4682f5575c3340d37, type: 3}
+  speed: 110
+  smoothBrainFactor: 0.5
+  viewRadius: 10
+  viewAngle: 30
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  targetCar: {fileID: 0}
   deathTimer: 3
   newTorque: 0
 --- !u!114 &3592120667175218135
@@ -161,3 +170,4 @@ MonoBehaviour:
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 5
+  distanceTravelled: 0

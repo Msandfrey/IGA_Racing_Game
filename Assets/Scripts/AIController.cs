@@ -12,13 +12,23 @@ public class AIController : MonoBehaviour
     private float breakForce = 800;
     [SerializeField]
     private float breakTorque = 600;
+    [SerializeField]
+    private float detectionRadius = 20;
+    [SerializeField]
+    private LayerMask searchLayerMask;
     private float timer;
     public float delayToStart;
     float respawnTimer = 0f;
+    public float speed;
     public bool carAttached = true;
     public FixedJoint fixedJoint;
     public bool move = true;
+    public float acceleration = 20;
+    public float decceleration = 20;
+    public int carLayer = 3;
 
+    private GameObject powerupToSpawn;
+    [SerializeField]
     private bool hasPowerup = false;
     private bool powerActive = false;
     private float powerupTimer;
@@ -49,15 +59,7 @@ public class AIController : MonoBehaviour
             fixedJoint.breakForce = breakForce;//var
             fixedJoint.enablePreprocessing = false;
             carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;//for now it doesnt do anything with this var
-            carToSpawn.layer = 0;
-        }
-        if (hasPowerup)
-        {
-            powerupTimer = powerup.timer;
-            hasPowerup = false;
-            powerActive = true;
-            powerup.UseEffect(carToSpawn);
-            powerup.power = PowerupClass.PowerType.None;
+            carToSpawn.layer = carLayer;
         }
         if (powerupTimer <= 0 && powerActive)
         {
@@ -71,7 +73,7 @@ public class AIController : MonoBehaviour
         //go
         if (carAttached && move)
         {
-            pathFollow.IncreaseSpeed(.001f, 30, 60);
+            pathFollow.IncreaseSpeed(acceleration * Time.deltaTime, 0, speed);
         }
         //respawn after getting hit
         if (respawnTimer <= 0 && !carAttached)
@@ -93,9 +95,69 @@ public class AIController : MonoBehaviour
             respawnTimer -= Time.deltaTime;
         }
     }
-    public bool IsPowerActive()
+    private void FixedUpdate()
+    {
+        if (hasPowerup)
+        {
+            if (DetectOthers())
+            {
+                Debug.Log("waiting");
+                UsePowerup();
+            }
+        }
+    }
+    public bool IsPowerActive()//todo fix this no work
     {
         return powerActive;
+    }
+    bool DetectOthers()
+    {
+        //quick sphere detection radius, 0 is the target mask
+        Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, detectionRadius, searchLayerMask);
+        //go through any options in the radius
+        for (int i = 0; i < targetsInRadius.Length; i++)
+        {
+            GameObject target = targetsInRadius[i].gameObject;
+                //check if they are an ok target
+                if (!target.name.Equals(carToSpawn.name))
+                {
+                    return true;
+                }
+        }
+        return false;
+    }
+    void UsePowerup()
+    {
+        switch (powerup.power)
+        {
+            case PowerupClass.PowerType.Phase:
+                powerupTimer = powerup.timer;
+                hasPowerup = false;
+                powerActive = true;
+                powerup.UseEffect(carToSpawn);
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            case PowerupClass.PowerType.Split:
+                GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
+                miss.GetComponent<SplitShot>().carName = carToSpawn.name;
+                miss.GetComponent<SplitShot>().ownerName = name;
+                miss.GetComponent<SplitShot>().viewAngle = 150;
+                miss.GetComponent<SplitShot>().targetPath = pathFollow.pathCreator;
+                miss.transform.Rotate(90, 0, 0);
+                miss.transform.localScale *= 2;
+                hasPowerup = false;
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            case PowerupClass.PowerType.Mine:
+                Vector3 spawnPos = transform.position;//todo create a way for spawn points to be different
+                GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
+                mine.GetComponent<Mine>().ownerTag = gameObject.tag;
+                hasPowerup = false;
+                powerup.power = PowerupClass.PowerType.None;
+                break;
+            default:
+                break;
+        }
     }
     private void OnJointBreak(float breakForce)
     {
@@ -115,14 +177,13 @@ public class AIController : MonoBehaviour
             fixedJoint.breakForce = Mathf.Infinity;
             fixedJoint.breakTorque = Mathf.Infinity;
         }
-        else if (other.tag.Equals("Powerup"))
+        else if (other.tag.Equals("Powerup") && !hasPowerup)
         {
             //disable the powerup
             other.gameObject.GetComponent<PowerupPickup>().PickedUp();
             //set powerup vals
-            powerup.power = PowerupClass.PowerType.Phase;
-            powerup.timer = 2f;
-            powerup.UIImage = null;
+            powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();
+            powerupToSpawn = powerup.prefabToSpawn;
             hasPowerup = true;
 
         }

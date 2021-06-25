@@ -10,11 +10,12 @@ TagManager:
   - Missile
   - PlayerCar
   - EnemyCar
+  - UI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Cars
   - Water
   - UI
   - Fallen

@@ -5,24 +5,60 @@ using UnityEngine.SceneManagement;
 
 public class InGameController : MonoBehaviour
 {
+    public GameObject playerCar;
+    [HideInInspector]
+    public int racerType = 1;
+    [HideInInspector]
+    public string playerCarColor = "white";//maybe an int
+    public bool openingSequenceSeen = false;
+    public GameObject pauseScreen;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        InGameController[] objs = FindObjectsOfType<InGameController>();
+        if(objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+        pauseScreen.transform.Translate(0, 0, -1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if(SceneManager.GetActiveScene().buildIndex != 0)
         {
-            //reload current scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                PauseUnpause();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.M))
+    }
+
+    public void PauseUnpause()
+    {
+        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        if(Time.timeScale == 0)
         {
-            //go back to main menu
-            SceneManager.LoadScene(0);
+            pauseScreen.SetActive(true);
         }
+        else
+        {
+            pauseScreen.SetActive(false);
+        }
+    }
+    public void Restart()
+    {
+        //reload current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PauseUnpause();
+    }
+    public void MainMenu()
+    {
+        //go back to main menu
+        SceneManager.LoadScene(0);
+        PauseUnpause();
     }
 }

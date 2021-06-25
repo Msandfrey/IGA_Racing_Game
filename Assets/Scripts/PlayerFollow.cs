@@ -5,16 +5,20 @@ using UnityEngine;
 public class PlayerFollow : MonoBehaviour
 {
     public Transform followTarget;
-    public Vector3 offset;
-    private Vector3 lastPosition;
+    public Vector3 upOffset;
+    public float behindOffset;
+    [Range(0, 1)]
+    public float smoothBrainFactor = .4f;
+    public bool lookAtOn = false;
     private void Start()
     {
-        lastPosition = followTarget.position;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = lastPosition + offset;
-        lastPosition = followTarget.position;
+        Vector3 targetPos = followTarget.position + upOffset + (-followTarget.forward * behindOffset);
+        Vector3 smoothPos = Vector3.Lerp(transform.position, targetPos, smoothBrainFactor);
+        transform.position = smoothPos;
+        if (lookAtOn) { transform.LookAt(followTarget); }
     }
 }
