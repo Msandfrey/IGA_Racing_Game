@@ -160,7 +160,8 @@ public class TutorialController : MonoBehaviour
             case PowerupClass.PowerType.Mine:
                 Vector3 spawnPos = carToSpawn.transform.position;
                 GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
-                mine.GetComponent<Mine>().ownerTag = gameObject.tag;
+                mine.GetComponent<Mine>().carName = carToSpawn.name;
+                mine.GetComponent<Mine>().ownerName = name;
                 hasPowerup = false;
                 powerup.power = PowerupClass.PowerType.None;
                 break;

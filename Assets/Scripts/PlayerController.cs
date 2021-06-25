@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
         overheadCam.enabled = true;
         thirdPersonCam.enabled = false;
         powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
+        powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/PhaseButton");//start with this one for now, todo change later
         GameStartUI.SetActive(true);
         GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "Ready...";
     }
@@ -192,7 +193,8 @@ public class PlayerController : MonoBehaviour
                 mineSpawnPoint = Random.Range(1, 3);
                 Vector3 spawnPos = GetMineSpawn();
                 GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
-                mine.GetComponent<Mine>().ownerTag = gameObject.tag;
+                mine.GetComponent<Mine>().carName = carToSpawn.name;
+                mine.GetComponent<Mine>().ownerName = name;
                 hasPowerup = false;
                 powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
                 powerup.power = PowerupClass.PowerType.None;
@@ -236,7 +238,22 @@ public class PlayerController : MonoBehaviour
         carToSpawn.transform.rotation = transform.rotation;
         carToSpawn.transform.Rotate(0, 180, 0);
     }
-
+    void ActivatePowerButt()
+    {
+        powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, 1);
+        switch (powerup.power)
+        {
+            case PowerupClass.PowerType.Mine:
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/MineButton");
+                break;
+            case PowerupClass.PowerType.Phase:
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/PhaseButton");
+                break;
+            case PowerupClass.PowerType.Split:
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/MissileButton");
+                break;
+        }
+    }
     void MakeNewJoint()
     {
         fixedJoint = gameObject.AddComponent<FixedJoint>();
@@ -272,7 +289,7 @@ public class PlayerController : MonoBehaviour
             powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();
             powerupToSpawn = powerup.prefabToSpawn;
             hasPowerup = true;
-            powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, 1);
+            ActivatePowerButt();
         }
     }
     private void OnTriggerStay(Collider other)

@@ -6,7 +6,10 @@ public class Mine : MonoBehaviour
 {
     [SerializeField]
     private GameObject explosion;
-    public string ownerTag;
+    [HideInInspector]
+    public string carName;
+    [HideInInspector]
+    public string ownerName;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +24,35 @@ public class Mine : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.tag.Equals(ownerTag) && !other.tag.Contains("Car"))
+        if (!other.name.Equals(carName) && !other.name.Equals(ownerName) && other.tag.Contains("Car"))
         {
-            
-            if (!other.GetComponent<AIController>().IsPowerActive())
+            if (other.GetComponent<CarFlying>().Controller)
             {
-                other.GetComponent<AIController>().fixedJoint.breakForce = 0;
-                other.GetComponent<Rigidbody>().AddForce(Vector3.up);
-                Boom();
+                if (!other.GetComponent<CarFlying>().Controller.GetComponent<AIController>().IsPowerActive())
+                {
+                    other.GetComponent<CarFlying>().fixedJoint.breakForce = 0;
+                    other.GetComponent<Rigidbody>().AddRelativeForce(0, 0, -100, ForceMode.Impulse);
+                    other.GetComponent<Rigidbody>().useGravity = true;
+                    Boom();
+                }
+                else
+                {
+                    Boom();
+                }
+            }
+            else if (other.GetComponent<CarFlying>().playerController)
+            {
+                if (!other.GetComponent<CarFlying>().playerController.GetComponent<PlayerController>().IsPowerActive())
+                {
+                    other.GetComponent<CarFlying>().fixedJoint.breakForce = 0;
+                    other.GetComponent<Rigidbody>().AddRelativeForce(0, 0, -100, ForceMode.Impulse);
+                    other.GetComponent<Rigidbody>().useGravity = true;
+                    Boom();
+                }
+                else
+                {
+                    Boom();
+                }
             }
         }
     }
