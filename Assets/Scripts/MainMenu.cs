@@ -172,7 +172,7 @@ public class MainMenu : MonoBehaviour
     void DisplayLevel(int level)
     {
         switch (level)
-        {
+        {//see about removing resources.load todo
             case 1:
                 level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Track_1");
                 level3DObject.transform.localScale = new Vector3(5, 5, 5);
@@ -246,7 +246,7 @@ public class MainMenu : MonoBehaviour
     void DisplayCar(int car)
     {
         switch (car)
-        {
+        {//see about removing resources.load todo
             case 1://racer
                 car3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Starter_Car_2");
                 FindObjectOfType<InGameController>().racerType = 1;
@@ -312,7 +312,7 @@ public class MainMenu : MonoBehaviour
     void Car1Color(int color)
     {
         switch (color)
-        {
+        {//see about removing resources.load todo
             case 1://white
                 car3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Racer_1_Material_White");
                 FindObjectOfType<InGameController>().playerCarColor = "white";
@@ -341,7 +341,7 @@ public class MainMenu : MonoBehaviour
     }
     //agile colors
     void Car2Color(int color)
-    {
+    {//see about removing resources.load todo
         switch (color)
         {
             case 1://white
@@ -374,7 +374,7 @@ public class MainMenu : MonoBehaviour
     void Car3Color(int color)
     {
         switch (color)
-        {
+        {//see about removing resources.load todo
             case 1://white
                 car3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Racer_3_Material_White");
                 FindObjectOfType<InGameController>().playerCarColor = "white";
@@ -405,7 +405,7 @@ public class MainMenu : MonoBehaviour
     void Car4Color(int color)
     {
         switch (color)
-        {
+        {//see about removing resources.load todo
             case 1://white
                 car3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Racer_4_Material_White");
                 FindObjectOfType<InGameController>().playerCarColor = "white";

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InGameController : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class InGameController : MonoBehaviour
     public string playerCarColor = "white";//maybe an int
     public bool openingSequenceSeen = false;
     public GameObject pauseScreen;
+    [SerializeField]
+    private AudioSource BGM;
+    [SerializeField]
+    private Slider volume;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -20,10 +26,13 @@ public class InGameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(gameObject);
-        pauseScreen.transform.Translate(0, 0, -1);
     }
-
+    private void Start()
+    {
+        volume.onValueChanged.AddListener(delegate { OnDrag(volume.value); });
+    }
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +45,36 @@ public class InGameController : MonoBehaviour
             }
         }
     }
-
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //get build index from scene to change music
+        switch (scene.buildIndex)
+        {//todo replace the resources loading
+            case 0://main menu
+                BGM.clip = Resources.Load<AudioClip>("Sounds/GameTheme");
+                break;
+            case 1://tutorial
+                BGM.clip = Resources.Load<AudioClip>("Sounds/TutorialTrack");
+                BGM.Play();
+                break;
+            case 2://circle 1
+                BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/CircleSong");
+                BGM.Play();
+                break;
+            case 3://butterfly 2
+                BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/Track2");
+                BGM.Play();
+                break;
+            case 4://wave 3 
+                BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/Track3");
+                BGM.Play();
+                break;
+            case 5://dollar 4
+                BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/DollarSong");
+                BGM.Play();
+                break;
+        }
+    }
     public void PauseUnpause()
     {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
@@ -60,5 +98,10 @@ public class InGameController : MonoBehaviour
         //go back to main menu
         SceneManager.LoadScene(0);
         PauseUnpause();
+    }
+    void OnDrag(float val)
+    {
+        BGM.volume = val;
+        BGM.volume = Mathf.Clamp(BGM.volume, 0, 1);
     }
 }
