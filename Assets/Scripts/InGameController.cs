@@ -13,6 +13,7 @@ public class InGameController : MonoBehaviour
     public string playerCarColor = "white";//maybe an int
     public bool openingSequenceSeen = false;
     public GameObject pauseScreen;
+    public GameObject optionsScreen;
     [SerializeField]
     private AudioSource BGM;
     [SerializeField]
@@ -84,6 +85,7 @@ public class InGameController : MonoBehaviour
         }
         else
         {
+            CloseOptions();
             pauseScreen.SetActive(false);
         }
     }
@@ -98,6 +100,14 @@ public class InGameController : MonoBehaviour
         //go back to main menu
         SceneManager.LoadScene(0);
         PauseUnpause();
+    }
+    public void OpenOptions()
+    {
+        optionsScreen.SetActive(true);
+    }
+    public void CloseOptions()
+    {
+        optionsScreen.SetActive(false);
     }
     void OnDrag(float val)
     {

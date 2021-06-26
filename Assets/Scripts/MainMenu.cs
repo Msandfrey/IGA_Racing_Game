@@ -38,12 +38,13 @@ public class MainMenu : MonoBehaviour
     private AudioSource introSound;
     [SerializeField]
     private AudioSource menuBGM;
+    private InGameController GM;
 
     private string SceneToLoad;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GM = FindObjectOfType<InGameController>();
     }
 
     // Update is called once per frame
@@ -51,24 +52,24 @@ public class MainMenu : MonoBehaviour
     {
         if(playIntro && !hasIntroPlayer)
         {
+            hasIntroPlayer = true;
+            playIntro = false;
             menuBGM.Pause();
             introSound.Play();
             isPlaying = true;
-            hasIntroPlayer = true;
-            playIntro = false;
         }
         if (isPlaying && (Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)))
         {
             isPlaying = false;
             //stop playing sound
             introSound.Stop();
-            menuBGM.Play();
             LevelSelect();
         }
         if (!introSound.isPlaying && hasIntroPlayer)
         {
             isPlaying = false;
             intro.SetActive(false);
+            FindObjectOfType<InGameController>().openingSequenceSeen = true;
             menuBGM.Play();
             LevelSelect();
             hasIntroPlayer = false;
@@ -103,12 +104,23 @@ public class MainMenu : MonoBehaviour
     }
     public void EnterLevelSelect()
     {
-        playIntro = true;
-        start.SetActive(false);
-        creditButt.SetActive(false);
-        tutorial.SetActive(false);
-        instructionsButt.SetActive(false);
-        intro.SetActive(true);
+        if (GM.openingSequenceSeen)
+        {
+            start.SetActive(false);
+            creditButt.SetActive(false);
+            tutorial.SetActive(false);
+            instructionsButt.SetActive(false);
+            LevelSelect();
+        }
+        else
+        {
+            playIntro = true;
+            start.SetActive(false);
+            creditButt.SetActive(false);
+            tutorial.SetActive(false);
+            instructionsButt.SetActive(false);
+            intro.SetActive(true);
+        }
     }
     public void LevelSelect()
     {
