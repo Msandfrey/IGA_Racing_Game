@@ -33,6 +33,7 @@ public class InGameController : MonoBehaviour
     private void Start()
     {
         volume.onValueChanged.AddListener(delegate { OnDrag(volume.value); });
+        Screen.SetResolution(800, 480, true);
     }
     // Update is called once per frame
     void Update()
