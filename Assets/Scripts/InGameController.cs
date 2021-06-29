@@ -13,6 +13,7 @@ public class InGameController : MonoBehaviour
     public string playerCarColor = "white";//maybe an int
     public bool openingSequenceSeen = false;
     public GameObject pauseScreen;
+    public GameObject pauseButt;
     public GameObject optionsScreen;
     [SerializeField]
     private AudioSource BGM;
@@ -54,26 +55,32 @@ public class InGameController : MonoBehaviour
         {//todo replace the resources loading
             case 0://main menu
                 BGM.clip = Resources.Load<AudioClip>("Sounds/GameTheme");
+                pauseButt.SetActive(false);
                 break;
             case 1://tutorial
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TutorialTrack");
                 BGM.Play();
+                pauseButt.SetActive(true);
                 break;
             case 2://circle 1
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/CircleSong");
                 BGM.Play();
+                pauseButt.SetActive(true);
                 break;
             case 3://butterfly 2
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/Track2");
                 BGM.Play();
+                pauseButt.SetActive(true);
                 break;
             case 4://wave 3 
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/Track3");
                 BGM.Play();
+                pauseButt.SetActive(true);
                 break;
             case 5://dollar 4
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/DollarSong");
                 BGM.Play();
+                pauseButt.SetActive(true);
                 break;
         }
     }

@@ -12,6 +12,8 @@ public class CarFlying : MonoBehaviour
     public float breakTorque = 600;
     public int lapTracker = 0;
     public bool enemy;
+    [HideInInspector]
+    public int lapsToWin = 0;
     public AIController Controller;
     public PlayerController playerController;
     private MeshRenderer carRenderer;
@@ -68,7 +70,10 @@ public class CarFlying : MonoBehaviour
     }
     private void Update()
     {
-        LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString();
+        if (!enemy)
+        {
+            LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString() + "/" + lapsToWin.ToString();
+        }
     }
     string GetRandomColor()
     {

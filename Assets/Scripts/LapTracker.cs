@@ -155,7 +155,6 @@ public class LapTracker : MonoBehaviour
     {
         if (other.gameObject == playerCar.gameObject)
         {
-            Debug.Log("detected player");
             if (other.gameObject.GetComponent<CarFlying>().lapTracker >= lapsToWin && !lose)
             {
                 winPanel.SetActive(true);
@@ -165,6 +164,10 @@ public class LapTracker : MonoBehaviour
                 return;
             }
             //increase laps
+            if (other.gameObject.GetComponent<CarFlying>().lapsToWin == 0)
+            {
+                other.gameObject.GetComponent<CarFlying>().lapsToWin = lapsToWin;
+            }
             other.gameObject.GetComponent<CarFlying>().lapTracker += 1;
         }
         else if(other.gameObject == AICar1.gameObject || other.gameObject == AICar2.gameObject)
