@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public FixedJoint fixedJoint;
     public GameObject GameStartUI;
     public GameObject powerUI;
+    public GameObject explosion;
     public TrailRenderer trail;
     public Camera overheadCam;
     public Camera thirdPersonCam;
@@ -122,6 +123,7 @@ public class PlayerController : MonoBehaviour
             {
                 ResetCar();
                 carAttached = true;
+                carToSpawn.GetComponent<MeshRenderer>().enabled = true;
             }
             else if (respawnTimer > 0)
             {
@@ -272,8 +274,10 @@ public class PlayerController : MonoBehaviour
         carAttached = false;
         pathFollow.speed = 0;
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
+        carToSpawn.GetComponent<MeshRenderer>().enabled = false;
         respawnTimer = 1.5f;
         carToSpawn.layer = 6;//fallen layer
+        Instantiate(explosion, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerEnter(Collider other)

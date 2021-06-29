@@ -74,7 +74,7 @@ public class SplitShot : MonoBehaviour
     void Boom()
     {
         //play effect
-        GameObject e = Instantiate(explosion, transform.position, Quaternion.identity);
+        Instantiate(explosion, transform.position, Quaternion.identity);
         //destroy self
         Destroy(gameObject);
     }

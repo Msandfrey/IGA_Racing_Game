@@ -26,6 +26,7 @@ public class AIController : MonoBehaviour
     public float acceleration = 20;
     public float decceleration = 20;
     public int carLayer = 3;
+    public GameObject explosion;
 
     private GameObject powerupToSpawn;
     [SerializeField]
@@ -90,6 +91,7 @@ public class AIController : MonoBehaviour
             carToSpawn.transform.Rotate(0, 180, 0);
             timer = 0.5f;
             carAttached = true;
+            carToSpawn.GetComponent<MeshRenderer>().enabled = true;
         }
         else if (respawnTimer > 0 && !carAttached)
         {
@@ -165,10 +167,12 @@ public class AIController : MonoBehaviour
     {
         Debug.Log("Car falls off with force of : " + breakForce);
         carAttached = false;
+        carToSpawn.GetComponent<MeshRenderer>().enabled = false;
         pathFollow.speed = 0;
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
         respawnTimer = 1.5f;
-        carToSpawn.layer = 6;
+        carToSpawn.layer = 6; 
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Vector3 tempV = carToSpawn.GetComponent<Rigidbody>().velocity;
         carToSpawn.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(tempV.x * tempV.x / .02f, tempV.y * tempV.y / .02f, tempV.z * tempV.z / .02f));
     }

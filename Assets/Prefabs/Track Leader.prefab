@@ -271,6 +271,8 @@ MonoBehaviour:
   carToSpawn: {fileID: 0}
   fixedJoint: {fileID: 683078823}
   GameStartUI: {fileID: 0}
+  powerUI: {fileID: 0}
+  explosion: {fileID: 100000, guid: c9d5cd88175043e4682f5575c3340d37, type: 3}
   trail: {fileID: 0}
   overheadCam: {fileID: 0}
   thirdPersonCam: {fileID: 0}
