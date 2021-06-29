@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         {
             GameStartUI.SetActive(false);
         }
-        if (hasPowerup && Input.GetKeyDown(KeyCode.F))
+        if (hasPowerup && Input.GetKeyDown(KeyCode.F) && carAttached)
         {
             UserPowerup();
         }
@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
         {
             powerActive = false;
             powerup.StopEffect(carToSpawn);
+            Debug.Log("stopped phase");
         }
         else if(powerupTimer > 0 && powerActive)
         {

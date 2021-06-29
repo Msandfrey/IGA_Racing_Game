@@ -7,6 +7,7 @@ public class LapTracker : MonoBehaviour
 {
     public GameObject winPanel;
     public GameObject losePanel;
+    public GameObject endButtons;
     public TextMeshProUGUI playerPlaceText;
     public CarFlying playerCar;
     public CarFlying AICar1;
@@ -159,6 +160,7 @@ public class LapTracker : MonoBehaviour
             {
                 winPanel.SetActive(true);
                 win = true;
+                endButtons.SetActive(true);
                 other.gameObject.GetComponent<CarFlying>().fixedJoint.breakTorque = Mathf.Infinity;
                 other.gameObject.GetComponent<CarFlying>().fixedJoint.breakForce = Mathf.Infinity;
                 return;
@@ -176,6 +178,7 @@ public class LapTracker : MonoBehaviour
             {
                 losePanel.SetActive(true);
                 lose = true;
+                endButtons.SetActive(true);
                 return;
             }
             //increase laps
@@ -189,6 +192,7 @@ public class LapTracker : MonoBehaviour
                 {
                     losePanel.SetActive(true);
                     lose = true;
+                    endButtons.SetActive(true);
                     return;
                 }
                 //increase laps

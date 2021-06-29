@@ -39,6 +39,7 @@ public class AIController : MonoBehaviour
         transform.Rotate(180, 0, 0);
         pathFollow = GetComponent<Follow>();
         powerup = new PowerupClass();
+        carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
     }
 
     // Update is called once per frame
@@ -97,7 +98,7 @@ public class AIController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (hasPowerup)
+        if (hasPowerup && carAttached)
         {
             if (DetectOthers())
             {

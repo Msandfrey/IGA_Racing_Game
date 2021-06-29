@@ -11108,6 +11108,7 @@ MonoBehaviour:
   playerCarColor: 
   openingSequenceSeen: 0
   pauseScreen: {fileID: 1410219233}
+  pauseButt: {fileID: 1560037668}
   optionsScreen: {fileID: 707177246}
   BGM: {fileID: 327776765}
   volume: {fileID: 963355286}
