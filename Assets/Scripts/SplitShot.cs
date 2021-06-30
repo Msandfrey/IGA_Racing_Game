@@ -134,7 +134,7 @@ public class SplitShot : MonoBehaviour
             }
             else if (other.GetComponent<CarFlying>().playerController)
             {
-                if (!other.GetComponent<CarFlying>().playerController.GetComponent<PlayerController>().IsPowerActive())
+                if (!other.GetComponent<CarFlying>().playerController.GetComponent<PlayerController>().IsPowerActive() && !other.GetComponent<CarFlying>().playerController.GetComponent<PlayerController>().invulnerable)
                 {
                     other.GetComponent<CarFlying>().fixedJoint.breakTorque = newTorque;
                     other.GetComponent<Rigidbody>().AddRelativeTorque(0, 0, -100, ForceMode.Impulse);

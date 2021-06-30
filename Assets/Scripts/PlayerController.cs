@@ -53,6 +53,11 @@ public class PlayerController : MonoBehaviour
     private float powerupTimer = 0f;
     private bool powerActive = false;
 
+    //respwan
+    public bool invulnerable = false;
+    bool down = true;
+    float invulnerableTimer;
+    float newAlpha = 1f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -107,6 +112,32 @@ public class PlayerController : MonoBehaviour
         {
             SwapCam();
         }
+        if(invulnerableTimer <= 0 && invulnerable)
+        {
+            invulnerable = false;
+            carToSpawn.GetComponent<BoxCollider>().isTrigger = false;
+            MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
+            carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, 1f));
+        }
+        else if(invulnerableTimer > 0 && invulnerable)
+        {
+            invulnerableTimer -= Time.deltaTime;
+            if(down)
+            {
+                newAlpha -= Time.deltaTime *2;
+                MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
+                carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+            }
+            else
+            {
+                newAlpha += Time.deltaTime *2;
+                MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
+                carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+            }
+            newAlpha = Mathf.Clamp(newAlpha, 0, 1);
+            if(newAlpha == 0) { down = false; }
+            if(newAlpha == 1) { down = true; }
+        }
         if(powerupTimer <= 0 && powerActive)
         {
             powerActive = false;
@@ -123,7 +154,9 @@ public class PlayerController : MonoBehaviour
             {
                 ResetCar();
                 carAttached = true;
-                carToSpawn.GetComponent<MeshRenderer>().enabled = true;
+                MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
+                carMR.enabled = true;
+                //set invulnerable timer
             }
             else if (respawnTimer > 0)
             {
@@ -133,6 +166,9 @@ public class PlayerController : MonoBehaviour
             {
                 //set joint
                 MakeNewJoint();
+                invulnerable = true;
+                carToSpawn.GetComponent<BoxCollider>().isTrigger = true;
+                invulnerableTimer = 1f;
                 Debug.Log("Joint set; continue driving");
             }
             return;
