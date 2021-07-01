@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         trail = carToSpawn.GetComponentInChildren<TrailRenderer>();
         overheadCam.enabled = true;
         thirdPersonCam.enabled = false;
-        powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
+        powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
         powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/PhaseButton");//start with this one for now, todo change later
         GameStartUI.SetActive(true);
         GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "Ready...";
@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
             case PowerupClass.PowerType.Phase:
                 powerupTimer = powerup.timer;
                 hasPowerup = false;
-                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
                 powerActive = true;
                 powerup.UseEffect(carToSpawn);
                 powerup.power = PowerupClass.PowerType.None;
@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
                 miss.transform.Rotate(90, 0, 0);
                 miss.transform.localScale *= 2;
                 hasPowerup = false;
-                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             case PowerupClass.PowerType.Mine:
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
                 mine.GetComponent<Mine>().carName = carToSpawn.name;
                 mine.GetComponent<Mine>().ownerName = name;
                 hasPowerup = false;
-                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .5f);
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             default:
