@@ -34,6 +34,13 @@ public class AIController : MonoBehaviour
     private bool powerActive = false;
     private float powerupTimer;
     PowerupClass powerup;
+
+    public bool sharedTrack;
+    int mineSpawnPoint;
+    public Transform mineSpawn1;
+    public Transform mineSpawn2;
+    public Transform mineSpawn3;
+    public Transform mineSpawn4;
     // Start is called before the first frame update
     void Start()
     {
@@ -152,7 +159,8 @@ public class AIController : MonoBehaviour
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             case PowerupClass.PowerType.Mine:
-                Vector3 spawnPos = transform.position;//todo create a way for spawn points to be different
+                mineSpawnPoint = Random.Range(1, 3);
+                Vector3 spawnPos = GetMineSpawn();
                 GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
                 mine.GetComponent<Mine>().carName = carToSpawn.name;
                 mine.GetComponent<Mine>().ownerName = name;
@@ -162,6 +170,24 @@ public class AIController : MonoBehaviour
             default:
                 break;
         }
+    }
+    Vector3 GetMineSpawn()
+    {
+        if (sharedTrack) { mineSpawnPoint = 0; }
+        switch (mineSpawnPoint)
+        {
+            case 0:
+                return mineSpawn1.position;
+            case 1:
+                return mineSpawn2.position;
+            case 2:
+                return mineSpawn3.position;
+            case 3:
+                return mineSpawn4.position;
+            default:
+                break;
+        }
+        return mineSpawn1.position;
     }
     private void OnJointBreak(float breakForce)
     {

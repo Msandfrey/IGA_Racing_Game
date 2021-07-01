@@ -186,8 +186,13 @@ MonoBehaviour:
   acceleration: 20
   decceleration: 20
   carLayer: 3
-  explosion: {fileID: 100000, guid: c9d5cd88175043e4682f5575c3340d37, type: 3}
+  explosion: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
   hasPowerup: 0
+  sharedTrack: 0
+  mineSpawn1: {fileID: 0}
+  mineSpawn2: {fileID: 0}
+  mineSpawn3: {fileID: 0}
+  mineSpawn4: {fileID: 0}
 --- !u!138 &3854824585127421563
 FixedJoint:
   m_ObjectHideFlags: 0
