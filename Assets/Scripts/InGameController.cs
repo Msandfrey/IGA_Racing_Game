@@ -55,6 +55,7 @@ public class InGameController : MonoBehaviour
         {//todo replace the resources loading
             case 0://main menu
                 BGM.clip = Resources.Load<AudioClip>("Sounds/GameTheme");
+                BGM.Play();
                 pauseButt.SetActive(false);
                 break;
             case 1://tutorial

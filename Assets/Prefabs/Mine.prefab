@@ -108,5 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7daf6a7254b632c41a46043d9e15e029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 100000, guid: c9d5cd88175043e4682f5575c3340d37, type: 3}
-  ownerTag: 
+  explosion: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  carName: 
+  ownerName: 

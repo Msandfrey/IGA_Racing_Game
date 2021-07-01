@@ -451,6 +451,30 @@ public class MainMenu : MonoBehaviour
         level3DObject.SetActive(false);
         car.SetActive(true);
         car3DObject.SetActive(true);
+        currCar = GM.racerType;
+        switch (GM.playerCarColor)
+        {
+            case "white":
+                currColor = 1;
+                break;
+            case "yellow":
+                currColor = 2;
+                break;
+            case "orange":
+                currColor = 3;
+                break;
+            case "magenta":
+                currColor = 4;
+                break;
+            case "red":
+                currColor = 5;
+                break;
+            default:
+                currColor = 1;
+                break;
+        }
+        DisplayCar(currCar);
+        DisplayCarColor(currCar, currColor);
     }
     public void Butterfly()
     {
