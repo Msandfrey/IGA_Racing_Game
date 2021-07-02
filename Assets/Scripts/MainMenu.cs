@@ -124,6 +124,7 @@ public class MainMenu : MonoBehaviour
     }
     public void LevelSelect()
     {
+        title.SetActive(false);
         level.SetActive(true);
         level3DObject.SetActive(true);
     }
