@@ -116,27 +116,24 @@ public class PlayerController : MonoBehaviour
         {
             invulnerable = false;
             carToSpawn.GetComponent<BoxCollider>().isTrigger = false;
-            MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
-            carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, 1f));
+            carToSpawn.GetComponent<MeshRenderer>().enabled = true;
+            //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, 1f));
         }
         else if(invulnerableTimer > 0 && invulnerable)
         {
             invulnerableTimer -= Time.deltaTime;
-            if(down)
+            if(newAlpha == 0)
             {
-                newAlpha -= Time.deltaTime *2;
-                MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
-                carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+                newAlpha = 1;
+                carToSpawn.GetComponent<MeshRenderer>().enabled = false;
+                //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
             }
             else
             {
-                newAlpha += Time.deltaTime *2;
-                MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
-                carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+                newAlpha = 0;
+                carToSpawn.GetComponent<MeshRenderer>().enabled = true;
+                //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
             }
-            newAlpha = Mathf.Clamp(newAlpha, 0, 1);
-            if(newAlpha == 0) { down = false; }
-            if(newAlpha == 1) { down = true; }
         }
         if(powerupTimer <= 0 && powerActive)
         {

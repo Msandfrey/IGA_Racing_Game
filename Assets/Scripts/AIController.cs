@@ -35,6 +35,10 @@ public class AIController : MonoBehaviour
     private float powerupTimer;
     PowerupClass powerup;
 
+    int newAlpha = 1;
+    bool invulnerable = false;
+    float invulnerableTimer;
+
     public bool sharedTrack;
     int mineSpawnPoint;
     public Transform mineSpawn1;
@@ -69,6 +73,8 @@ public class AIController : MonoBehaviour
             fixedJoint.enablePreprocessing = false;
             carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;//for now it doesnt do anything with this var
             carToSpawn.layer = carLayer;
+            invulnerable = true;
+            invulnerableTimer = 1f;
         }
         if (powerupTimer <= 0 && powerActive)
         {
@@ -83,6 +89,29 @@ public class AIController : MonoBehaviour
         if (carAttached && move)
         {
             pathFollow.IncreaseSpeed(acceleration * Time.deltaTime, 0, speed);
+        }
+        if (invulnerableTimer <= 0 && invulnerable)
+        {
+            invulnerable = false;
+            carToSpawn.GetComponent<BoxCollider>().isTrigger = false;
+            carToSpawn.GetComponent<MeshRenderer>().enabled = true;
+            //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, 1f));
+        }
+        else if (invulnerableTimer > 0 && invulnerable)
+        {
+            invulnerableTimer -= Time.deltaTime;
+            if (newAlpha == 0)
+            {
+                newAlpha = 1;
+                carToSpawn.GetComponent<MeshRenderer>().enabled = false;
+                //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+            }
+            else
+            {
+                newAlpha = 0;
+                carToSpawn.GetComponent<MeshRenderer>().enabled = true;
+                //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+            }
         }
         //respawn after getting hit
         if (respawnTimer <= 0 && !carAttached)
