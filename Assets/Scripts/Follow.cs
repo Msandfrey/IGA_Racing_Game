@@ -8,6 +8,7 @@ public class Follow : MonoBehaviour
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 5;
+    [SerializeField]
     float distanceTravelled;
 
     void Start()
@@ -16,6 +17,7 @@ public class Follow : MonoBehaviour
         {
             // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
             pathCreator.pathUpdated += OnPathChanged;
+            Debug.Log(pathCreator.path.length);
         }
     }
 
@@ -41,7 +43,10 @@ public class Follow : MonoBehaviour
     {
         distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
     }
-
+    public float GetDistanceTraveled()
+    {
+        return distanceTravelled;
+    }
     public void IncreaseSpeed(float newSpeed, float min, float max)
     {
         speed += newSpeed;
@@ -52,5 +57,10 @@ public class Follow : MonoBehaviour
     {
         speed -= newSpeed;
         speed = Mathf.Clamp(speed, min, max);
+    }
+
+    public void LeavePath()
+    {
+        pathCreator = null;
     }
 }

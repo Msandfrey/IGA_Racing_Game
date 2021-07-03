@@ -10,13 +10,12 @@ public class CarFlying : MonoBehaviour
     public GameObject LapTrackUI;
     public float breakForce = 800;
     public float breakTorque = 600;
-    //powerups
-    bool powerup = false;
-    float powerupTimer = 0f;
     public int lapTracker = 0;
     public bool enemy;
-    public Color carColor;
+    [HideInInspector]
+    public int lapsToWin = 0;
     public AIController Controller;
+    public PlayerController playerController;
     private MeshRenderer carRenderer;
     //
     [SerializeField]
@@ -36,43 +35,44 @@ public class CarFlying : MonoBehaviour
     [SerializeField]
     Color magentaEmissive = new Color(.83f, .4198f, .7128f);
     [SerializeField]
+    Color blueAlbedo = Color.cyan;//new Color(0, 1, 1);
+    [SerializeField]
+    Color blueEmissive = Color.cyan;//new Color(0, 1, 1);
+    [HideInInspector]
+    [SerializeField]
     Color whiteAlbedo = new Color(1, 1, 1);
     [SerializeField]
     Color whiteEmissive = new Color(1, 1, 1);
+    [HideInInspector]
+    public string carColor;
 
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreLayerCollision(0,6);
+        Physics.IgnoreLayerCollision(3,6);
         carRenderer = GetComponent<MeshRenderer>();
         if (enemy)
         {
-            SetRacer(Random.Range(1, 2));
-            SetColor(GetRandomColor());
+            SetRacer(Random.Range(1, 4));
+            carColor = GetRandomColor();
+            SetColor(carColor);
+            GetComponentInChildren<TrailRenderer>().startColor = GetTrailColor(carColor);
+            GetComponentInChildren<TrailRenderer>().endColor = Color.grey;
         }
         else
         {
             SetRacer(FindObjectOfType<InGameController>().racerType);
-            SetColor(FindObjectOfType<InGameController>().playerCarColor);
+            carColor = FindObjectOfType<InGameController>().playerCarColor;
+            SetColor(carColor);
+            GetComponentInChildren<TrailRenderer>().startColor = GetTrailColor(carColor);
+            GetComponentInChildren<TrailRenderer>().endColor = Color.grey;
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString();
-        if (powerupTimer <= 0 && powerup)
+        if (!enemy)
         {
-            powerup = false;
-            //GetComponent<MeshRenderer>().materials[0].color = carColor;
-            //GetComponent<BoxCollider>().enabled = true;
-            fixedJoint.breakForce = breakForce;//var
-            fixedJoint.breakTorque = breakTorque;//var
-            //stop changing colors
-        }
-        else if (powerupTimer > 0 && powerup)
-        {
-            powerupTimer -= Time.deltaTime;
+            LapTrackUI.GetComponentInChildren<TextMeshProUGUI>().text = (lapTracker).ToString() + "/" + lapsToWin.ToString();
         }
     }
     string GetRandomColor()
@@ -94,7 +94,7 @@ public class CarFlying : MonoBehaviour
         }
         return "white";
     }
-    void SetColor(string color)
+    public void SetColor(string color)
     {
         switch (color)
         {
@@ -114,10 +114,34 @@ public class CarFlying : MonoBehaviour
                 carRenderer.material.SetColor("_AlbedoTint", redAlbedo);
                 carRenderer.material.SetColor("_EmissionColor", redEmissive);
                 break;
+            case "blue":
+                carRenderer.material.SetColor("_AlbedoTint", blueAlbedo);
+                carRenderer.material.SetColor("_EmissionColor", blueEmissive);
+                break;
             case "white":
                 break;
             default:
                 break;
+        }
+    }
+    Color GetTrailColor(string color)
+    {
+        switch (color)
+        {
+            case "magenta":
+                return magentaEmissive;
+            case "orange":
+                return orangeEmissive;
+            case "yellow":
+                return yellowEmissive;
+            case "red":
+                return redEmissive;
+            case "blue":
+                return blueEmissive;
+            case "white":
+                return Color.white;
+            default:
+                return Color.white;
         }
     }
     void SetRacer(int racerType)
@@ -133,10 +157,16 @@ public class CarFlying : MonoBehaviour
                 carRenderer.material = Resources.Load<Material>("Materials/Racer_2_Material_White");
                 break;
             case 3:
+                GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Heavy_Car_1");
+                carRenderer.material = Resources.Load<Material>("Materials/Racer_3_Material_White");
                 break;
             case 4:
+                GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Speed_Car_1");
+                carRenderer.material = Resources.Load<Material>("Materials/Racer_4_Material_White");
                 break;
             default:
+                GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Starter_Car_2");
+                carRenderer.material = Resources.Load<Material>("Materials/Racer_1_Material_White");
                 break;
         }
     }
