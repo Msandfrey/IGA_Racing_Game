@@ -187,7 +187,8 @@ public class MainMenu : MonoBehaviour
         switch (level)
         {//see about removing resources.load todo
             case 1:
-                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Track_1");
+                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Circuit_Track_1");
+                level3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Circuit_Track_Material");
                 level3DObject.transform.localScale = new Vector3(5, 5, 5);
                 level3DObject.transform.localEulerAngles = new Vector3(180, 90, -90);
                 //circle
@@ -197,7 +198,8 @@ public class MainMenu : MonoBehaviour
                 wave.SetActive(false);
                 break;
             case 2:
-                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Butterfly_Track_1");
+                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Butterfly_Track_2");
+                level3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Butterfly_Track_Material");
                 level3DObject.transform.localScale = new Vector3(.06f, .06f, .06f);
                 level3DObject.transform.localEulerAngles = new Vector3(180, 90, -90);
                 //butter
@@ -207,7 +209,8 @@ public class MainMenu : MonoBehaviour
                 wave.SetActive(false);
                 break;
             case 3:
-                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Dollar_Track_1");
+                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Dollar_Track_2");
+                level3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Dollar_Track_Material");
                 level3DObject.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
                 level3DObject.transform.localEulerAngles = new Vector3(90, 90, -90);
                 //dollar
@@ -217,7 +220,8 @@ public class MainMenu : MonoBehaviour
                 wave.SetActive(false);
                 break;
             case 4:
-                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Wave_Track_1");
+                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Wave_Track_2");
+                level3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Wave_Track_Material");
                 level3DObject.transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
                 level3DObject.transform.localEulerAngles = new Vector3(90, 90, -90);
                 //wave
@@ -227,7 +231,8 @@ public class MainMenu : MonoBehaviour
                 wave.SetActive(true);
                 break;
             default:
-                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Prototype_Track_1");
+                level3DObject.GetComponent<MeshFilter>().sharedMesh = Resources.Load<Mesh>("Models/Circuit_Track_1");
+                level3DObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/Circuit_Track_Material");
                 //circle
                 circle.SetActive(true);
                 butter.SetActive(false);
