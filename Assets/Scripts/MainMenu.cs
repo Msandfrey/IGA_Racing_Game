@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
     //cars
     public GameObject car;
     public GameObject car3DObject;
+    [SerializeField]
     private int currCar = 1;
     private int currColor = 1;
     private bool hasIntroPlayer = false;
@@ -45,6 +46,28 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         GM = FindObjectOfType<InGameController>();
+        currCar = GM.racerType;
+        switch (GM.playerCarColor)
+        {
+            case "white":
+                currColor = 1;
+                break;
+            case "yellow":
+                currColor = 2;
+                break;
+            case "orange":
+                currColor = 3;
+                break;
+            case "magenta":
+                currColor = 4;
+                break;
+            case "red":
+                currColor = 5;
+                break;
+            default:
+                currColor = 1;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -124,12 +147,15 @@ public class MainMenu : MonoBehaviour
     }
     public void LevelSelect()
     {
+        DisplayCar(currCar);
+        DisplayCarColor(currCar, currColor);
         title.SetActive(false);
         level.SetActive(true);
         level3DObject.SetActive(true);
     }
     public void BackToStart()
     {
+        title.SetActive(true);
         start.SetActive(true);
         creditButt.SetActive(true);
         tutorial.SetActive(true);

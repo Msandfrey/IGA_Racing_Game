@@ -30,6 +30,7 @@ public class InGameController : MonoBehaviour
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(gameObject);
+        racerType = 1;
     }
     private void Start()
     {

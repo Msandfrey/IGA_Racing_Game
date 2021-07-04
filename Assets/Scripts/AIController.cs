@@ -128,6 +128,7 @@ public class AIController : MonoBehaviour
             timer = 0.5f;
             carAttached = true;
             carToSpawn.GetComponent<MeshRenderer>().enabled = true;
+            carToSpawn.GetComponent<BoxCollider>().isTrigger = true;
         }
         else if (respawnTimer > 0 && !carAttached)
         {

@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour
                 ResetCar();
                 carAttached = true;
                 MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
+                carToSpawn.GetComponent<BoxCollider>().isTrigger = true;
                 carMR.enabled = true;
                 //set invulnerable timer
             }
