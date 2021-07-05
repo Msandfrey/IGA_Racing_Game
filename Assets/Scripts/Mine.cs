@@ -55,6 +55,10 @@ public class Mine : MonoBehaviour
                 }
             }
         }
+        else if (other.tag.Equals("Missile"))
+        {
+            Boom();
+        }
     }
     void Boom()
     {

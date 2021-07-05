@@ -7743,9 +7743,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 276250729}
-  upOffset: {x: 0, y: 2, z: 0}
-  behindOffset: 5
-  smoothBrainFactor: 0.4
+  upOffset: {x: 0, y: 2.5, z: 0}
+  behindOffset: 6
+  smoothBrainFactor: 0.217
   lookAtOn: 1
 --- !u!1 &1162842324
 GameObject:

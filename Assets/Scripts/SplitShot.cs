@@ -147,5 +147,9 @@ public class SplitShot : MonoBehaviour
                 }
             }
         }
+        else if (other.tag.Equals("Mine"))
+        {
+            Boom();
+        }
     }
 }

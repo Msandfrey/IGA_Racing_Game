@@ -17,7 +17,8 @@ public class PlayerFollow : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 targetPos = followTarget.position + upOffset + (-followTarget.forward * behindOffset);
-        Vector3 smoothPos = Vector3.Lerp(transform.position, targetPos, smoothBrainFactor);
+        float blend = 1f - Mathf.Pow(1f - smoothBrainFactor, Time.deltaTime * 30);//30 is the framerate (should be)
+        Vector3 smoothPos = Vector3.Lerp(transform.position, targetPos, blend);
         transform.position = smoothPos;
         if (lookAtOn) { transform.LookAt(followTarget); }
     }

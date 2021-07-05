@@ -77,22 +77,23 @@ public class CarFlying : MonoBehaviour
     }
     string GetRandomColor()
     {
+        string GMColor = FindObjectOfType<InGameController>().playerCarColor;
         switch (Random.Range(1,5))
         {
             case 1:
-                return "red";
+                return "red" == GMColor ? "yellow" : "red";
             case 2:
-                return "yellow";
+                return "yellow" == GMColor ? "orange" : "yellow";
             case 3:
-                return "orange";
+                return "orange" == GMColor ? "white" : "orange";
             case 4:
-                return "white";
+                return "white" == GMColor ? "magenta" : "white";
             case 5:
-                return "magenta";
+                return "magenta" == GMColor ? "red" : "magenta";
             default:
                 break;
         }
-        return "white";
+        return "white" == GMColor ? "magenta" : "white";
     }
     public void SetColor(string color)
     {
@@ -146,6 +147,7 @@ public class CarFlying : MonoBehaviour
     }
     void SetRacer(int racerType)
     {
+        if(racerType == FindObjectOfType<InGameController>().racerType && enemy) { racerType++; }
         switch (racerType)
         {
             case 1:

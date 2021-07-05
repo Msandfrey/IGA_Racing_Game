@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 1190267103}
-  upOffset: {x: 0, y: 2, z: 0}
-  behindOffset: 5
-  smoothBrainFactor: 0.4
+  upOffset: {x: 0, y: 2.5, z: 0}
+  behindOffset: 6
+  smoothBrainFactor: 0.217
   lookAtOn: 1
 --- !u!1001 &8798397
 PrefabInstance:
@@ -2354,7 +2354,7 @@ Transform:
   m_LocalScale: {x: 5.0081096, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &604948563
 MeshRenderer:
@@ -2953,7 +2953,7 @@ Transform:
   - {fileID: 2076090722}
   - {fileID: 1439669827}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1088581819
 PrefabInstance:
@@ -4672,7 +4672,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1650843912
 PrefabInstance:

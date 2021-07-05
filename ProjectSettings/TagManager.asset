@@ -10,6 +10,7 @@ TagManager:
   - PlayerCar
   - Powerup
   - EnemyCar
+  - Mine
   layers:
   - Default
   - TransparentFX
