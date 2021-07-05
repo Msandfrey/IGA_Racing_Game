@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private int currCar = 1;
     private int currColor = 1;
+
     private bool hasIntroPlayer = false;
     private bool playIntro = false;
     private bool isPlaying = false;
@@ -41,6 +42,16 @@ public class MainMenu : MonoBehaviour
     private AudioSource menuBGM;
     private InGameController GM;
 
+    //sounds
+    AudioSource UISounds;
+    [SerializeField]
+    private AudioClip xSound;
+    [SerializeField]
+    private AudioClip backSound;
+    [SerializeField]
+    private AudioClip selectSound;
+    [SerializeField]
+    private AudioClip carLevelSound;
     private string SceneToLoad;
     // Start is called before the first frame update
     void Start()
@@ -68,6 +79,7 @@ public class MainMenu : MonoBehaviour
                 currColor = 1;
                 break;
         }
+        UISounds = GM.UI;
     }
 
     // Update is called once per frame
@@ -100,6 +112,9 @@ public class MainMenu : MonoBehaviour
     }
     public void Credits()
     {
+        //play sound
+        UISounds.clip = selectSound;
+        UISounds.Play();
         //show credits
         start.SetActive(false);
         creditButt.SetActive(false);
@@ -109,6 +124,9 @@ public class MainMenu : MonoBehaviour
     }
     public void BackFromCredits()
     {
+        //play sound
+        UISounds.clip = xSound;
+        UISounds.Play();
         //todo go back to previous
         //just go to level select for now
         credit.SetActive(false);
@@ -119,6 +137,9 @@ public class MainMenu : MonoBehaviour
     }
     public void BackToLevels()
     {
+        //play sound
+        UISounds.clip = backSound;
+        UISounds.Play();
         start.SetActive(false);
         level.SetActive(true);
         level3DObject.SetActive(true);
@@ -127,6 +148,9 @@ public class MainMenu : MonoBehaviour
     }
     public void EnterLevelSelect()
     {
+        //play sound
+        UISounds.clip = selectSound;
+        UISounds.Play();
         if (GM.openingSequenceSeen)
         {
             start.SetActive(false);
@@ -155,6 +179,9 @@ public class MainMenu : MonoBehaviour
     }
     public void BackToStart()
     {
+        //play sound
+        UISounds.clip = backSound;
+        UISounds.Play();
         title.SetActive(true);
         start.SetActive(true);
         creditButt.SetActive(true);
@@ -166,6 +193,9 @@ public class MainMenu : MonoBehaviour
     }
     public void EnterControls()
     {
+        //play sound
+        UISounds.clip = selectSound;
+        UISounds.Play();
         title.SetActive(false);
         start.SetActive(false);
         creditButt.SetActive(false);
@@ -176,6 +206,9 @@ public class MainMenu : MonoBehaviour
     }
     public void LeaveControls()
     {
+        //play sound
+        UISounds.clip = backSound;
+        UISounds.Play();
         title.SetActive(true);
         start.SetActive(true);
         creditButt.SetActive(true);
@@ -186,12 +219,18 @@ public class MainMenu : MonoBehaviour
     }
     public void Tutorial()
     {
+        //play sound
+        UISounds.clip = selectSound;
+        UISounds.Play();
         SceneManager.LoadScene("Tutorial");
         FindObjectOfType<InGameController>().racerType = 1;
         FindObjectOfType<InGameController>().playerCarColor = "red";
     }
     public void LeftLevel()
     {
+        //play sound
+        UISounds.clip = carLevelSound;
+        UISounds.Play();
         currLevel--;
         if(currLevel <= 0)
         {
@@ -201,6 +240,9 @@ public class MainMenu : MonoBehaviour
     }
     public void RightLevel()
     {
+        //play sound
+        UISounds.clip = carLevelSound;
+        UISounds.Play();
         currLevel++;
         if (currLevel > 4)
         {
@@ -269,6 +311,9 @@ public class MainMenu : MonoBehaviour
     }
     public void LeftCar()
     {
+        //play sound
+        UISounds.clip = carLevelSound;
+        UISounds.Play();
         currCar--;
         if (currCar <= 0)
         {
@@ -279,6 +324,9 @@ public class MainMenu : MonoBehaviour
     }
     public void RightCar()
     {
+        //play sound
+        UISounds.clip = carLevelSound;
+        UISounds.Play();
         currCar++;
         if (currCar > 4)
         {
@@ -483,7 +531,7 @@ public class MainMenu : MonoBehaviour
         level3DObject.SetActive(false);
         car.SetActive(true);
         car3DObject.SetActive(true);
-        currCar = GM.racerType;
+        /**currCar = GM.racerType;
         switch (GM.playerCarColor)
         {
             case "white":
@@ -506,7 +554,7 @@ public class MainMenu : MonoBehaviour
                 break;
         }
         DisplayCar(currCar);
-        DisplayCarColor(currCar, currColor);
+        DisplayCarColor(currCar, currColor);**/
     }
     public void Butterfly()
     {

@@ -19,6 +19,7 @@ public class InGameController : MonoBehaviour
     private AudioSource BGM;
     [SerializeField]
     private Slider volume;
+    public AudioSource UI;
 
     // Start is called before the first frame update
     private void Awake()
@@ -30,6 +31,9 @@ public class InGameController : MonoBehaviour
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(gameObject);
+        //to keep framerate consistent throughout multiple devices
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 30;
         racerType = 1;
     }
     private void Start()

@@ -39,6 +39,9 @@ public class AIController : MonoBehaviour
     bool invulnerable = false;
     float invulnerableTimer;
 
+    bool fireWeapon = false;
+    float readyWeapon;
+
     public bool sharedTrack;
     int mineSpawnPoint;
     public Transform mineSpawn1;
@@ -134,15 +137,24 @@ public class AIController : MonoBehaviour
         {
             respawnTimer -= Time.deltaTime;
         }
+        if(hasPowerup && readyWeapon > 0)
+        {
+            readyWeapon -= Time.deltaTime;
+            readyWeapon = readyWeapon == 0 ? -1 : readyWeapon;
+        }else if(hasPowerup && readyWeapon < 0)
+        {
+            fireWeapon = true;
+            readyWeapon = 0;
+        }
     }
     private void FixedUpdate()
     {
-        if (hasPowerup && carAttached)
+        if (hasPowerup && carAttached && fireWeapon)
         {
             if (DetectOthers())
             {
-                Debug.Log("waiting");
                 UsePowerup();
+                fireWeapon = false;
             }
         }
     }
@@ -247,7 +259,7 @@ public class AIController : MonoBehaviour
             powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();
             powerupToSpawn = powerup.prefabToSpawn;
             hasPowerup = true;
-
+            readyWeapon = 1.5f;
         }
     }
     private void OnTriggerStay(Collider other)

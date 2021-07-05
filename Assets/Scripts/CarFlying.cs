@@ -147,7 +147,7 @@ public class CarFlying : MonoBehaviour
     }
     void SetRacer(int racerType)
     {
-        if(racerType == FindObjectOfType<InGameController>().racerType) { racerType++; }
+        if(racerType == FindObjectOfType<InGameController>().racerType && enemy) { racerType++; }
         switch (racerType)
         {
             case 1:

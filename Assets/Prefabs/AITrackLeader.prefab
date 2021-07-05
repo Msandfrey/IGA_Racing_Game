@@ -179,7 +179,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   delayToStart: 2
-  speed: 65
+  speed: 60
   carAttached: 1
   fixedJoint: {fileID: 3854824585127421563}
   move: 1

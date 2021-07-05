@@ -953,7 +953,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &223011719
 PrefabInstance:
@@ -1255,7 +1255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &292402913
 PrefabInstance:
@@ -3397,9 +3397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 531374791}
-  upOffset: {x: 0, y: 4, z: 0}
-  behindOffset: 5
-  smoothBrainFactor: 0.4
+  upOffset: {x: 0, y: 2.5, z: 0}
+  behindOffset: 6
+  smoothBrainFactor: 0.217
   lookAtOn: 1
 --- !u!20 &911383798
 Camera:
@@ -3456,7 +3456,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 13.096, y: 0, z: 0}
 --- !u!1001 &934576298
 PrefabInstance:
