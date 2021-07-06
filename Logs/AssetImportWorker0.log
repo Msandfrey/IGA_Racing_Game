@@ -15,7 +15,7 @@ D:/Users/msand/Documents/Neon_Slot_Racer
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50465
+56215
 Successfully changed project path to: D:/Users/msand/Documents/Neon_Slot_Racer
 D:/Users/msand/Documents/Neon_Slot_Racer
 Using Asset Import Pipeline V2.
@@ -35,24 +35,24 @@ Initialize mono
 Mono path[0] = 'D:/ProgramFiles/2020.2.1f1/Editor/Data/Managed'
 Mono path[1] = 'D:/ProgramFiles/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/ProgramFiles/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56960
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56052
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/ProgramFiles/2020.2.1f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/ProgramFiles/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001424 seconds.
+Registered in 0.001194 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 29.19 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 28.18 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.986 seconds
+- Completed reload, in  1.896 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000582 seconds.
+Registered in 0.000561 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
@@ -62,48 +62,104 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.705 seconds
+- Completed reload, in  0.722 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1383 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 143.8 MB.
-System memory in use after: 143.9 MB.
+System memory in use before: 145.1 MB.
+System memory in use after: 145.2 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1842.
-Total: 1.667300 ms (FindLiveObjects: 0.195800 ms CreateObjectMapping: 0.036800 ms MarkObjects: 1.416500 ms  DeleteObjects: 0.017100 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1843.
+Total: 1.788500 ms (FindLiveObjects: 0.262600 ms CreateObjectMapping: 0.044500 ms MarkObjects: 1.459900 ms  DeleteObjects: 0.020300 ms)
 
 ========================================================================
 Received Import Request.
   path: Assets/Scenes/DollarTest.unity
   artifactKey: Guid(96e5cde8ed6ef9d499724c792afbcd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/DollarTest.unity using Guid(96e5cde8ed6ef9d499724c792afbcd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '791397f51a267552ff51d5770a831a53') in 0.010055 seconds
-  Import took 0.012321 seconds .
+Start importing Assets/Scenes/DollarTest.unity using Guid(96e5cde8ed6ef9d499724c792afbcd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7aefeef9b9ed82d4ee92e11444ae325a') in 0.016147 seconds
+  Import took 0.018911 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 16.680053 seconds.
-  path: Assets/Scenes/DollarTest.unity
+  Time since last request: 58.084913 seconds.
+  path: Assets/Scenes/Dollar.unity
   artifactKey: Guid(96e5cde8ed6ef9d499724c792afbcd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/DollarTest.unity using Guid(96e5cde8ed6ef9d499724c792afbcd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7aefeef9b9ed82d4ee92e11444ae325a') in 0.003924 seconds
-  Import took 0.054996 seconds .
+Start importing Assets/Scenes/Dollar.unity using Guid(96e5cde8ed6ef9d499724c792afbcd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ce31915490cd59ebb492570b85a458b') in 0.005052 seconds
+  Import took 0.008175 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 23.864356 seconds.
-  path: Assets/Scenes/ButterflyTest.unity
-  artifactKey: Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/ButterflyTest.unity using Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eacbbc103a5f436d7cdab878a58e175a') in 0.003459 seconds
-  Import took 0.280951 seconds .
+  Time since last request: 20.964669 seconds.
+  path: Assets/Scenes/MattTest.unity
+  artifactKey: Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MattTest.unity using Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98675765d6ef35801568725dc6c1e69c') in 0.003357 seconds
+  Import took 0.005679 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 18.921291 seconds.
+  Time since last request: 4.302571 seconds.
+  path: Assets/Scenes/CircleTest.unity
+  artifactKey: Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/CircleTest.unity using Guid(562f28637da197346b5d68bd0ec98044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44f266c9b9da8d2e11732b2df533366a') in 0.003293 seconds
+  Import took 0.005678 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.273269 seconds.
   path: Assets/Scenes/WaveTest.unity
   artifactKey: Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/WaveTest.unity using Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9f1b799ace02d23bf6a0144af867016') in 0.003902 seconds
-  Import took 0.006439 seconds .
+Start importing Assets/Scenes/WaveTest.unity using Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '783dea82dfa68dc9e20b1255a4559e8d') in 0.003306 seconds
+  Import took 0.005669 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.247379 seconds.
+  path: Assets/Scenes/WaveTest 1.unity
+  artifactKey: Guid(98a43021b90a31346ab1d404e1bf7e18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/WaveTest 1.unity using Guid(98a43021b90a31346ab1d404e1bf7e18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a0a972757efd2720d7cb8d6d6a5ae95') in 0.003602 seconds
+  Import took 0.006353 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.781200 seconds.
+  path: Assets/Scenes/Wave.unity
+  artifactKey: Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Wave.unity using Guid(be374835abf12bc42aa2ebb0c50316e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9c52a1b1be1707c39105d81d8f4d95b') in 0.003653 seconds
+  Import took 0.006228 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.873183 seconds.
+  path: Assets/Scenes/ButterflyTest.unity
+  artifactKey: Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/ButterflyTest.unity using Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b73e986de8807e4332316be5f6eadbf') in 0.003732 seconds
+  Import took 0.006185 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.087893 seconds.
+  path: Assets/Scenes/ButterflyTest 1.unity
+  artifactKey: Guid(6f2359ca0ec8ec84ab893744b60104f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/ButterflyTest 1.unity using Guid(6f2359ca0ec8ec84ab893744b60104f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f10b868a2b4e8b8223806e64ecdf0cfd') in 0.004039 seconds
+  Import took 0.006789 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.371497 seconds.
+  path: Assets/Scenes/Butterfly.unity
+  artifactKey: Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Butterfly.unity using Guid(255d5db3afc1d0748b66163acc585a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b23d6bd69791aac4e58cabff849840b') in 0.003500 seconds
+  Import took 0.005967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 96.973414 seconds.
+  path: Assets/Scenes/Circle.unity
+  artifactKey: Guid(76345e04ba145e649bc825288e74d45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Circle.unity using Guid(76345e04ba145e649bc825288e74d45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7138a321c04afb06fc4b748fa4636631') in 0.003392 seconds
+  Import took 0.005729 seconds .
 
