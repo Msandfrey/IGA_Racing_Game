@@ -14,12 +14,15 @@ public class InGameController : MonoBehaviour
     public bool openingSequenceSeen = false;
     public GameObject pauseScreen;
     public GameObject pauseButt;
+    public GameObject gearButt;
     public GameObject optionsScreen;
     [SerializeField]
     private AudioSource BGM;
     [SerializeField]
     private Slider volume;
     public AudioSource UI;
+    [SerializeField]
+    private Slider SFX;
 
     // Start is called before the first frame update
     private void Awake()
@@ -38,7 +41,8 @@ public class InGameController : MonoBehaviour
     }
     private void Start()
     {
-        volume.onValueChanged.AddListener(delegate { OnDrag(volume.value); });
+        volume.onValueChanged.AddListener(delegate { OnDrag(BGM, volume.value); });
+        SFX.onValueChanged.AddListener(delegate { OnDrag(UI, SFX.value); });
         Screen.SetResolution(800, 480, true);
     }
     // Update is called once per frame
@@ -62,31 +66,37 @@ public class InGameController : MonoBehaviour
                 BGM.clip = Resources.Load<AudioClip>("Sounds/GameTheme");
                 BGM.Play();
                 pauseButt.SetActive(false);
+                gearButt.SetActive(true);
                 break;
             case 1://tutorial
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TutorialTrack");
                 BGM.Play();
                 pauseButt.SetActive(true);
+                gearButt.SetActive(false);
                 break;
             case 2://circle 1
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/CircleSong");
                 BGM.Play();
                 pauseButt.SetActive(true);
+                gearButt.SetActive(false);
                 break;
             case 3://butterfly 2
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/Track2");
                 BGM.Play();
                 pauseButt.SetActive(true);
+                gearButt.SetActive(false);
                 break;
             case 4://wave 3 
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/Track3");
                 BGM.Play();
                 pauseButt.SetActive(true);
+                gearButt.SetActive(false);
                 break;
             case 5://dollar 4
                 BGM.clip = Resources.Load<AudioClip>("Sounds/TrackSongs/DollarSong");
                 BGM.Play();
                 pauseButt.SetActive(true);
+                gearButt.SetActive(false);
                 break;
         }
     }
@@ -123,9 +133,9 @@ public class InGameController : MonoBehaviour
     {
         optionsScreen.SetActive(false);
     }
-    void OnDrag(float val)
+    void OnDrag(AudioSource audio, float val)
     {
-        BGM.volume = val;
-        BGM.volume = Mathf.Clamp(BGM.volume, 0, 1);
+        audio.volume = val;
+        audio.volume = Mathf.Clamp(BGM.volume, 0, 1);
     }
 }
