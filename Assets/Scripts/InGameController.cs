@@ -16,13 +16,15 @@ public class InGameController : MonoBehaviour
     public GameObject pauseButt;
     public GameObject gearButt;
     public GameObject optionsScreen;
-    [SerializeField]
-    private AudioSource BGM;
+    public AudioSource BGM;
     [SerializeField]
     private Slider volume;
     public AudioSource UI;
     [SerializeField]
     private Slider SFX;
+    public AudioSource VFX;
+    [SerializeField]
+    private Slider Voice;
 
     // Start is called before the first frame update
     private void Awake()
@@ -43,6 +45,7 @@ public class InGameController : MonoBehaviour
     {
         volume.onValueChanged.AddListener(delegate { OnDrag(BGM, volume.value); });
         SFX.onValueChanged.AddListener(delegate { OnDrag(UI, SFX.value); });
+        Voice.onValueChanged.AddListener(delegate { OnDrag(VFX, Voice.value); });
         Screen.SetResolution(800, 480, true);
     }
     // Update is called once per frame

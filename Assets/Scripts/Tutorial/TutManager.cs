@@ -52,6 +52,7 @@ public class TutManager : MonoBehaviour
         //keep racers from going
         playerCar.GetComponent<TutorialController>().wait = true;
         //start audio
+        tutAudio = FindObjectOfType<InGameController>().VFX;
         tutAudio.clip = startClip;
         tutAudio.Play();
         //set timer for first audio

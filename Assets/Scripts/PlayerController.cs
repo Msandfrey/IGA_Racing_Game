@@ -213,6 +213,7 @@ public class PlayerController : MonoBehaviour
                 powerupTimer = powerup.timer;
                 hasPowerup = false;
                 powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");
                 powerActive = true;
                 powerup.UseEffect(carToSpawn);
                 powerup.power = PowerupClass.PowerType.None;
@@ -227,6 +228,7 @@ public class PlayerController : MonoBehaviour
                 miss.transform.localScale *= 2;
                 hasPowerup = false;
                 powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             case PowerupClass.PowerType.Mine:
@@ -237,6 +239,7 @@ public class PlayerController : MonoBehaviour
                 mine.GetComponent<Mine>().ownerName = name;
                 hasPowerup = false;
                 powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             default:

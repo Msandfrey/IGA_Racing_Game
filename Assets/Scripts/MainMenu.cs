@@ -80,6 +80,9 @@ public class MainMenu : MonoBehaviour
                 break;
         }
         UISounds = GM.UI;
+        menuBGM = GM.BGM;
+        introSound = GM.VFX;
+        introSound.clip = Resources.Load<AudioClip>("Sounds/Narration/GameIntro");
     }
 
     // Update is called once per frame
