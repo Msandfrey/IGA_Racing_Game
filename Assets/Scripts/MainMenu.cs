@@ -561,7 +561,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Butterfly()
     {
-        SceneToLoad = "ButterflyTest";
+        SceneToLoad = "Butterfly";
         level.SetActive(false);
         level3DObject.SetActive(false);
         car.SetActive(true);
@@ -569,7 +569,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Wave()
     {
-        SceneToLoad = "WaveTest";
+        SceneToLoad = "Wave";
         level.SetActive(false);
         level3DObject.SetActive(false);
         car.SetActive(true);
@@ -577,7 +577,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Dollar()
     {
-        SceneToLoad = "DollarTest";
+        SceneToLoad = "Dollar";
         level.SetActive(false);
         level3DObject.SetActive(false);
         car.SetActive(true);

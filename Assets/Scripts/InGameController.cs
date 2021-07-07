@@ -109,11 +109,17 @@ public class InGameController : MonoBehaviour
         if(Time.timeScale == 0)
         {
             pauseScreen.SetActive(true);
+            BGM.Pause();
+            VFX.Pause();
+            //UI.Pause();
         }
         else
         {
             CloseOptions();
             pauseScreen.SetActive(false);
+            BGM.UnPause();
+            VFX.UnPause();
+            //UI.UnPause();
         }
     }
     public void Restart()
@@ -139,6 +145,6 @@ public class InGameController : MonoBehaviour
     void OnDrag(AudioSource audio, float val)
     {
         audio.volume = val;
-        audio.volume = Mathf.Clamp(BGM.volume, 0, 1);
+        audio.volume = Mathf.Clamp(audio.volume, 0, 1);
     }
 }

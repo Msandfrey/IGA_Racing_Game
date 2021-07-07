@@ -8,8 +8,10 @@ public class TutManager : MonoBehaviour
     //UI
     public GameObject startUI;
     public GameObject turnFailUI;
+    public GameObject turnPassUI;
     public GameObject powerUI;
-    
+    public GameObject endUI;
+
     //objects
     public GameObject playerCar;
     public GameObject enemyCar1;
@@ -58,6 +60,7 @@ public class TutManager : MonoBehaviour
         //set timer for first audio
         firstTut = true;
         passDelay = turnPassClip.length;
+        startUI.SetActive(true);
     }
 
     // Update is called once per frame
@@ -92,6 +95,7 @@ public class TutManager : MonoBehaviour
         //power timer--------------------------------------------------------------
         if (powerTimer >= powerUIDelay && powerTut)
         {
+            turnPassUI.SetActive(false);
             //show UI
             powerUI.SetActive(true);
             //let players go
@@ -108,6 +112,8 @@ public class TutManager : MonoBehaviour
             //powerupUI active
             tutAudio.clip = powerClip;
             tutAudio.Play();
+            powerUI.SetActive(true);
+            turnPassUI.SetActive(false);
             //spawn powerup
             powerMiss.SetActive(true);
             powerPhase.SetActive(true);
@@ -143,6 +149,7 @@ public class TutManager : MonoBehaviour
             //  set timer for UI
             firstDeath = true;
             failTut = true;
+            turnFailUI.SetActive(true);
         }
     }
 
@@ -171,6 +178,7 @@ public class TutManager : MonoBehaviour
         Debug.Log("Function in TutMan works");
         startUI.SetActive(false);
         turnFailUI.SetActive(false);
+        turnPassUI.SetActive(true);
         //reset car at beginning
         firstDeath = true;
         playerCar.GetComponent<TutorialController>().pathFollow.speed = 0;
@@ -181,7 +189,13 @@ public class TutManager : MonoBehaviour
         tutAudio.Play();
         passTut = true;        
     }
-
+    public void CameraDoneSwitched()
+    {
+        //check if cam tutorial played
+            //if not play I see you've found the camera button then next
+        //if played
+            //play you can go back and forth and choose whichever you want
+    }
     public void FirstCarDied()
     {
 
@@ -199,6 +213,7 @@ public class TutManager : MonoBehaviour
     public void EndTut()
     {
         powerUI.SetActive(false);
+        endUI.SetActive(true);
         tutAudio.clip = endClip;
         tutAudio.Play();
         endTut = true;

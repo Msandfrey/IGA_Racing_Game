@@ -55,7 +55,7 @@ public class TutorialController : MonoBehaviour
         thirdPersonCam.enabled = false;
         //setup UI
         powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
-        powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");//start with this one for now, todo change later
+        //powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");//start with this one for now, todo change later
     }
 
     // Update is called once per frame
