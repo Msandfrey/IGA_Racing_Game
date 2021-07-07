@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //setup the car
         carToSpawn = Instantiate(FindObjectOfType<InGameController>().playerCar, transform.position, transform.rotation);//comment out when testing
         //carToSpawn = Instantiate(carToSpawn, transform.position, transform.rotation);//comment out when not tsting
         carToSpawn.transform.Rotate(0, 180, 0);
@@ -79,10 +80,12 @@ public class PlayerController : MonoBehaviour
         carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
         carToSpawn.layer = carLayer;
         trail = carToSpawn.GetComponentInChildren<TrailRenderer>();
+        //set the cameras
         overheadCam.enabled = true;
         thirdPersonCam.enabled = false;
+        //setup UI
         powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
-        powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/PhaseButton");//start with this one for now, todo change later
+        powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");//start with this one for now, todo change later
         GameStartUI.SetActive(true);
         GameStartUI.GetComponentInChildren<TextMeshProUGUI>().text = "Ready...";
     }

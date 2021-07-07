@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Follow))]
 [RequireComponent(typeof(Rigidbody))]
@@ -34,28 +35,38 @@ public class TutorialController : MonoBehaviour
     private bool hasPowerup = false;
     private float powerupTimer = 0f;
     private bool powerActive = false;
+    public GameObject powerUI;
+
+    //cameras
+    public Camera overheadCam;
+    public Camera thirdPersonCam;
 
     // Start is called before the first frame update
     void Awake()
     {
         pathFollow = GetComponent<Follow>();
-        trail = GetComponentInChildren<TrailRenderer>();
         powerup = new PowerupClass();
     }
 
     private void Start()
     {
-
+        //set the cameras
+        overheadCam.enabled = true;
+        thirdPersonCam.enabled = false;
+        //setup UI
+        powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
+        powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");//start with this one for now, todo change later
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //use powerup
         if (hasPowerup && Input.GetKeyDown(KeyCode.F))
         {
             UsePowerup();
         }
+        //powerup (phase) is active
         if (powerupTimer <= 0 && powerActive)
         {
             Debug.Log("powerStop");
@@ -66,12 +77,14 @@ public class TutorialController : MonoBehaviour
         {
             powerupTimer -= Time.deltaTime;
         }
+        //car is broken
         if (fixedJoint == null)
         {
             if (respawnTimer <= 0 && !carAttached)
             {
                 ResetCar();
                 carAttached = true;
+                carToSpawn.GetComponent<MeshRenderer>().enabled = true;
             }
             else if (respawnTimer > 0)
             {
@@ -85,6 +98,7 @@ public class TutorialController : MonoBehaviour
             }
             return;
         }
+        //move car
         if (!wait && (Input.GetKey(KeyCode.Space) || accelBool))
         {
             pathFollow.IncreaseSpeed(acceleration, minSpeed, maxSpeed);
@@ -113,7 +127,7 @@ public class TutorialController : MonoBehaviour
                 trail.startWidth = 0;
             }
         }
-        else
+        else//slow car down
         {
             pathFollow.DecreaseSpeed(decceleration, minSpeed, maxSpeed);
         }
@@ -141,6 +155,8 @@ public class TutorialController : MonoBehaviour
             case PowerupClass.PowerType.Phase:
                 powerupTimer = powerup.timer;
                 hasPowerup = false;
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");
                 powerActive = true;
                 powerup.UseEffect(carToSpawn);
                 powerup.power = PowerupClass.PowerType.None;
@@ -155,6 +171,8 @@ public class TutorialController : MonoBehaviour
                 miss.transform.Rotate(90, 0, 0);
                 miss.transform.localScale *= 2;
                 hasPowerup = false;
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             case PowerupClass.PowerType.Mine:
@@ -163,6 +181,8 @@ public class TutorialController : MonoBehaviour
                 mine.GetComponent<Mine>().carName = carToSpawn.name;
                 mine.GetComponent<Mine>().ownerName = name;
                 hasPowerup = false;
+                powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             default:
@@ -186,7 +206,27 @@ public class TutorialController : MonoBehaviour
         carToSpawn.transform.rotation = transform.rotation;
         carToSpawn.transform.Rotate(0, 180, 0);
     }
-
+    public void SwapCam()
+    {
+        overheadCam.enabled = !overheadCam.enabled;
+        thirdPersonCam.enabled = !thirdPersonCam.enabled;
+    }
+    void ActivatePowerButt()
+    {
+        powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, 1);
+        switch (powerup.power)
+        {
+            case PowerupClass.PowerType.Mine:
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/MineButton");
+                break;
+            case PowerupClass.PowerType.Phase:
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/PhaseButton");
+                break;
+            case PowerupClass.PowerType.Split:
+                powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/MissileButton");
+                break;
+        }
+    }
     void MakeNewJoint()
     {
         fixedJoint = gameObject.AddComponent<FixedJoint>();
@@ -205,6 +245,7 @@ public class TutorialController : MonoBehaviour
         pathFollow.speed = 0;
         pathFollow.ResetCar();
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
+        carToSpawn.GetComponent<MeshRenderer>().enabled = false;
         respawnTimer = 1f;
         carToSpawn.layer = 6;//fallen layer
         FindObjectOfType<TutManager>().Died();
@@ -224,6 +265,7 @@ public class TutorialController : MonoBehaviour
             powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();
             powerupToSpawn = powerup.prefabToSpawn;
             hasPowerup = true;
+            ActivatePowerButt();
         }
     }
     private void OnTriggerStay(Collider other)
