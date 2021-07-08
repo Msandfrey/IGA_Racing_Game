@@ -37,7 +37,7 @@ public class LapTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerCar) { playerCar = GameObject.FindGameObjectWithTag("PlayerCar").GetComponent<CarFlying>(); }
+        if (!playerCar) { playerCar = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().carToSpawn.GetComponent<CarFlying>(); }
         if(playerCar.lapTracker == 0)
         {
             return;

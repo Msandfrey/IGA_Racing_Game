@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
         //set the cameras
         overheadCam.enabled = true;
         thirdPersonCam.enabled = false;
+        Debug.Log("overhead: " + overheadCam.name);
+        Debug.Log("third: " + thirdPersonCam.name);
         //setup UI
         powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
        // powerUI.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/EmptyPower");//start with this one for now, todo change later
