@@ -6,6 +6,7 @@ public class PowerupPickup : MonoBehaviour
 {
     [SerializeField]
     private float timeToStayHidden;
+    public float phaseTimer = 3f;
     private float pickupTimer;
     private bool hidden = false;
     [SerializeField]
@@ -53,7 +54,7 @@ public class PowerupPickup : MonoBehaviour
         {
             case 1://Phase shift
                 power.power = (PowerupClass.PowerType)1;
-                power.timer = 2f;//var
+                power.timer = phaseTimer;//var
                 power.UIImage = null;
                 power.prefabToSpawn = null;
                 break;

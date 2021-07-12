@@ -49,6 +49,8 @@ public class CarFlying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        blueAlbedo = Color.cyan;
+        blueEmissive = Color.cyan;
         Physics.IgnoreLayerCollision(3,6);
         carRenderer = GetComponent<MeshRenderer>();
         if (enemy)
