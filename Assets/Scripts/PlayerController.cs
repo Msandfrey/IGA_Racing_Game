@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public Transform mineSpawn4;
 
     private GameObject powerupToSpawn;
+    private InGameController GM;
 
     PowerupClass powerup;
     private float timer;
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        GM = FindObjectOfType<InGameController>();
         //setup the car
         carToSpawn = Instantiate(FindObjectOfType<InGameController>().playerCar, transform.position, transform.rotation);//comment out when testing
         //carToSpawn = Instantiate(carToSpawn, transform.position, transform.rotation);//comment out when not tsting
@@ -109,14 +111,17 @@ public class PlayerController : MonoBehaviour
         {
             GameStartUI.SetActive(false);
         }
+        //use the powerup
         if (hasPowerup && Input.GetKeyDown(KeyCode.F) && carAttached)
         {
             UserPowerup();
         }
+        //swap the camera
         if (Input.GetKeyDown(KeyCode.C))
         {
             SwapCam();
         }
+        //on respawn be invulnerable for a bit
         if(invulnerableTimer <= 0 && invulnerable)
         {
             invulnerable = false;
@@ -140,6 +145,8 @@ public class PlayerController : MonoBehaviour
                 //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
             }
         }
+        //for when phase is ending
+        //timer for when you use the phase shift
         if(powerupTimer <= 0 && powerActive)
         {
             powerActive = false;
@@ -148,8 +155,21 @@ public class PlayerController : MonoBehaviour
         }
         else if(powerupTimer > 0 && powerActive)
         {
-            powerupTimer -= Time.deltaTime;
+            powerupTimer -= Time.deltaTime; 
+            if (newAlpha == 0 && powerupTimer <= 1)
+            {
+                newAlpha = 1;
+                carToSpawn.GetComponent<CarFlying>().SetColor("blue");
+                //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+            }
+            else if(powerupTimer <= 1)
+            {
+                newAlpha = 0;
+                carToSpawn.GetComponent<CarFlying>().SetColor(GM.playerCarColor);
+                //carMR.material.SetColor("_Color", new Color(carMR.material.color.r, carMR.material.color.g, carMR.material.color.b, newAlpha));
+            }
         }
+        //if car falls off go here
         if(fixedJoint == null)
         {
             if (respawnTimer <= 0 && !carAttached)
@@ -159,6 +179,7 @@ public class PlayerController : MonoBehaviour
                 MeshRenderer carMR = carToSpawn.GetComponent<MeshRenderer>();
                 carToSpawn.GetComponent<BoxCollider>().isTrigger = true;
                 carMR.enabled = true;
+                trail.enabled = true;
                 //set invulnerable timer
             }
             else if (respawnTimer > 0)
@@ -176,6 +197,7 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
+        //stop and go
         if (Input.GetKey(KeyCode.Space) || accelBool)
         {
             pathFollow.IncreaseSpeed(acceleration * Time.deltaTime, minSpeed, maxSpeed); 
@@ -317,6 +339,7 @@ public class PlayerController : MonoBehaviour
         pathFollow.speed = 0;
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
         carToSpawn.GetComponent<MeshRenderer>().enabled = false;
+        trail.enabled = false;
         respawnTimer = 1.5f;
         carToSpawn.layer = 6;//fallen layer
         Instantiate(explosion, transform.position, Quaternion.identity);
