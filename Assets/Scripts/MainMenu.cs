@@ -529,8 +529,6 @@ public class MainMenu : MonoBehaviour
     }
     public void MattTest()
     {
-        //play sound
-        UISounds.clip = selectSound;
         SceneToLoad = "Circle";
         level.SetActive(false);
         level3DObject.SetActive(false);
@@ -563,8 +561,6 @@ public class MainMenu : MonoBehaviour
     }
     public void Butterfly()
     {
-        //play sound
-        UISounds.clip = selectSound;
         SceneToLoad = "Butterfly";
         level.SetActive(false);
         level3DObject.SetActive(false);
@@ -573,8 +569,6 @@ public class MainMenu : MonoBehaviour
     }
     public void Wave()
     {
-        //play sound
-        UISounds.clip = selectSound;
         SceneToLoad = "Wave";
         level.SetActive(false);
         level3DObject.SetActive(false);
@@ -583,8 +577,6 @@ public class MainMenu : MonoBehaviour
     }
     public void Dollar()
     {
-        //play sound
-        UISounds.clip = selectSound;
         SceneToLoad = "Dollar";
         level.SetActive(false);
         level3DObject.SetActive(false);
@@ -593,8 +585,6 @@ public class MainMenu : MonoBehaviour
     }
     public void StartRace()
     {
-        //play sound
-        UISounds.clip = selectSound;
         SceneManager.LoadScene(SceneToLoad);
     }
 }
