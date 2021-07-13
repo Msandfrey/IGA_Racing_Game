@@ -146,5 +146,10 @@ public class InGameController : MonoBehaviour
     {
         audio.volume = val;
         audio.volume = Mathf.Clamp(audio.volume, 0, 1);
+        PlayerController pc = FindObjectOfType<PlayerController>();
+        if (audio == UI && pc)
+        {
+            pc.SetVolume(audio.volume);
+        }
     }
 }

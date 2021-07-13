@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
     bool down = true;
     float invulnerableTimer;
     float newAlpha = 1f;
+
+    [SerializeField]
+    AudioSource sounds;
     // Start is called before the first frame update
     void Awake()
     {
@@ -149,6 +152,8 @@ public class PlayerController : MonoBehaviour
         //timer for when you use the phase shift
         if(powerupTimer <= 0 && powerActive)
         {
+            sounds.clip = Resources.Load<AudioClip>("Sounds/SoundEffects/PhaseEnd");
+            sounds.Play();
             powerActive = false;
             powerup.StopEffect(carToSpawn);
             Debug.Log("stopped phase");
@@ -224,7 +229,10 @@ public class PlayerController : MonoBehaviour
     {
         accelBool = false;
     }
-
+    public void SetVolume(float vol)
+    {
+        sounds.volume = vol;
+    }
     public bool IsPowerActive()
     {
         return powerActive;
@@ -234,6 +242,8 @@ public class PlayerController : MonoBehaviour
         switch (powerup.power)
         {
             case PowerupClass.PowerType.Phase:
+                sounds.clip = Resources.Load<AudioClip>("Sounds/SoundEffects/PhaseStart");
+                sounds.Play();
                 powerupTimer = powerup.timer;
                 hasPowerup = false;
                 powerUI.GetComponent<Image>().color = new Vector4(.2f, 1, 1, .1f);
@@ -243,6 +253,8 @@ public class PlayerController : MonoBehaviour
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             case PowerupClass.PowerType.Split:
+                sounds.clip = Resources.Load<AudioClip>("Sounds/SoundEffects/MissileLaunch");
+                sounds.Play();
                 GameObject miss = Instantiate(powerupToSpawn, transform.position, Quaternion.identity);
                 miss.GetComponent<SplitShot>().carName = carToSpawn.name;
                 miss.GetComponent<SplitShot>().ownerName = name;
@@ -256,6 +268,8 @@ public class PlayerController : MonoBehaviour
                 powerup.power = PowerupClass.PowerType.None;
                 break;
             case PowerupClass.PowerType.Mine:
+                sounds.clip = Resources.Load<AudioClip>("Sounds/SoundEffects/MineDeploy");
+                sounds.Play();
                 mineSpawnPoint = Random.Range(1, 3);
                 Vector3 spawnPos = GetMineSpawn();
                 GameObject mine = Instantiate(powerupToSpawn, spawnPos, Quaternion.identity);
@@ -342,6 +356,8 @@ public class PlayerController : MonoBehaviour
         trail.enabled = false;
         respawnTimer = 1.5f;
         carToSpawn.layer = 6;//fallen layer
+        sounds.clip = Resources.Load<AudioClip>("Sounds/SoundEffects/Explosion");
+        sounds.Play();
         Instantiate(explosion, transform.position, Quaternion.identity);
     }
 
@@ -354,6 +370,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.tag.Equals("Powerup") && !hasPowerup)
         {
+            sounds.clip = Resources.Load<AudioClip>("Sounds/SoundEffects/PowerPickup");
+            sounds.Play();
             //disable the powerup
             other.gameObject.GetComponent<PowerupPickup>().PickedUp();
             powerup = other.gameObject.GetComponent<PowerupPickup>().ChoosePowerup();

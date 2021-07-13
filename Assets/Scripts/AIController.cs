@@ -27,6 +27,7 @@ public class AIController : MonoBehaviour
     public float decceleration = 20;
     public int carLayer = 3;
     public GameObject explosion;
+    public TrailRenderer trail;
 
     private GameObject powerupToSpawn;
     [SerializeField]
@@ -55,6 +56,7 @@ public class AIController : MonoBehaviour
         pathFollow = GetComponent<Follow>();
         powerup = new PowerupClass();
         carToSpawn.GetComponent<CarFlying>().fixedJoint = fixedJoint;
+        trail = carToSpawn.GetComponentInChildren<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -69,6 +71,7 @@ public class AIController : MonoBehaviour
         //make sure car is fixed in 
         if (carAttached && !fixedJoint)
         {
+            trail.enabled = true;
             fixedJoint = gameObject.AddComponent<FixedJoint>();
             fixedJoint.connectedBody = carToSpawn.GetComponent<Rigidbody>();
             fixedJoint.breakTorque = breakTorque;//var
@@ -235,6 +238,7 @@ public class AIController : MonoBehaviour
     {
         Debug.Log("Car falls off with force of : " + breakForce);
         carAttached = false;
+        trail.enabled = false;
         carToSpawn.GetComponent<MeshRenderer>().enabled = false;
         pathFollow.speed = 0;
         carToSpawn.GetComponent<Rigidbody>().useGravity = true;
